@@ -10,6 +10,10 @@
   --bg-0: #eef1f5;
   --page-text: #14151a;
 
+  /* JMW 브랜드 아이덴티티 컬러 (자사몰 상단바 기준 근사치) */
+  --brand-purple: #6e2a54;
+  --brand-purple-dim: #8a4d74;
+
   /* Glass surfaces (translucent white) */
   --glass: rgba(255, 255, 255, 0.62);
   --glass-strong: rgba(255, 255, 255, 0.82);
@@ -98,10 +102,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .brand { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; }
 .brand-mark {
   font-family: var(--font-display); font-weight: 700; font-size: 21px;
-  letter-spacing: .01em; color: var(--text);
+  letter-spacing: .01em; color: var(--brand-purple);
   display: flex; align-items: center; gap: 8px;
 }
-.brand-mark .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); transition: background .25s; }
+.brand-mark .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--brand-purple); transition: background .25s; }
 .brand-sub {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
   color: var(--text-faint); text-transform: uppercase; white-space: nowrap;
@@ -109,11 +113,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 .shortcut-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .shortcut-links a {
-  font-size: 12.5px; font-weight: 500; color: var(--text-dim); text-decoration: none;
+  font-size: 12.5px; font-weight: 500; color: var(--brand-purple); text-decoration: none;
   padding: 7px 12px; border-radius: 9px; border: 1px solid var(--line); background: var(--panel);
   white-space: nowrap; transition: all .15s;
 }
-.shortcut-links a:hover { color: var(--text); border-color: var(--text-faint); background: var(--panel-2); }
+.shortcut-links a:hover { color: #fff; border-color: var(--brand-purple); background: var(--brand-purple); }
 
 .topbar-search { margin-left: auto; display: flex; align-items: center; gap: 10px; width: 100%; max-width: 460px; }
 .search-box { position: relative; width: 100%; }
@@ -159,11 +163,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 /* 대분류(이미용가전 등)와 동일한 무게의 카테고리형 라벨 — 타입/유통/버전 정보 등에 사용 */
 .rail-heading {
   font-family: var(--font-display); font-weight: 700; font-size: 14px;
-  color: var(--text); margin: 0 0 10px 2px; letter-spacing: -.005em;
+  color: var(--brand-purple); margin: 0 0 10px 2px; letter-spacing: -.005em;
 }
 .rail-heading-top {
   font-size: 15px; letter-spacing: .01em; padding-bottom: 8px;
-  border-bottom: 2px solid var(--line-strong); margin-bottom: 12px;
+  border-bottom: 2px solid var(--brand-purple-dim); margin-bottom: 12px;
 }
 
 /* Category tree */
@@ -173,11 +177,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   width: 100%; appearance: none; border: none; background: transparent;
   display: flex; align-items: center; gap: 9px; text-align: left;
   font-family: var(--font-display); font-weight: 700; font-size: 14.5px;
-  color: var(--text-dim); padding: 8px 10px; border-radius: 10px; cursor: pointer;
+  color: var(--brand-purple); padding: 8px 10px; border-radius: 10px; cursor: pointer;
   transition: background .15s, color .15s;
 }
-.rail-cat-header:hover { background: var(--panel); color: var(--text); }
-.rail-cat-header.active { background: var(--glass-strong); color: var(--text); box-shadow: var(--shadow-card); }
+.rail-cat-header:hover { background: var(--panel); color: var(--brand-purple); }
+.rail-cat-header.active { background: var(--glass-strong); color: var(--brand-purple); box-shadow: var(--shadow-card); }
 .rail-cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dot-beauty { background: var(--acc-beauty); }
 .dot-home { background: var(--acc-home); }
