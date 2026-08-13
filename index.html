@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.18
+  Version: V2.19
   Updated: 2026.08.13
-  Changelog: 비교표 칸 폭 고정(2~5개 300px, 6개만 축소) + 폰트·색상 대비 확대
+  Changelog: 비교표 콤마-나열 숫자 오인식 버그 수정, 레이아웃/크기 조정, 단종토글 추가
 -->
 <html lang="ko">
 <head>
@@ -62,7 +62,13 @@
     </div>
 
     <div class="chip-section">
-      <p class="chip-section-label">정렬 기준 <span class="hint">하나만 선택</span></p>
+      <div class="chip-section-label-row">
+        <p class="chip-section-label">정렬 기준 <span class="hint">하나만 선택</span></p>
+        <div class="inline-toggle" id="discToggleTopWrap">
+          <span class="toggle-label-inline">단종 모델 포함</span>
+          <div class="switch" id="discToggleTop"></div>
+        </div>
+      </div>
       <div class="quick-tags" id="sortTagsMain"></div>
     </div>
     <div class="chip-section chip-section-divider">
@@ -86,7 +92,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.18 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.19 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->

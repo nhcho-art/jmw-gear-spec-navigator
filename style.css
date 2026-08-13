@@ -365,6 +365,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   font-family: var(--font-body); font-size: 11.5px; text-transform: none; letter-spacing: 0;
   color: var(--text-faint); opacity: .8; font-weight: 400;
 }
+.chip-section-label-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 8px; }
+.chip-section-label-row .chip-section-label { margin: 0; }
+.inline-toggle { display: flex; align-items: center; gap: 8px; }
+.toggle-label-inline { font-family: var(--font-body); font-size: 12.5px; color: var(--text-dim); font-weight: 500; }
 .chip-section-divider { padding-top: 14px; border-top: 1px dashed var(--line-strong); }
 
 .series-tags { }
@@ -464,11 +468,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .btn-compare-add.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-.cmodal { width: min(1720px, 96vw); max-width: 1720px; padding: 28px; }
+.cmodal { width: min(1720px, 96vw); max-width: 1720px; padding: 28px; zoom: .8; }
 .cmodal h2 { font-family: var(--font-display); font-size: 20px; margin: 0 0 4px; color: var(--text); }
 .cmodal .sub { color: var(--text-faint); font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
 .compare-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); background: var(--panel-3); }
-.compare-table { border-collapse: collapse; table-layout: fixed; }
+.compare-table { border-collapse: collapse; table-layout: fixed; width: 100%; }
 .compare-table th, .compare-table td {
   border-bottom: 1px solid var(--line-soft); border-right: 1px solid var(--line-soft);
   padding: 12px 14px; text-align: left; vertical-align: top; font-size: 14.5px;

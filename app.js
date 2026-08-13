@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.18';
+const CURRENT_VERSION = 'V2.19';
 const VERSION_LOG = [
+  { v: 'V2.19', date: '2026.08', notes: ['비교표 콤마-나열 숫자 오인식 버그 수정(온도범위 등), 좌측라벨 확장, 칸 100%채움 복원, 창 80% 축소, 정렬영역에 단종토글 추가'] },
   { v: 'V2.18', date: '2026.08', notes: ['비교표 칸 폭을 300px 고정(2~5개), 6개만 자동축소로 스크롤 방지 + 폰트·색상 대비 확대'] },
   { v: 'V2.17', date: '2026.08', notes: ['상단바에 "JMW 공식몰 비교기능" 바로가기 추가'] },
   { v: 'V2.16', date: '2026.08', notes: ['비교표 이미지 확대, 제목 여백 확보, 전압/주파수 오염 근본 수정, 기화측정·임시노출 기준 하이라이트 추가'] },
@@ -89,8 +90,14 @@ const SYNONYMS = {
 /* ---- 스펙 기반 스마트 정렬 키워드 (중분류별) ---------------------------- */
 function parseNumList(str) {
   if (!str) return [];
-  const cleaned = String(str).replace(/,/g, '');
-  const matches = cleaned.match(/\d+(?:\.\d+)?/g);
+  let s = String(str);
+  // 콤마는 "1,350W"(천단위 구분, 콤마 1개) vs "120,140,160도"(값 나열, 콤마 2개 이상) 두 가지로 쓰인다.
+  // 콤마가 1개뿐일 때만 천단위 구분자로 보고 합치고, 2개 이상이면 나열로 보고 그대로 분리한다.
+  const commaCount = (s.match(/,/g) || []).length;
+  if (commaCount === 1) {
+    s = s.replace(/(\d{1,3}),(\d{3})/, '$1$2');
+  }
+  const matches = s.match(/\d+(?:\.\d+)?/g);
   return matches ? matches.map(Number) : [];
 }
 function specMaxNum(p, key) {
@@ -490,6 +497,13 @@ function render() {
   renderRail();
   const items = getFiltered();
 
+  const discToggleTop = $('#discToggleTop');
+  discToggleTop.classList.toggle('on', state.includeDiscontinued);
+  discToggleTop.onclick = () => {
+    state.includeDiscontinued = !state.includeDiscontinued;
+    render();
+  };
+
   if (isGlobalSearch()) {
     $('#mainTitle').textContent = '검색 결과';
     $('#mainPath').textContent = `전체 모델 대상 검색 · "${state.query}"`;
@@ -722,12 +736,10 @@ function openCompareModal() {
   const labelOrder = [];
   items.forEach(p => Object.keys(p.specs).forEach(k => { if (!labelOrder.includes(k)) labelOrder.push(k); }));
 
-  // 5개까진 고정 300px(요청하신 딱 맞는 폭), 6개일 때만 모달 폭에 맞춰 살짝 축소(가로 스크롤 방지)
-  const ROW_LABEL_WIDTH = 140; // px
-  const CONTENT_WIDTH_ESTIMATE = 1600; // px, 모달 내부 실사용 폭 대략치
-  const PRODUCT_COL_WIDTH = items.length <= 5 ? 300 : Math.floor((CONTENT_WIDTH_ESTIMATE - ROW_LABEL_WIDTH) / items.length);
-  const colWidthStyle = `width:${PRODUCT_COL_WIDTH}px`;
-  const tableWidthPx = ROW_LABEL_WIDTH + items.length * PRODUCT_COL_WIDTH;
+  // 좌측 항목명 칸은 살짝 넓게 고정, 모델 칸은 남은 폭을 개수만큼 균등 배분(빈 공간 없이 항상 꽉 참)
+  const ROW_LABEL_WIDTH = 170; // px
+  const colWidthStyle = `width:calc((100% - ${ROW_LABEL_WIDTH}px) / ${items.length})`;
+  const tableWidthPx = null; // 테이블이 컨테이너 100%를 채우도록 함(별도 고정폭 없음)
 
   const headCells = items.map(p => `
     <th class="compare-head-cell" style="${colWidthStyle}">
@@ -782,8 +794,8 @@ function openCompareModal() {
     <h2>스펙 비교</h2>
     <p class="sub">선택한 ${items.length}개 모델의 사양을 나란히 비교합니다. <span class="best-mark">▲</span>는 해당 항목에서 더 좋은 값(가벼움·긴 코드·높은 출력 등, 방향에 맞게 자동 판단)을 의미하며, 그 외 값이 다른 항목은 주황색으로 강조됩니다.</p>
     <div class="compare-scroll">
-      <table class="compare-table" style="width:${tableWidthPx}px">
-        <thead><tr><th class="row-label">모델</th>${headCells}</tr></thead>
+      <table class="compare-table">
+        <thead><tr><th class="row-label" style="width:${ROW_LABEL_WIDTH}px">모델</th>${headCells}</tr></thead>
         <tbody>${bodyRows}</tbody>
       </table>
     </div>
