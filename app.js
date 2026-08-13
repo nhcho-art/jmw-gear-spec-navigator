@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JMW Gear Spec Navigator — App Logic
+   JMW Gear Spec Navigator — App Logic (V2.0)
    ========================================================================== */
 
 const CATS = {
@@ -37,8 +37,8 @@ const CARD_SPEC_KEYS = {
 
 const QUICK_TAGS = {
   dryer:      ['두피케어', 'LED케어', '망치형', '음이온', '신제품'],
-  iron:       ['슬립모드', '무빙센서', '터치센서', '방수', '골드'],
-  curling:    ['자동전원차단', '사용자온도기억', 'FreeVoltage', '음이온'],
+  iron:       ['슬립모드', '무빙센서', '터치센서', '방수', '골드', '프리볼트'],
+  curling:    ['자동전원차단', '사용자온도기억', '프리볼트', '음이온'],
   bodydryer:  ['음이온케어', '예열기능', '메모리기능'],
   circulator: ['수면풍', '자연풍', '무선', '회전'],
   bytulz:     ['살균', '자동', '필터'],
@@ -59,16 +59,52 @@ const SYNONYMS = {
   '저소음': ['저소음'],
   '냄새': ['탈취', '살균'],
   '건조': ['건조'],
+  '프리볼트': ['free voltage', 'freevoltage'],
 };
+
+/* ---- 드라이기 전용: 스펙 기반 스마트 정렬 키워드 ------------------------ */
+function parseNumList(str) {
+  if (!str) return [];
+  const cleaned = String(str).replace(/,/g, '');
+  const matches = cleaned.match(/\d+(?:\.\d+)?/g);
+  return matches ? matches.map(Number) : [];
+}
+function specMaxNum(p, key) {
+  const nums = parseNumList(p.specs[key]);
+  return nums.length ? Math.max(...nums) : null;
+}
+function specFirstNum(p, key) {
+  const nums = parseNumList(p.specs[key]);
+  return nums.length ? nums[0] : null;
+}
+function specStepCount(p, key) {
+  const v = p.specs[key];
+  if (!v) return 0;
+  const matches = String(v).match(/\d+\s*단/g);
+  return matches ? new Set(matches).size : 0;
+}
+
+const DRYER_SMART_TAGS = [
+  { label: '풍속 높은순',     key: '풍속', fn: specMaxNum,   dir: 'desc' },
+  { label: '풍속 낮은순',     key: '풍속', fn: specMaxNum,   dir: 'asc'  },
+  { label: '풍속 단계 많은순', key: '풍속', fn: specStepCount, dir: 'desc' },
+  { label: '와트 높은순',     key: '와트', fn: specFirstNum, dir: 'desc' },
+  { label: '와트 낮은순',     key: '와트', fn: specFirstNum, dir: 'asc'  },
+  { label: '온도 높은순',     key: '풍온', fn: specMaxNum,   dir: 'desc' },
+  { label: '온도 낮은순',     key: '풍온', fn: specMaxNum,   dir: 'asc'  },
+  { label: '가벼운순',        key: '무게', fn: specFirstNum, dir: 'asc'  },
+];
 
 let PRODUCTS = [];
 let state = {
   category: '이미용가전',
   subcategory: 'dryer',
   query: '',
-  dryerType: 'all',       // all | 고정형 | 망치형
+  tagFilter: null,        // 사이드바 "빠른 키워드" 칩 — 현재 중분류 내에서만 필터링
+  dryerType: 'all',
   includeDiscontinued: false,
-  sort: 'default',
+  sort: 'newest',
+  smartSort: null,
   compare: new Set(),
   railOpen: false,
 };
@@ -76,9 +112,6 @@ let state = {
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-/* ---------------------------------------------------------------------- */
-/* Load data                                                              */
-/* ---------------------------------------------------------------------- */
 async function loadData() {
   const res = await fetch('products.json');
   PRODUCTS = await res.json();
@@ -86,20 +119,7 @@ async function loadData() {
   render();
 }
 
-/* ---------------------------------------------------------------------- */
-/* UI init (tabs, rail)                                                   */
-/* ---------------------------------------------------------------------- */
 function initUI() {
-  const tabWrap = $('#catTabs');
-  tabWrap.innerHTML = Object.keys(CATS).map(cat => `
-    <button class="cat-tab ${cat === state.category ? 'active' : ''}" data-cat="${cat}">${cat}</button>
-  `).join('');
-  tabWrap.addEventListener('click', e => {
-    const btn = e.target.closest('.cat-tab');
-    if (!btn) return;
-    setCategory(btn.dataset.cat);
-  });
-
   $('#searchInput').addEventListener('input', e => {
     state.query = e.target.value.trim();
     $('#searchBox').classList.toggle('has-value', !!state.query);
@@ -134,19 +154,23 @@ function applyAccent() {
   root.style.setProperty('--accent-glow', `var(${glowMap[accentKey]})`);
 }
 
-function setCategory(cat) {
+function setCategory(cat, sub) {
   state.category = cat;
-  const firstSub = Object.keys(CATS[cat].subs)[0];
-  state.subcategory = firstSub;
+  state.subcategory = sub || Object.keys(CATS[cat].subs)[0];
   state.dryerType = 'all';
+  state.tagFilter = null;
+  state.smartSort = null;
+  state.query = '';
+  $('#searchInput').value = '';
+  $('#searchBox').classList.remove('has-value');
   applyAccent();
-  $$('.cat-tab').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
   render();
 }
 
-/* ---------------------------------------------------------------------- */
-/* Filtering                                                              */
-/* ---------------------------------------------------------------------- */
+function matchSmartTagByLabel(label) {
+  return DRYER_SMART_TAGS.find(t => t.label === label) || null;
+}
+
 function expandQuery(q) {
   const tokens = q.split(/\s+/).filter(Boolean);
   const expanded = new Set(tokens.map(t => t.toLowerCase()));
@@ -166,42 +190,84 @@ function matchesQuery(p, tokens) {
   return tokens.some(t => haystack.includes(t));
 }
 
-function getFiltered() {
-  const tokens = expandQuery(state.query);
-  let items = PRODUCTS.filter(p =>
-    p.category === state.category &&
-    p.subcategory === state.subcategory
-  );
+function parseReleaseDate(s) {
+  if (!s) return null;
+  const m = String(s).match(/(\d{4})[.\-\/]?(\d{1,2})?/);
+  if (!m) return null;
+  const y = parseInt(m[1], 10);
+  const mo = m[2] ? parseInt(m[2], 10) : 1;
+  return y * 100 + mo;
+}
 
-  if (!state.includeDiscontinued) items = items.filter(p => !p.discontinued);
-  if (state.subcategory === 'dryer' && state.dryerType !== 'all') {
-    items = items.filter(p => p.dryerType === state.dryerType);
+function isGlobalSearch() {
+  return !!state.query && !state.smartSort;
+}
+
+function getFiltered() {
+  let items;
+
+  if (isGlobalSearch()) {
+    items = PRODUCTS.slice();
+    if (!state.includeDiscontinued) items = items.filter(p => !p.discontinued);
+    const tokens = expandQuery(state.query);
+    items = items.filter(p => matchesQuery(p, tokens));
+  } else {
+    items = PRODUCTS.filter(p =>
+      p.category === state.category &&
+      p.subcategory === state.subcategory
+    );
+    if (!state.includeDiscontinued) items = items.filter(p => !p.discontinued);
+    if (state.subcategory === 'dryer' && state.dryerType !== 'all') {
+      items = items.filter(p => p.dryerType === state.dryerType);
+    }
+    if (state.tagFilter) {
+      items = items.filter(p => matchesQuery(p, expandQuery(state.tagFilter)));
+    }
+    if (state.smartSort) {
+      const { key, fn, dir } = state.smartSort;
+      items = [...items].sort((a, b) => {
+        const va = fn(a, key), vb = fn(b, key);
+        if (va === null && vb === null) return 0;
+        if (va === null) return 1;
+        if (vb === null) return -1;
+        return dir === 'desc' ? vb - va : va - vb;
+      });
+      return items;
+    }
   }
-  items = items.filter(p => matchesQuery(p, tokens));
 
   if (state.sort === 'name') {
     items = [...items].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
-  } else if (state.sort === 'newest') {
-    items = [...items].sort((a, b) => (b.released || '').localeCompare(a.released || ''));
+  } else if (state.sort === 'oldest') {
+    items = [...items].sort((a, b) => (parseReleaseDate(a.released) || 0) - (parseReleaseDate(b.released) || 0));
+  } else {
+    items = [...items].sort((a, b) => (parseReleaseDate(b.released) || 0) - (parseReleaseDate(a.released) || 0));
   }
   return items;
 }
 
-/* ---------------------------------------------------------------------- */
-/* Render: Rail                                                           */
-/* ---------------------------------------------------------------------- */
 function renderRail() {
-  const subs = CATS[state.category].subs;
-  const subListHtml = Object.entries(subs).map(([key, meta]) => {
-    const count = PRODUCTS.filter(p => p.category === state.category && p.subcategory === key && (state.includeDiscontinued || !p.discontinued)).length;
-    return `<button class="sub-item ${state.subcategory === key ? 'active' : ''}" data-sub="${key}">
-      <span>${meta.label}<br><small style="color:var(--text-faint);font-size:11px;font-weight:400">${meta.kr}</small></span>
-      <span class="count">${count}</span>
-    </button>`;
+  const treeHtml = Object.entries(CATS).map(([catKey, catMeta]) => {
+    const subsHtml = Object.entries(catMeta.subs).map(([subKey, subMeta]) => {
+      const count = PRODUCTS.filter(p => p.category === catKey && p.subcategory === subKey && (state.includeDiscontinued || !p.discontinued)).length;
+      const active = !isGlobalSearch() && state.category === catKey && state.subcategory === subKey;
+      return `<button class="sub-item ${active ? 'active' : ''}" data-cat="${catKey}" data-sub="${subKey}">
+        <span>${subMeta.label}<br><small style="color:var(--text-faint);font-size:11px;font-weight:400">${subMeta.kr}</small></span>
+        <span class="count">${count}</span>
+      </button>`;
+    }).join('');
+    const catActive = !isGlobalSearch() && state.category === catKey;
+    return `
+      <div class="rail-cat-group">
+        <button class="rail-cat-header ${catActive ? 'active' : ''}" data-cat="${catKey}">
+          <span class="rail-cat-dot dot-${catMeta.accent}"></span>${catKey}
+        </button>
+        <div class="sub-list">${subsHtml}</div>
+      </div>`;
   }).join('');
 
   let extraFilters = '';
-  if (state.subcategory === 'dryer') {
+  if (!isGlobalSearch() && state.subcategory === 'dryer') {
     extraFilters = `
       <div class="rail-group">
         <p class="rail-title">타입</p>
@@ -213,12 +279,23 @@ function renderRail() {
       </div>`;
   }
 
+  let smartSortBox = '';
+  if (!isGlobalSearch() && state.subcategory === 'dryer') {
+    smartSortBox = `
+      <div class="rail-group recommend-box">
+        <p class="rail-title">스펙 정밀 정렬</p>
+        <div class="chip-row" id="smartSortChips">
+          ${DRYER_SMART_TAGS.map(t => `<button class="chip ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`).join('')}
+        </div>
+      </div>`;
+  }
+
   const quickTags = QUICK_TAGS[state.subcategory] || [];
 
   $('#rail').innerHTML = `
     <div class="rail-group">
       <p class="rail-title">Product Line</p>
-      <div class="sub-list">${subListHtml}</div>
+      ${treeHtml}
     </div>
     ${extraFilters}
     <div class="rail-group">
@@ -227,21 +304,27 @@ function renderRail() {
         <div class="switch ${state.includeDiscontinued ? 'on' : ''}" id="discToggle"></div>
       </div>
     </div>
+    ${smartSortBox}
     <div class="rail-group recommend-box">
       <p class="rail-title">빠른 키워드 추천</p>
       <div class="chip-row" id="quickTagChips">
-        ${quickTags.map(t => `<button class="chip" data-tag="${t}">${t}</button>`).join('')}
+        ${quickTags.map(t => `<button class="chip ${state.tagFilter === t ? 'active' : ''}" data-tag="${t}">${t}</button>`).join('')}
       </div>
     </div>
   `;
 
-  $$('.sub-item', $('#rail')).forEach(btn => {
+  $$('.rail-cat-header', $('#rail')).forEach(btn => {
     btn.addEventListener('click', () => {
-      state.subcategory = btn.dataset.sub;
-      state.dryerType = 'all';
       state.railOpen = false;
       $('#rail').classList.remove('open');
-      render();
+      setCategory(btn.dataset.cat);
+    });
+  });
+  $$('.sub-item', $('#rail')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.railOpen = false;
+      $('#rail').classList.remove('open');
+      setCategory(btn.dataset.cat, btn.dataset.sub);
     });
   });
   const dtChips = $('#dryerTypeChips');
@@ -253,23 +336,28 @@ function renderRail() {
       });
     });
   }
+  const ssChips = $('#smartSortChips');
+  if (ssChips) {
+    $$('.chip', ssChips).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const label = btn.dataset.smart;
+        state.smartSort = (state.smartSort && state.smartSort.label === label) ? null : matchSmartTagByLabel(label);
+        render();
+      });
+    });
+  }
   $('#discToggle').addEventListener('click', () => {
     state.includeDiscontinued = !state.includeDiscontinued;
     render();
   });
   $$('.chip', $('#quickTagChips')).forEach(btn => {
     btn.addEventListener('click', () => {
-      state.query = btn.dataset.tag;
-      $('#searchInput').value = state.query;
-      $('#searchBox').classList.add('has-value');
+      state.tagFilter = state.tagFilter === btn.dataset.tag ? null : btn.dataset.tag;
       render();
     });
   });
 }
 
-/* ---------------------------------------------------------------------- */
-/* Render: Grid                                                           */
-/* ---------------------------------------------------------------------- */
 function isNew(p) {
   if (!p.released) return false;
   const m = p.released.match(/(\d{4})/);
@@ -289,6 +377,9 @@ function cardHtml(p) {
   const badge = p.discontinued
     ? `<span class="card-badge disc">단종</span>`
     : (isNew(p) ? `<span class="card-badge new">NEW</span>` : '');
+  const catBadge = isGlobalSearch()
+    ? `<div class="card-cat-badge">${escapeHtml(p.category)} · ${escapeHtml(CATS[p.category].subs[p.subcategory].label)}</div>`
+    : '';
 
   return `
   <div class="card ${selected ? 'selected' : ''}" data-id="${p.id}">
@@ -301,6 +392,7 @@ function cardHtml(p) {
       <img src="images/${p.image}" alt="${escapeHtml(p.name)}" loading="lazy">
     </div>
     <div class="card-body">
+      ${catBadge}
       <div class="card-series">${escapeHtml(p.series || CATS[p.category].subs[p.subcategory].kr)}</div>
       <div class="card-name">${escapeHtml(p.name)}</div>
       <div class="card-sku">${escapeHtml(p.sku)}</div>
@@ -312,32 +404,36 @@ function cardHtml(p) {
 function render() {
   renderRail();
   const items = getFiltered();
-  const subMeta = CATS[state.category].subs[state.subcategory];
 
-  $('#mainTitle').textContent = subMeta.label;
-  $('#mainPath').textContent = `${state.category} / ${subMeta.kr}`;
+  if (isGlobalSearch()) {
+    $('#mainTitle').textContent = '검색 결과';
+    $('#mainPath').textContent = `전체 모델 대상 검색 · "${state.query}"`;
+  } else {
+    const subMeta = CATS[state.category].subs[state.subcategory];
+    $('#mainTitle').textContent = subMeta.label;
+    $('#mainPath').textContent = `${state.category} / ${subMeta.kr}`;
+  }
   $('#resultCount').innerHTML = `<b>${items.length}</b>개 모델`;
 
-  const quickTags = QUICK_TAGS[state.subcategory] || [];
+  const quickTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []);
   $('#quickTagsMain').innerHTML = quickTags.map(t =>
-    `<button class="chip ${state.query === t ? 'active' : ''}" data-tag="${t}">${t}</button>`
+    `<button class="chip ${state.tagFilter === t ? 'active' : ''}" data-tag="${t}">${t}</button>`
   ).join('');
   $$('.chip', $('#quickTagsMain')).forEach(btn => {
     btn.addEventListener('click', () => {
-      state.query = state.query === btn.dataset.tag ? '' : btn.dataset.tag;
-      $('#searchInput').value = state.query;
-      $('#searchBox').classList.toggle('has-value', !!state.query);
+      state.tagFilter = state.tagFilter === btn.dataset.tag ? null : btn.dataset.tag;
       render();
     });
   });
 
   const grid = $('#grid');
   if (items.length === 0) {
+    const shownTerm = state.query || state.tagFilter || '';
     grid.innerHTML = `
       <div class="empty-state">
         <div class="glyph">◇</div>
         <p>검색 결과가 없습니다.</p>
-        <p><b>"${escapeHtml(state.query)}"</b>에 해당하는 모델을 찾지 못했어요.</p>
+        <p><b>"${escapeHtml(shownTerm)}"</b>에 해당하는 모델을 찾지 못했어요.</p>
       </div>`;
   } else {
     grid.innerHTML = items.map(cardHtml).join('');
@@ -362,9 +458,6 @@ function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-/* ---------------------------------------------------------------------- */
-/* Compare                                                                 */
-/* ---------------------------------------------------------------------- */
 function toggleCompare(id) {
   if (state.compare.has(id)) {
     state.compare.delete(id);
@@ -409,9 +502,6 @@ function renderTray() {
 $('#trayClear').addEventListener('click', () => { state.compare.clear(); render(); });
 $('#trayCta').addEventListener('click', () => openCompareModal());
 
-/* ---------------------------------------------------------------------- */
-/* Product modal                                                          */
-/* ---------------------------------------------------------------------- */
 function openProductModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return;
@@ -444,9 +534,6 @@ function openProductModal(id) {
   showOverlay('#productOverlay');
 }
 
-/* ---------------------------------------------------------------------- */
-/* Compare modal                                                          */
-/* ---------------------------------------------------------------------- */
 function openCompareModal() {
   const items = Array.from(state.compare).map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
   if (items.length < 2) return;
@@ -490,9 +577,6 @@ function openCompareModal() {
   showOverlay('#compareOverlay');
 }
 
-/* ---------------------------------------------------------------------- */
-/* Overlay helpers                                                        */
-/* ---------------------------------------------------------------------- */
 function showOverlay(sel) { $(sel).classList.add('show'); document.body.style.overflow = 'hidden'; }
 function hideOverlay(sel) { $(sel).classList.remove('show'); document.body.style.overflow = ''; }
 
