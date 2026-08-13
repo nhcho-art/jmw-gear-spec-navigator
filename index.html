@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.8
+  Version: V2.9
   Updated: 2026.08.13
   Changelog: 이번 버전엔 아래 항목 참고 (전체 변경이력은 좌측 사이드바 "버전 정보" 또는 README.md 참고)
-    - 상단바에 쇼핑몰 5개 바로가기 메뉴 추가
+    - "정렬 기준" / "빠른 선택" / "시리즈" 영역을 라벨+구분선으로 명확히 분리
+    - 드라이기(스위치 단수)·아이론(온도 단계) 단계별 빠른 선택 칩 추가
 -->
 <html lang="ko">
 <head>
@@ -61,8 +62,18 @@
       </div>
     </div>
 
-    <div class="quick-tags" id="quickTagsMain"></div>
-    <div class="quick-tags series-tags" id="seriesTagsMain"></div>
+    <div class="chip-section">
+      <p class="chip-section-label">정렬 기준 <span class="hint">하나만 선택</span></p>
+      <div class="quick-tags" id="sortTagsMain"></div>
+    </div>
+    <div class="chip-section chip-section-divider">
+      <p class="chip-section-label">빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계 칩은 서로 OR(하나라도 해당)</span></p>
+      <div class="quick-tags" id="filterTagsMain"></div>
+    </div>
+    <div class="chip-section chip-section-divider">
+      <p class="chip-section-label">시리즈</p>
+      <div class="quick-tags" id="seriesTagsMain"></div>
+    </div>
 
     <div class="grid" id="grid"></div>
   </main>
@@ -76,7 +87,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.8 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.9 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->

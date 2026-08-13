@@ -6,6 +6,7 @@
     "series": "DM10",
     "sku": "DM1512A",
     "name": "DM1512A",
+    "switchSteps": null,
     "image": "dryer-kr_DM1512A.webp",
     "released": "2014.09",
     "discontinued": true,
@@ -36,7 +37,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM1525B",
@@ -45,6 +47,7 @@
     "series": "DM10",
     "sku": "DM1525B",
     "name": "DM1525B",
+    "switchSteps": null,
     "image": "dryer-kr_DM1525B.webp",
     "released": "2014.09",
     "discontinued": true,
@@ -75,7 +78,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM2001A",
@@ -84,6 +88,7 @@
     "series": "DM20",
     "sku": "DM2001A",
     "name": "DM2001A",
+    "switchSteps": null,
     "image": "dryer-kr_DM2001A.webp",
     "released": "2014.04",
     "discontinued": true,
@@ -114,7 +119,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM5514A",
@@ -123,6 +129,7 @@
     "series": "DM50",
     "sku": "DM5514A",
     "name": "DM5514A",
+    "switchSteps": null,
     "image": "dryer-kr_DM5514A.webp",
     "released": "2012.06",
     "discontinued": true,
@@ -152,7 +159,8 @@
       "퍼플"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM5525B",
@@ -161,6 +169,7 @@
     "series": "DM50",
     "sku": "DM5525B",
     "name": "DM5525B",
+    "switchSteps": null,
     "image": "dryer-kr_DM5525B.webp",
     "released": "2012.12",
     "discontinued": true,
@@ -190,7 +199,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM5535C",
@@ -199,6 +209,7 @@
     "series": "DM50",
     "sku": "DM5535C",
     "name": "DM5535C",
+    "switchSteps": null,
     "image": "dryer-kr_DM5535C.webp",
     "released": "2013.01",
     "discontinued": true,
@@ -228,7 +239,8 @@
       "카키"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM5545D",
@@ -237,6 +249,7 @@
     "series": "DM50",
     "sku": "DM5545D",
     "name": "DM5545D",
+    "switchSteps": null,
     "image": "dryer-kr_DM5545D.webp",
     "released": "2013.01",
     "discontinued": true,
@@ -266,7 +279,8 @@
       "블루"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM5565E",
@@ -275,6 +289,7 @@
     "series": "DM50",
     "sku": "DM5565E",
     "name": "DM5565E",
+    "switchSteps": null,
     "image": "dryer-kr_DM5565E.webp",
     "released": "2014.05",
     "discontinued": true,
@@ -304,7 +319,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM6001A",
@@ -313,6 +329,7 @@
     "series": "DM60",
     "sku": "DM6001A",
     "name": "DM6001A",
+    "switchSteps": null,
     "image": "dryer-kr_DM6001A.webp",
     "released": "2012.10.",
     "discontinued": false,
@@ -341,7 +358,8 @@
       "블루"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM6528B",
@@ -350,6 +368,7 @@
     "series": "DM60",
     "sku": "DM6528B",
     "name": "DM6528B",
+    "switchSteps": null,
     "image": "dryer-kr_DM6528B.webp",
     "released": "2012.10.",
     "discontinued": false,
@@ -379,7 +398,8 @@
       "실버"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DM6020C",
@@ -388,6 +408,7 @@
     "series": "DM60",
     "sku": "DM6020C",
     "name": "DM6020C",
+    "switchSteps": null,
     "image": "dryer-kr_DM6020C.webp",
     "released": "2017.06",
     "discontinued": false,
@@ -416,7 +437,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS1514A",
@@ -425,6 +447,7 @@
     "series": "DS10",
     "sku": "DS1514A",
     "name": "DS1514A",
+    "switchSteps": null,
     "image": "dryer-kr_DS1514A.webp",
     "released": "2013.03",
     "discontinued": true,
@@ -454,7 +477,8 @@
       "오렌지"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS1523B",
@@ -463,6 +487,7 @@
     "series": "DS10",
     "sku": "DS1523B",
     "name": "DS1523B",
+    "switchSteps": null,
     "image": "dryer-kr_DS1523B.webp",
     "released": "2013.03",
     "discontinued": true,
@@ -492,7 +517,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS2021B",
@@ -501,6 +527,7 @@
     "series": "DS20",
     "sku": "DS2021B",
     "name": "DS2021B",
+    "switchSteps": null,
     "image": "dryer-kr_DS2021B.webp",
     "released": "2014.04",
     "discontinued": true,
@@ -530,7 +557,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS2031C",
@@ -539,6 +567,7 @@
     "series": "DS20",
     "sku": "DS2031C",
     "name": "DS2031C",
+    "switchSteps": null,
     "image": "dryer-kr_DS2031C.webp",
     "released": "2014.05",
     "discontinued": true,
@@ -568,7 +597,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS3514A",
@@ -577,6 +607,7 @@
     "series": "DS30",
     "sku": "DS3514A",
     "name": "DS3514A",
+    "switchSteps": null,
     "image": "dryer-kr_DS3514A.webp",
     "released": "2012.07",
     "discontinued": true,
@@ -606,7 +637,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS3534C",
@@ -615,6 +647,7 @@
     "series": "DS30",
     "sku": "DS3534C",
     "name": "DS3534C",
+    "switchSteps": null,
     "image": "dryer-kr_DS3534C.webp",
     "released": "2012.07",
     "discontinued": true,
@@ -644,7 +677,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-DS3703ED",
@@ -653,6 +687,7 @@
     "series": "DS30",
     "sku": "DS3703ED",
     "name": "DS3703ED",
+    "switchSteps": null,
     "image": "dryer-kr_DS3703ED.webp",
     "released": "2012.12",
     "discontinued": true,
@@ -683,7 +718,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-HM5010A",
@@ -692,6 +728,7 @@
     "series": "HM50",
     "sku": "HM5010A",
     "name": "HM5010A",
+    "switchSteps": null,
     "image": "dryer-kr_HM5010A.webp",
     "released": "2014.08",
     "discontinued": true,
@@ -723,7 +760,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-HM5010B",
@@ -732,6 +770,7 @@
     "series": "HM50",
     "sku": "HM5010B",
     "name": "HM5010B",
+    "switchSteps": null,
     "image": "dryer-kr_HM5010B.webp",
     "released": "2015.04",
     "discontinued": true,
@@ -762,7 +801,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-I5001A",
@@ -771,6 +811,7 @@
     "series": "I50",
     "sku": "I5001A",
     "name": "I5001A",
+    "switchSteps": null,
     "image": "dryer-kr_HM5010B.webp",
     "released": "2014.02",
     "discontinued": true,
@@ -798,7 +839,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-I5011B",
@@ -807,6 +849,7 @@
     "series": "I50",
     "sku": "I5011B",
     "name": "I5011B",
+    "switchSteps": null,
     "image": "dryer-kr_HM5010B.webp",
     "released": "2014.07",
     "discontinued": true,
@@ -834,7 +877,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-I5021C",
@@ -843,6 +887,7 @@
     "series": "I50",
     "sku": "I5021C",
     "name": "I5021C",
+    "switchSteps": null,
     "image": "dryer-kr_HM5010B.webp",
     "released": null,
     "discontinued": true,
@@ -870,7 +915,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3001A",
@@ -879,6 +925,7 @@
     "series": "M30",
     "sku": "M3001A",
     "name": "M3001A",
+    "switchSteps": null,
     "image": "dryer-kr_M3001A.webp",
     "released": "2011.02",
     "discontinued": false,
@@ -910,7 +957,8 @@
       "퍼플"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3040F",
@@ -919,6 +967,7 @@
     "series": "M30",
     "sku": "M3040F",
     "name": "M3040F",
+    "switchSteps": 3,
     "image": "dryer-kr_M3040F.webp",
     "released": "2016.07",
     "discontinued": true,
@@ -949,7 +998,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3050F",
@@ -958,6 +1008,7 @@
     "series": "M30",
     "sku": "M3050F",
     "name": "M3050F",
+    "switchSteps": 3,
     "image": "dryer-kr_M3050F.webp",
     "released": "2016.07",
     "discontinued": false,
@@ -988,7 +1039,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3060F",
@@ -997,6 +1049,7 @@
     "series": "M30",
     "sku": "M3060F",
     "name": "M3060F",
+    "switchSteps": null,
     "image": "dryer-kr_M3060F.webp",
     "released": "2012.04",
     "discontinued": false,
@@ -1027,7 +1080,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3150R",
@@ -1036,6 +1090,7 @@
     "series": "M30",
     "sku": "M3150R",
     "name": "AIR FIT / [에어핏]",
+    "switchSteps": 3,
     "image": "dryer-kr_M3150R.webp",
     "released": "2015.09",
     "discontinued": false,
@@ -1069,7 +1124,8 @@
       "에어핏"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3150R_SE",
@@ -1078,6 +1134,7 @@
     "series": "M30",
     "sku": "M3150R_SE",
     "name": "AIR FIT / [에어핏] / Special Edtion",
+    "switchSteps": 3,
     "image": "dryer-kr_M3150R_SE.webp",
     "released": "2024.07",
     "discontinued": false,
@@ -1113,7 +1170,8 @@
       "에어핏"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3505E",
@@ -1122,6 +1180,7 @@
     "series": "M30",
     "sku": "M3505E",
     "name": "M3505E",
+    "switchSteps": 3,
     "image": "dryer-kr_M3505E.webp",
     "released": "2016.03",
     "discontinued": false,
@@ -1152,7 +1211,8 @@
       "블루"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3602H",
@@ -1161,6 +1221,7 @@
     "series": "M30",
     "sku": "M3602H",
     "name": "M3602H",
+    "switchSteps": 3,
     "image": "dryer-kr_M3602H.webp",
     "released": "2016.04",
     "discontinued": false,
@@ -1191,7 +1252,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3701K",
@@ -1200,6 +1262,7 @@
     "series": "M30",
     "sku": "M3701K",
     "name": "M3701K",
+    "switchSteps": null,
     "image": "dryer-kr_M3701K.webp",
     "released": "2017.04",
     "discontinued": false,
@@ -1230,7 +1293,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3206B",
@@ -1239,6 +1303,7 @@
     "series": "M30",
     "sku": "M3206B",
     "name": "M3206B",
+    "switchSteps": null,
     "image": "dryer-kr_M3206B.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -1270,7 +1335,8 @@
       "와인"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3307C",
@@ -1279,6 +1345,7 @@
     "series": "M30",
     "sku": "M3307C",
     "name": "M3307C",
+    "switchSteps": null,
     "image": "dryer-kr_M3307C.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -1310,7 +1377,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3405D",
@@ -1319,6 +1387,7 @@
     "series": "M30",
     "sku": "M3405D",
     "name": "M3405D",
+    "switchSteps": null,
     "image": "dryer-kr_M3405D.webp",
     "released": "2011.06",
     "discontinued": false,
@@ -1350,7 +1419,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3801LWS",
@@ -1359,6 +1429,7 @@
     "series": "M30",
     "sku": "M3801LWS",
     "name": "AIR BLAST / [에어 블라스트]",
+    "switchSteps": null,
     "image": "dryer-kr_M3801LWS.webp",
     "released": "2018.01",
     "discontinued": false,
@@ -1394,7 +1465,8 @@
       "화이트+블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MH3170",
@@ -1403,6 +1475,7 @@
     "series": "M30",
     "sku": "MH3170",
     "name": "MH3170",
+    "switchSteps": 3,
     "image": "dryer-kr_MH3170.webp",
     "released": "2016.08",
     "discontinued": false,
@@ -1433,7 +1506,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M3901J",
@@ -1442,6 +1516,7 @@
     "series": "M30",
     "sku": "M3901J",
     "name": "M3901J",
+    "switchSteps": null,
     "image": "dryer-kr_M3901J.webp",
     "released": "2019.05",
     "discontinued": false,
@@ -1472,7 +1547,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC3A01A",
@@ -1481,6 +1557,7 @@
     "series": "MC30",
     "sku": "MC3A01A",
     "name": "AIR SHOOTING / [에어슈팅]",
+    "switchSteps": 2,
     "image": "dryer-kr_MC3A01A.webp",
     "released": "2022.08",
     "discontinued": false,
@@ -1514,7 +1591,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC3A02B",
@@ -1523,6 +1601,7 @@
     "series": "MC30",
     "sku": "MC3A02B",
     "name": "MC3A02B",
+    "switchSteps": 2,
     "image": "dryer-kr_MC3A02B.webp",
     "released": "2023.06",
     "discontinued": false,
@@ -1553,7 +1632,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC4A01A",
@@ -1562,6 +1642,7 @@
     "series": "MC40",
     "sku": "MC4A01A",
     "name": "AIR·B / [에어비]",
+    "switchSteps": 2,
     "image": "dryer-kr_MC4A01A.webp",
     "released": "2021.08",
     "discontinued": false,
@@ -1594,7 +1675,8 @@
       "에어비"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC4A02B",
@@ -1603,6 +1685,7 @@
     "series": "MC40",
     "sku": "MC4A02B",
     "name": "MC4A02B",
+    "switchSteps": 2,
     "image": "dryer-kr_MC4A02B.webp",
     "released": "2021.08",
     "discontinued": false,
@@ -1634,7 +1717,8 @@
       "민트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-HHD-JM1550W",
@@ -1643,6 +1727,7 @@
     "series": "MC40",
     "sku": "HHD-JM1550W",
     "name": "HimadeXJMW",
+    "switchSteps": 2,
     "image": "dryer-kr_HHD-JM1550W.webp",
     "released": "2024.07",
     "discontinued": false,
@@ -1675,7 +1760,8 @@
       "아이보리"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC4B01A",
@@ -1684,6 +1770,7 @@
     "series": "MC40",
     "sku": "MC4B01A",
     "name": "AIRONE / [에어원]",
+    "switchSteps": 2,
     "image": "dryer-kr_MC4B01A.webp",
     "released": "2022.01",
     "discontinued": false,
@@ -1716,7 +1803,8 @@
       "연보라빛"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC4B02B",
@@ -1725,6 +1813,7 @@
     "series": "MC40",
     "sku": "MC4B02B",
     "name": "AIRONE / [에어원] / *하이마트향",
+    "switchSteps": 2,
     "image": "dryer-kr_MC4B02B.webp",
     "released": "2022.03",
     "discontinued": false,
@@ -1758,7 +1847,8 @@
       "에어원"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC4B03C",
@@ -1767,6 +1857,7 @@
     "series": "MC40",
     "sku": "MC4B03C",
     "name": "AIRONE / [에어원] / *이마트향",
+    "switchSteps": 2,
     "image": "dryer-kr_MC4B03C.webp",
     "released": "2023.06",
     "discontinued": false,
@@ -1800,7 +1891,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC5A01A",
@@ -1809,6 +1901,7 @@
     "series": "MC50",
     "sku": "MC5A01A",
     "name": "AIR LUNA / [에어루나]",
+    "switchSteps": 3,
     "image": "dryer-kr_MC5A01A.webp",
     "released": "2022.07",
     "discontinued": false,
@@ -1842,7 +1935,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC5A02B",
@@ -1851,6 +1945,7 @@
     "series": "MC50",
     "sku": "MC5A02B",
     "name": "MC5A02B",
+    "switchSteps": 3,
     "image": "dryer-kr_MC5A02B.webp",
     "released": "2022.07",
     "discontinued": false,
@@ -1881,7 +1976,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5001A",
@@ -1890,6 +1986,7 @@
     "series": "M50",
     "sku": "M5001A",
     "name": "M5001A",
+    "switchSteps": null,
     "image": "dryer-kr_M5001A.webp",
     "released": "2011.02",
     "discontinued": false,
@@ -1921,7 +2018,8 @@
       "퍼플"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5150R",
@@ -1930,6 +2028,7 @@
     "series": "M50",
     "sku": "M5150R",
     "name": "AIR STORM / [에어스톰]",
+    "switchSteps": 3,
     "image": "dryer-kr_M5150R.webp",
     "released": "2015.10.",
     "discontinued": false,
@@ -1964,7 +2063,8 @@
       "에어스톰"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5150RS",
@@ -1973,6 +2073,7 @@
     "series": "M50",
     "sku": "M5150RS",
     "name": "AIR STORM / [에어스톰] / Special Edtion",
+    "switchSteps": 3,
     "image": "dryer-kr_M5150RS.webp",
     "released": "2022.11",
     "discontinued": false,
@@ -2009,7 +2110,8 @@
       "에어스톰"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5035C",
@@ -2018,6 +2120,7 @@
     "series": "M50",
     "sku": "M5035C",
     "name": "M5035C",
+    "switchSteps": 3,
     "image": "dryer-kr_M5035C.webp",
     "released": "2015.11",
     "discontinued": false,
@@ -2048,7 +2151,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5042D",
@@ -2057,6 +2161,7 @@
     "series": "M50",
     "sku": "M5042D",
     "name": "M5042D",
+    "switchSteps": null,
     "image": "dryer-kr_M5042D.webp",
     "released": "2016.04",
     "discontinued": false,
@@ -2087,7 +2192,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5802A",
@@ -2096,6 +2202,7 @@
     "series": "M50",
     "sku": "M5802A",
     "name": "M5802A",
+    "switchSteps": 3,
     "image": "dryer-kr_M5802A.webp",
     "released": "2015.05",
     "discontinued": true,
@@ -2126,7 +2233,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5001A PLUS",
@@ -2135,6 +2243,7 @@
     "series": "M50",
     "sku": "M5001A PLUS",
     "name": "M5001A PLUS",
+    "switchSteps": 3,
     "image": "dryer-kr_M5001A_PLUS.webp",
     "released": "2016.02",
     "discontinued": false,
@@ -2167,7 +2276,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO",
@@ -2176,6 +2286,7 @@
     "series": "M50",
     "sku": "M5001A PLUS PRO",
     "name": "M5001A PLUS PRO",
+    "switchSteps": 3,
     "image": "dryer-kr_M5001A_PLUS_PRO.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -2209,7 +2320,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO_W",
@@ -2218,6 +2330,7 @@
     "series": "M50",
     "sku": "M5001A PLUS PRO_W",
     "name": "M5001A PLUS PRO_W",
+    "switchSteps": 3,
     "image": "dryer-kr_M5001A_PLUS_PRO_W.webp",
     "released": "2024.01",
     "discontinued": false,
@@ -2252,7 +2365,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5061FWS",
@@ -2261,6 +2375,7 @@
     "series": "M50",
     "sku": "M5061FWS",
     "name": "AIR BLAST / [에어 블라스트]",
+    "switchSteps": 3,
     "image": "dryer-kr_M5061FWS.webp",
     "released": "2018.01",
     "discontinued": false,
@@ -2295,7 +2410,8 @@
       "에어"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5201A",
@@ -2304,6 +2420,7 @@
     "series": "M50",
     "sku": "M5201A",
     "name": "M5201A",
+    "switchSteps": 3,
     "image": "dryer-kr_M5201A.webp",
     "released": "2020.04",
     "discontinued": false,
@@ -2336,7 +2453,8 @@
       "오렌지"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M5002B PLUS",
@@ -2345,6 +2463,7 @@
     "series": "M50",
     "sku": "M5002B PLUS",
     "name": "M5002B PLUS",
+    "switchSteps": 3,
     "image": "dryer-kr_M5002B_PLUS.webp",
     "released": "2020.08",
     "discontinued": false,
@@ -2377,7 +2496,8 @@
       "실버"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M7502A",
@@ -2386,6 +2506,7 @@
     "series": "M70",
     "sku": "M7502A",
     "name": "M7502A",
+    "switchSteps": null,
     "image": "dryer-kr_M7502A.webp",
     "released": "2012.01",
     "discontinued": false,
@@ -2416,7 +2537,8 @@
       "브라운"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M7502A PLUS",
@@ -2425,6 +2547,7 @@
     "series": "M70",
     "sku": "M7502A PLUS",
     "name": "M7502A PLUS",
+    "switchSteps": 4,
     "image": "dryer-kr_M7502A_PLUS.webp",
     "released": "2025.08",
     "discontinued": false,
@@ -2457,7 +2580,8 @@
       "차콜블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MA5001A",
@@ -2466,6 +2590,7 @@
     "series": "MA50",
     "sku": "MA5001A",
     "name": "MA5001A",
+    "switchSteps": null,
     "image": "dryer-kr_MA5001A.webp",
     "released": "2015.03",
     "discontinued": false,
@@ -2498,7 +2623,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MA503B",
@@ -2507,6 +2633,7 @@
     "series": "MA50",
     "sku": "MA503B",
     "name": "MA503B",
+    "switchSteps": null,
     "image": "dryer-kr_MA503B.webp",
     "released": "2015.04",
     "discontinued": false,
@@ -2539,7 +2666,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MA6001A",
@@ -2548,6 +2676,7 @@
     "series": "MA60",
     "sku": "MA6001A",
     "name": "MA6001A",
+    "switchSteps": null,
     "image": "dryer-kr_MA6001A.webp",
     "released": "2015.03",
     "discontinued": false,
@@ -2580,7 +2709,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MG1700",
@@ -2589,6 +2719,7 @@
     "series": "MG10",
     "sku": "MG1700",
     "name": "MG1700",
+    "switchSteps": null,
     "image": "dryer-kr_MG1700.webp",
     "released": "2015.03",
     "discontinued": true,
@@ -2620,7 +2751,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MG1800",
@@ -2629,6 +2761,7 @@
     "series": "MG10",
     "sku": "MG1800",
     "name": "MG1800",
+    "switchSteps": null,
     "image": "dryer-kr_MG1800.webp",
     "released": "2015.03",
     "discontinued": false,
@@ -2660,7 +2793,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MG1700 PLUS",
@@ -2669,6 +2803,7 @@
     "series": "MG10",
     "sku": "MG1700 PLUS",
     "name": "MG1700 PLUS",
+    "switchSteps": null,
     "image": "dryer-kr_MG1700_PLUS.webp",
     "released": "2025.12",
     "discontinued": false,
@@ -2700,7 +2835,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MG1800 PLUS",
@@ -2709,6 +2845,7 @@
     "series": "MG10",
     "sku": "MG1800 PLUS",
     "name": "MG1800 PLUS",
+    "switchSteps": null,
     "image": "dryer-kr_MG1800_PLUS.webp",
     "released": "2019.02",
     "discontinued": false,
@@ -2740,7 +2877,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-The New MG1800",
@@ -2749,6 +2887,7 @@
     "series": "MG10",
     "sku": "The New MG1800",
     "name": "The New MG1800",
+    "switchSteps": null,
     "image": "dryer-kr_The_New_MG1800.webp",
     "released": "2025.08",
     "discontinued": false,
@@ -2781,7 +2920,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5001A",
@@ -2790,6 +2930,7 @@
     "series": "MF50",
     "sku": "MF5001A",
     "name": "MAX / [맥스]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5001A.webp",
     "released": "2016.04",
     "discontinued": false,
@@ -2823,7 +2964,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5002B",
@@ -2832,6 +2974,7 @@
     "series": "MF50",
     "sku": "MF5002B",
     "name": "MF5002B",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5002B.webp",
     "released": "2016.04",
     "discontinued": false,
@@ -2862,7 +3005,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-atomy hair dryer",
@@ -2871,6 +3015,7 @@
     "series": "MF50",
     "sku": "atomy hair dryer",
     "name": "애터미",
+    "switchSteps": 3,
     "image": "dryer-kr_atomy_hair_dryer.webp",
     "released": "2016.12",
     "discontinued": false,
@@ -2904,7 +3049,8 @@
       "애터미"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5030C",
@@ -2913,6 +3059,7 @@
     "series": "MF50",
     "sku": "MF5030C",
     "name": "MAX CLASSIC / [맥스 클래식]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5030C.webp",
     "released": "2017.07",
     "discontinued": false,
@@ -2947,7 +3094,8 @@
       "클래식"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5040D",
@@ -2956,6 +3104,7 @@
     "series": "MF50",
     "sku": "MF5040D",
     "name": "NUVO Gold Edition / [누보 골드에디션]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5040D.webp",
     "released": "2018.03",
     "discontinued": false,
@@ -2992,7 +3141,8 @@
       "베이지"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5050E",
@@ -3001,6 +3151,7 @@
     "series": "MF50",
     "sku": "MF5050E",
     "name": "NUVO rose Edition / [누보 로즈에디션]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5050E.webp",
     "released": "2018.03",
     "discontinued": false,
@@ -3037,7 +3188,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5060F",
@@ -3046,6 +3198,7 @@
     "series": "MF50",
     "sku": "MF5060F",
     "name": "MAX EMOTION / [맥스 이모션]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5060F.webp",
     "released": "2024.09.",
     "discontinued": false,
@@ -3080,7 +3233,8 @@
       "이모션"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5101DWS",
@@ -3089,6 +3243,7 @@
     "series": "MF50",
     "sku": "MF5101DWS",
     "name": "AIR BLAST / [에어 블라스트]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5101DWS.webp",
     "released": "2018.02",
     "discontinued": false,
@@ -3124,7 +3279,8 @@
       "에어"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF5102F",
@@ -3133,6 +3289,7 @@
     "series": "MF50",
     "sku": "MF5102F",
     "name": "MF5102F",
+    "switchSteps": 3,
     "image": "dryer-kr_MF5102F.webp",
     "released": "2019.11",
     "discontinued": false,
@@ -3162,7 +3319,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCF5A01A",
@@ -3171,6 +3329,7 @@
     "series": "MCF50",
     "sku": "MCF5A01A",
     "name": "AIR FLIP / [에어플립]",
+    "switchSteps": 4,
     "image": "dryer-kr_MCF5A01A.webp",
     "released": "2023.09",
     "discontinued": false,
@@ -3205,7 +3364,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCF5A02B",
@@ -3214,6 +3374,7 @@
     "series": "MCF50",
     "sku": "MCF5A02B",
     "name": "MCF5A02B",
+    "switchSteps": 4,
     "image": "dryer-kr_MCF5A02B.webp",
     "released": "2024.01",
     "discontinued": false,
@@ -3245,7 +3406,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCF5A03C",
@@ -3254,6 +3416,7 @@
     "series": "MCF50",
     "sku": "MCF5A03C",
     "name": "MCF5A03C",
+    "switchSteps": 4,
     "image": "dryer-kr_MCF5A03C.webp",
     "released": "2024.09",
     "discontinued": false,
@@ -3285,7 +3448,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCF5A02B-벨리곰",
@@ -3294,6 +3458,7 @@
     "series": "MCF50",
     "sku": "MCF5A02B-벨리곰",
     "name": "AIR FLIP / [에어플립] / 벨리곰",
+    "switchSteps": 4,
     "image": "dryer-kr_MCF5A02B-___.webp",
     "released": "2024.09",
     "discontinued": false,
@@ -3329,7 +3494,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCF5B01A",
@@ -3338,6 +3504,7 @@
     "series": "MCF50",
     "sku": "MCF5B01A",
     "name": "TRID[트리드]",
+    "switchSteps": 4,
     "image": "dryer-kr_MCF5B01A.webp",
     "released": "2025.09",
     "discontinued": false,
@@ -3370,7 +3537,8 @@
       "트리드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF6001A",
@@ -3379,6 +3547,7 @@
     "series": "MF60",
     "sku": "MF6001A",
     "name": "LUX / [럭스]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF6001A.webp",
     "released": "2018.02",
     "discontinued": false,
@@ -3412,7 +3581,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF6002B",
@@ -3421,6 +3591,7 @@
     "series": "MF60",
     "sku": "MF6002B",
     "name": "LUX WHITE / [럭스 화이트]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF6002B.webp",
     "released": "2018.11",
     "discontinued": false,
@@ -3455,7 +3626,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MF6003C",
@@ -3464,6 +3636,7 @@
     "series": "MF60",
     "sku": "MF6003C",
     "name": "LUX / [럭스]",
+    "switchSteps": 3,
     "image": "dryer-kr_MF6003C.webp",
     "released": "2019.04",
     "discontinued": false,
@@ -3497,7 +3670,8 @@
       "전자파차단"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS502",
@@ -3506,6 +3680,7 @@
     "series": "MS50",
     "sku": "MS502",
     "name": "MS502",
+    "switchSteps": null,
     "image": "dryer-kr_MS502.webp",
     "released": "2015.03",
     "discontinued": true,
@@ -3536,7 +3711,8 @@
       "브라운"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6001A",
@@ -3545,6 +3721,7 @@
     "series": "MS60",
     "sku": "MS6001A",
     "name": "PHANTOM / [팬텀]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6001A.webp",
     "released": "2017.04",
     "discontinued": false,
@@ -3577,7 +3754,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6020B",
@@ -3586,6 +3764,7 @@
     "series": "MS60",
     "sku": "MS6020B",
     "name": "AIR JET / [에어젯]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6020B.webp",
     "released": "2017.04",
     "discontinued": false,
@@ -3620,7 +3799,8 @@
       "에어젯"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6010A",
@@ -3629,6 +3809,7 @@
     "series": "MS60",
     "sku": "MS6010A",
     "name": "MS6010A",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6010A.webp",
     "released": "2019.11",
     "discontinued": false,
@@ -3660,7 +3841,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6003C",
@@ -3669,6 +3851,7 @@
     "series": "MS60",
     "sku": "MS6003C",
     "name": "PHANTOM prime / [팬텀 프라임]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6003C.webp",
     "released": "2017.07",
     "discontinued": false,
@@ -3704,7 +3887,8 @@
       "프라임"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6004D",
@@ -3713,6 +3897,7 @@
     "series": "MS60",
     "sku": "MS6004D",
     "name": "MS6004D",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6004D.webp",
     "released": "2019.04",
     "discontinued": false,
@@ -3743,7 +3928,8 @@
       "연분홍"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6100A",
@@ -3752,6 +3938,7 @@
     "series": "MS60",
     "sku": "MS6100A",
     "name": "MS6100A",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6100A.webp",
     "released": "2019.12",
     "discontinued": false,
@@ -3782,7 +3969,8 @@
       "쿠퍼"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-TR6100A",
@@ -3791,6 +3979,7 @@
     "series": "MS60",
     "sku": "TR6100A",
     "name": "TR6100A",
+    "switchSteps": 4,
     "image": "dryer-kr_TR6100A.webp",
     "released": "2021.04",
     "discontinued": false,
@@ -3820,7 +4009,8 @@
       "쿠퍼"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6030C",
@@ -3829,6 +4019,7 @@
     "series": "MS60",
     "sku": "MS6030C",
     "name": "AIR JET ULTRA / [에어젯 울트라]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6030C.webp",
     "released": "2019.04",
     "discontinued": false,
@@ -3865,7 +4056,8 @@
       "울트라"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6040D",
@@ -3874,6 +4066,7 @@
     "series": "MS60",
     "sku": "MS6040D",
     "name": "MS6040D",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6040D.webp",
     "released": "2019.04",
     "discontinued": true,
@@ -3907,7 +4100,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6210A",
@@ -3916,6 +4110,7 @@
     "series": "MS60",
     "sku": "MS6210A",
     "name": "MS6210A",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6210A.webp",
     "released": "2020.03",
     "discontinued": false,
@@ -3946,7 +4141,8 @@
       "웜그레이"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6031E",
@@ -3955,6 +4151,7 @@
     "series": "MS60",
     "sku": "MS6031E",
     "name": "AIR JET ULTRA / [에어젯 울트라]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6031E.webp",
     "released": "2021.03",
     "discontinued": false,
@@ -3991,7 +4188,8 @@
       "울트라"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6041F",
@@ -4000,6 +4198,7 @@
     "series": "MS60",
     "sku": "MS6041F",
     "name": "MS6041F",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6041F.webp",
     "released": "2021.04",
     "discontinued": false,
@@ -4033,7 +4232,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6301A",
@@ -4042,6 +4242,7 @@
     "series": "MS60",
     "sku": "MS6301A",
     "name": "AIR JET ULTRA PRO / [에어젯 울트라 프로]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6301A.webp",
     "released": "2024.08",
     "discontinued": false,
@@ -4082,7 +4283,8 @@
       "프로"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6301A-M",
@@ -4091,6 +4293,7 @@
     "series": "MS60",
     "sku": "MS6301A-M",
     "name": "AIR JET ULTRA PRO / [에어젯 울트라 프로 무신사 에디션]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6301A-M.webp",
     "released": "2025.11",
     "discontinued": false,
@@ -4133,7 +4336,8 @@
       "흑도금"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-CC6310A",
@@ -4142,6 +4346,7 @@
     "series": "MS60",
     "sku": "CC6310A",
     "name": "CC6310A",
+    "switchSteps": 4,
     "image": "dryer-kr_CC6310A.webp",
     "released": "2020.08",
     "discontinued": false,
@@ -4172,7 +4377,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-CC6311B",
@@ -4181,6 +4387,7 @@
     "series": "MS60",
     "sku": "CC6311B",
     "name": "CC6311B",
+    "switchSteps": 4,
     "image": "dryer-kr_CC6311B.webp",
     "released": "2021.05",
     "discontinued": false,
@@ -4211,7 +4418,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6401A",
@@ -4220,6 +4428,7 @@
     "series": "MS60",
     "sku": "MS6401A",
     "name": "PHANTOM S / [팬텀 에스]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6401A.webp",
     "released": "2021.03",
     "discontinued": false,
@@ -4254,7 +4463,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS6402B",
@@ -4263,6 +4473,7 @@
     "series": "MS60",
     "sku": "MS6402B",
     "name": "PHANTOM S NOBLE / [팬텀 에스 노블]",
+    "switchSteps": 4,
     "image": "dryer-kr_MS6402B.webp",
     "released": "2024.09",
     "discontinued": false,
@@ -4299,7 +4510,8 @@
       "팬텀"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC6001A",
@@ -4308,6 +4520,7 @@
     "series": "MC60",
     "sku": "MC6001A",
     "name": "AIR ART / [에어 아트]",
+    "switchSteps": 4,
     "image": "dryer-kr_MC6001A.webp",
     "released": "2020.11",
     "discontinued": false,
@@ -4342,7 +4555,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC6002B",
@@ -4351,6 +4565,7 @@
     "series": "MC60",
     "sku": "MC6002B",
     "name": "MC6002B",
+    "switchSteps": 4,
     "image": "dryer-kr_MC6002B.webp",
     "released": "2020.11",
     "discontinued": false,
@@ -4381,7 +4596,8 @@
       "드라이기"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MC6A11A",
@@ -4390,6 +4606,7 @@
     "series": "MC60",
     "sku": "MC6A11A",
     "name": "Comfit / [컴핏]",
+    "switchSteps": 4,
     "image": "dryer-kr_MC6A11A.webp",
     "released": "2021.05",
     "discontinued": false,
@@ -4422,7 +4639,8 @@
       "컴핏"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCS6001A",
@@ -4431,6 +4649,7 @@
     "series": "MCS60",
     "sku": "MCS6001A",
     "name": "Touch ON / [터치온]",
+    "switchSteps": 4,
     "image": "dryer-kr_MCS6001A.webp",
     "released": "2020.07",
     "discontinued": false,
@@ -4470,7 +4689,8 @@
       "터치온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCS6002B",
@@ -4479,6 +4699,7 @@
     "series": "MCS60",
     "sku": "MCS6002B",
     "name": "MCS6002B",
+    "switchSteps": 4,
     "image": "dryer-kr_MCS6002B.webp",
     "released": "2020.07",
     "discontinued": false,
@@ -4515,7 +4736,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCS6003C",
@@ -4524,6 +4746,7 @@
     "series": "MCS60",
     "sku": "MCS6003C",
     "name": "MCS6003C",
+    "switchSteps": 4,
     "image": "dryer-kr_MCS6003C.webp",
     "released": "2021.06",
     "discontinued": false,
@@ -4560,7 +4783,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCS6004D",
@@ -4569,6 +4793,7 @@
     "series": "MCS60",
     "sku": "MCS6004D",
     "name": "MCS6004D",
+    "switchSteps": 4,
     "image": "dryer-kr_MCS6004D.webp",
     "released": "2021.06",
     "discontinued": false,
@@ -4605,7 +4830,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCS6003C-벨리곰",
@@ -4614,6 +4840,7 @@
     "series": "MCS60",
     "sku": "MCS6003C-벨리곰",
     "name": "Touch ON / [터치온] / 벨리곰",
+    "switchSteps": 4,
     "image": "dryer-kr_MCS6003C-___.webp",
     "released": "2024.09",
     "discontinued": false,
@@ -4654,7 +4881,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MVF6A01A",
@@ -4663,6 +4891,7 @@
     "series": "MVF60",
     "sku": "MVF6A01A",
     "name": "FREEGO / [프리고]",
+    "switchSteps": 4,
     "image": "dryer-kr_MVF6A01A.webp",
     "released": "2025.02.",
     "discontinued": false,
@@ -4698,7 +4927,8 @@
       "프리고"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS7002B",
@@ -4707,6 +4937,7 @@
     "series": "MS70",
     "sku": "MS7002B",
     "name": "AIR SENS / [에어센스]",
+    "switchSteps": 5,
     "image": "dryer-kr_MS7002B.webp",
     "released": "2019.03",
     "discontinued": false,
@@ -4742,7 +4973,8 @@
       "에어센스"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS7001A",
@@ -4751,6 +4983,7 @@
     "series": "MS70",
     "sku": "MS7001A",
     "name": "MS7001A",
+    "switchSteps": 5,
     "image": "dryer-kr_MS7001A.webp",
     "released": "2019.12",
     "discontinued": false,
@@ -4784,7 +5017,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCP7A01A",
@@ -4793,6 +5027,7 @@
     "series": "MCP7A",
     "sku": "MCP7A01A",
     "name": "AIR MOTION / [에어모션]",
+    "switchSteps": 4,
     "image": "dryer-kr_MCP7A01A.webp",
     "released": "2022.01",
     "discontinued": false,
@@ -4831,7 +5066,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS8001A",
@@ -4840,6 +5076,7 @@
     "series": "MS80",
     "sku": "MS8001A",
     "name": "AIR COLLECTION / [에어 컬렉션]",
+    "switchSteps": 6,
     "image": "dryer-kr_MS8001A.webp",
     "released": "2018.03",
     "discontinued": true,
@@ -4877,7 +5114,8 @@
       "코팅"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MS8002B",
@@ -4886,6 +5124,7 @@
     "series": "MS80",
     "sku": "MS8002B",
     "name": "MS8002B",
+    "switchSteps": 6,
     "image": "dryer-kr_MS8002B.webp",
     "released": "2020.04",
     "discontinued": true,
@@ -4919,7 +5158,8 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M8001A",
@@ -4928,6 +5168,7 @@
     "series": "MS80",
     "sku": "M8001A",
     "name": "AIR COLLECTION Pro / [에어 컬렉션 프로]",
+    "switchSteps": 6,
     "image": "dryer-kr_M8001A.webp",
     "released": "2019.11",
     "discontinued": false,
@@ -4967,7 +5208,8 @@
       "프로"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-M8001A-B",
@@ -4976,6 +5218,7 @@
     "series": "MS80",
     "sku": "M8001A-B",
     "name": "AIR COLLECTION / [에어 컬렉션 더 블랙 마스터 에디션]",
+    "switchSteps": 6,
     "image": "dryer-kr_M8001A-B.webp",
     "released": "2025.12",
     "discontinued": false,
@@ -5016,7 +5259,8 @@
       "코팅"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-S30001A",
@@ -5025,6 +5269,7 @@
     "series": "S30",
     "sku": "S30001A",
     "name": "S30001A",
+    "switchSteps": null,
     "image": "dryer-kr_S30001A.webp",
     "released": "2011.05",
     "discontinued": true,
@@ -5055,7 +5300,8 @@
       "블랙"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-SD7001A",
@@ -5064,6 +5310,7 @@
     "series": "SD70",
     "sku": "SD7001A",
     "name": "SD7001A",
+    "switchSteps": null,
     "image": "dryer-kr_SD7001A.webp",
     "released": "2016.04",
     "discontinued": true,
@@ -5093,7 +5340,8 @@
       "오렌지"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-SC7010A",
@@ -5102,6 +5350,7 @@
     "series": "SC70",
     "sku": "SC7010A",
     "name": "ICONIC / [아이코닉]",
+    "switchSteps": 3,
     "image": "dryer-kr_SC7010A.webp",
     "released": "2018.06",
     "discontinued": false,
@@ -5136,7 +5385,8 @@
       "아이코닉"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-SC7020B",
@@ -5145,6 +5395,7 @@
     "series": "SC70",
     "sku": "SC7020B",
     "name": "SC7020B",
+    "switchSteps": 3,
     "image": "dryer-kr_SC7020B.webp",
     "released": "2021.01",
     "discontinued": false,
@@ -5177,7 +5428,8 @@
       "쉐이드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-STL7001A",
@@ -5186,6 +5438,7 @@
     "series": "STL70",
     "sku": "STL7001A",
     "name": "LUMIAIR / [루미에어]",
+    "switchSteps": 4,
     "image": "dryer-kr_STL7001A.webp",
     "released": "2021.01",
     "discontinued": false,
@@ -5225,7 +5478,8 @@
       "항균코팅"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-STL7002B",
@@ -5234,6 +5488,7 @@
     "series": "STL70",
     "sku": "STL7002B",
     "name": "STL7002B",
+    "switchSteps": 4,
     "image": "dryer-kr_STL7002B.webp",
     "released": "2024.05",
     "discontinued": false,
@@ -5271,7 +5526,8 @@
       "항균코팅"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-STL7101A",
@@ -5280,6 +5536,7 @@
     "series": "STL70",
     "sku": "STL7101A",
     "name": "LUMIAIR 2.0 / [루미에어 2.0]",
+    "switchSteps": 4,
     "image": "dryer-kr_STL7101A.webp",
     "released": null,
     "discontinued": false,
@@ -5320,7 +5577,8 @@
       "항균코팅"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MP9A01A",
@@ -5329,6 +5587,7 @@
     "series": "MP9A",
     "sku": "MP9A01A",
     "name": "POWER AIR / [파워에어]",
+    "switchSteps": 4,
     "image": "dryer-kr_MP9A01A.webp",
     "released": "2023.03",
     "discontinued": false,
@@ -5364,7 +5623,8 @@
       "파워에어"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MP9A02B",
@@ -5373,6 +5633,7 @@
     "series": "MP9A",
     "sku": "MP9A02B",
     "name": "POWER AIR White / [파워에어 화이트]",
+    "switchSteps": 4,
     "image": "dryer-kr_MP9A02B.webp",
     "released": "2024.04",
     "discontinued": false,
@@ -5407,7 +5668,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-kr-MCI8A01A",
@@ -5416,6 +5678,7 @@
     "series": "MC",
     "sku": "MCI8A01A",
     "name": "PLIN / [플린]",
+    "switchSteps": 4,
     "image": "dryer-kr_MCI8A01A.webp",
     "released": "2026-04-01 00:00:00",
     "discontinued": false,
@@ -5450,7 +5713,8 @@
       "플린"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDU3A01A",
@@ -5459,6 +5723,8 @@
     "series": null,
     "sku": "SDU3A01A",
     "name": "케어부스터",
+    "lineGroup": "케어부스터",
+    "switchSteps": 2,
     "image": "dryer-src_SDU3A01A.webp",
     "released": "2024.05",
     "discontinued": false,
@@ -5493,7 +5759,7 @@
       "케어부스터"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SC1500A",
@@ -5502,6 +5768,8 @@
     "series": null,
     "sku": "SC1500A",
     "name": "에어팜",
+    "lineGroup": null,
+    "switchSteps": 2,
     "image": "dryer-src_SC1500A.webp",
     "released": "2025.08",
     "discontinued": false,
@@ -5535,7 +5803,7 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SC1500B",
@@ -5544,6 +5812,8 @@
     "series": null,
     "sku": "SC1500B",
     "name": "SC1500B",
+    "lineGroup": null,
+    "switchSteps": 2,
     "image": "dryer-src_SC1500B.webp",
     "released": "2025.08",
     "discontinued": false,
@@ -5576,7 +5846,7 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDA5A01A",
@@ -5585,6 +5855,8 @@
     "series": null,
     "sku": "SDA5A01A",
     "name": "에이플로",
+    "lineGroup": null,
+    "switchSteps": 2,
     "image": "dryer-src_SDA5A01A.webp",
     "released": "2026.05",
     "discontinued": false,
@@ -5621,7 +5893,7 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDN3A1A",
@@ -5630,6 +5902,8 @@
     "series": null,
     "sku": "SDN3A1A",
     "name": "데일로",
+    "lineGroup": null,
+    "switchSteps": 3,
     "image": "dryer-src_SDN3A1A.webp",
     "released": "2026.06",
     "discontinued": false,
@@ -5663,7 +5937,7 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDF4B1A",
@@ -5672,6 +5946,8 @@
     "series": null,
     "sku": "SDF4B1A",
     "name": "케어부스터 FV",
+    "lineGroup": "케어부스터",
+    "switchSteps": 2,
     "image": "dryer-src_SDF4B1A.webp",
     "released": "2026.07",
     "discontinued": false,
@@ -5709,7 +5985,7 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDS3A1A",
@@ -5718,6 +5994,8 @@
     "series": null,
     "sku": "SDS3A1A",
     "name": "올핏",
+    "lineGroup": null,
+    "switchSteps": 3,
     "image": "dryer-src_SDS3A1A.webp",
     "released": "2026.07",
     "discontinued": false,
@@ -5753,7 +6031,7 @@
       "헤어케어모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SAT3A2B",
@@ -5762,6 +6040,8 @@
     "series": null,
     "sku": "SAT3A2B",
     "name": "블로우셋 프로",
+    "lineGroup": "블로우셋",
+    "switchSteps": 3,
     "image": "dryer-src_SAT3A2B.webp",
     "released": "2026.07",
     "discontinued": false,
@@ -5798,7 +6078,7 @@
       "프로"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SAT3A1A",
@@ -5807,6 +6087,8 @@
     "series": null,
     "sku": "SAT3A1A",
     "name": "블로우셋",
+    "lineGroup": "블로우셋",
+    "switchSteps": 3,
     "image": "dryer-src_SAT3A1A.webp",
     "released": "2026.08",
     "discontinued": false,
@@ -5842,7 +6124,7 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "dryer-src-SDMF4A1A",
@@ -5851,6 +6133,8 @@
     "series": null,
     "sku": "SDMF4A1A",
     "name": "볼티",
+    "lineGroup": null,
+    "switchSteps": 2,
     "image": "dryer-src_SDMF4A1A.webp",
     "released": "2026.08",
     "discontinued": false,
@@ -5886,7 +6170,7 @@
       "프리볼트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "tempSteps": null
   },
   {
     "id": "iron-kr-W1001A",
@@ -5895,6 +6179,7 @@
     "series": "W10",
     "sku": "W1001A",
     "name": "W1001A",
+    "tempSteps": 2,
     "image": "iron-kr_W1001A.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -5925,7 +6210,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W1014A",
@@ -5934,6 +6220,7 @@
     "series": "W10",
     "sku": "W1014A",
     "name": "W1014A",
+    "tempSteps": 1,
     "image": "iron-kr_W1014A.webp",
     "released": "2012.05",
     "discontinued": true,
@@ -5962,7 +6249,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W1014B",
@@ -5971,6 +6259,7 @@
     "series": "W10",
     "sku": "W1014B",
     "name": "W1014B",
+    "tempSteps": 1,
     "image": "iron-kr_W1014B.webp",
     "released": "2012.05",
     "discontinued": true,
@@ -5998,7 +6287,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W1014C",
@@ -6007,6 +6297,7 @@
     "series": "W10",
     "sku": "W1014C",
     "name": "W1014C",
+    "tempSteps": 1,
     "image": "iron-kr_W1014C.webp",
     "released": "2012.05",
     "discontinued": true,
@@ -6034,7 +6325,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2001MA",
@@ -6043,6 +6335,7 @@
     "series": "W20",
     "sku": "W2001MA",
     "name": "W2001MA",
+    "tempSteps": 4,
     "image": "iron-kr_W2001MA.webp",
     "released": "2012.05",
     "discontinued": false,
@@ -6073,7 +6366,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2203MA",
@@ -6082,6 +6376,7 @@
     "series": "W20",
     "sku": "W2203MA",
     "name": "W2203MA",
+    "tempSteps": 1,
     "image": "iron-kr_W2203MA.webp",
     "released": "2012.05",
     "discontinued": false,
@@ -6114,7 +6409,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2304MC",
@@ -6123,6 +6419,7 @@
     "series": "W20",
     "sku": "W2304MC",
     "name": "W2304MC",
+    "tempSteps": 6,
     "image": "iron-kr_W2304MC.webp",
     "released": "2014.11",
     "discontinued": false,
@@ -6156,7 +6453,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2305MD",
@@ -6165,6 +6463,7 @@
     "series": "W20",
     "sku": "W2305MD",
     "name": "W2305MD",
+    "tempSteps": 6,
     "image": "iron-kr_W2305MD.webp",
     "released": "2015.07",
     "discontinued": false,
@@ -6198,7 +6497,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2101MD",
@@ -6207,6 +6507,7 @@
     "series": "W20",
     "sku": "W2101MD",
     "name": "W2101MD",
+    "tempSteps": 4,
     "image": "iron-kr_W2101MD.webp",
     "released": "2020.03",
     "discontinued": false,
@@ -6238,7 +6539,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W2010ME",
@@ -6247,6 +6549,7 @@
     "series": "W20",
     "sku": "W2010ME",
     "name": "W2010ME",
+    "tempSteps": 4,
     "image": "iron-kr_W2010ME.webp",
     "released": "2020.04",
     "discontinued": false,
@@ -6278,7 +6581,8 @@
       "쿠퍼골드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W5001LA",
@@ -6287,6 +6591,7 @@
     "series": "W50",
     "sku": "W5001LA",
     "name": "W5001LA",
+    "tempSteps": 6,
     "image": "iron-kr_W5001LA.webp",
     "released": "2011.03",
     "discontinued": false,
@@ -6319,7 +6624,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W5001MA",
@@ -6328,6 +6634,7 @@
     "series": "W50",
     "sku": "W5001MA",
     "name": "W5001MA",
+    "tempSteps": 6,
     "image": "iron-kr_W5001LA.webp",
     "released": "2011.03",
     "discontinued": false,
@@ -6360,7 +6667,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W5001RA",
@@ -6369,6 +6677,7 @@
     "series": "W50",
     "sku": "W5001RA",
     "name": "W5001RA",
+    "tempSteps": 6,
     "image": "iron-kr_W5001LA.webp",
     "released": "2015.07",
     "discontinued": false,
@@ -6399,7 +6708,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W5001SA",
@@ -6408,6 +6718,7 @@
     "series": "W50",
     "sku": "W5001SA",
     "name": "W5001SA",
+    "tempSteps": 6,
     "image": "iron-kr_W5001LA.webp",
     "released": "2014.09",
     "discontinued": false,
@@ -6438,7 +6749,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W6001MA",
@@ -6447,6 +6759,7 @@
     "series": "W60",
     "sku": "W6001MA",
     "name": "W6001MA",
+    "tempSteps": 6,
     "image": "iron-kr_W6001MA.webp",
     "released": "2012.03",
     "discontinued": false,
@@ -6478,7 +6791,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W6001RA",
@@ -6487,6 +6801,7 @@
     "series": "W60",
     "sku": "W6001RA",
     "name": "W6001RA",
+    "tempSteps": 6,
     "image": "iron-kr_W6001RA.webp",
     "released": "2011.11",
     "discontinued": false,
@@ -6516,7 +6831,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W6014MB",
@@ -6525,6 +6841,7 @@
     "series": "W60",
     "sku": "W6014MB",
     "name": "W6014MB",
+    "tempSteps": 11,
     "image": "iron-kr_W6014MB.webp",
     "released": "2014.07",
     "discontinued": false,
@@ -6556,7 +6873,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7001RA",
@@ -6565,6 +6883,7 @@
     "series": "W70",
     "sku": "W7001RA",
     "name": "BLACK SHINE / [블랙 샤인]",
+    "tempSteps": null,
     "image": "iron-kr_W7001RA.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -6596,7 +6915,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700MA",
@@ -6605,6 +6925,7 @@
     "series": "W70",
     "sku": "W7700MA",
     "name": "W7700MA",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6636,7 +6957,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700LA",
@@ -6645,6 +6967,7 @@
     "series": "W70",
     "sku": "W7700LA",
     "name": "W7700LA",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6676,7 +6999,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700RA",
@@ -6685,6 +7009,7 @@
     "series": "W70",
     "sku": "W7700RA",
     "name": "W7700RA",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6716,7 +7041,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700RSA",
@@ -6725,6 +7051,7 @@
     "series": "W70",
     "sku": "W7700RSA",
     "name": "W7700RSA",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6756,7 +7083,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700SA",
@@ -6765,6 +7093,7 @@
     "series": "W70",
     "sku": "W7700SA",
     "name": "W7700SA",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6796,7 +7125,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7700MD",
@@ -6805,6 +7135,7 @@
     "series": "W70",
     "sku": "W7700MD",
     "name": "W7700MD",
+    "tempSteps": 13,
     "image": "iron-kr_W7001RA.webp",
     "released": "2016.05",
     "discontinued": true,
@@ -6835,7 +7166,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7900LA",
@@ -6844,6 +7176,7 @@
     "series": "W79",
     "sku": "W7900LA",
     "name": "BLACK SHINE / DE NEW / [블랙 샤인 더뉴]",
+    "tempSteps": 13,
     "image": "iron-kr_W7900LA.webp",
     "released": "2020.1",
     "discontinued": true,
@@ -6882,7 +7215,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7900MA",
@@ -6891,6 +7225,7 @@
     "series": "W79",
     "sku": "W7900MA",
     "name": "W7900MA",
+    "tempSteps": 13,
     "image": "iron-kr_W7900LA.webp",
     "released": "2020.1",
     "discontinued": true,
@@ -6922,7 +7257,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7900SA",
@@ -6931,6 +7267,7 @@
     "series": "W79",
     "sku": "W7900SA",
     "name": "W7900SA",
+    "tempSteps": 13,
     "image": "iron-kr_W7900LA.webp",
     "released": "2020.1",
     "discontinued": true,
@@ -6962,7 +7299,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7900RA",
@@ -6971,6 +7309,7 @@
     "series": "W79",
     "sku": "W7900RA",
     "name": "W7900RA",
+    "tempSteps": 13,
     "image": "iron-kr_W7900LA.webp",
     "released": "2020.1",
     "discontinued": true,
@@ -7002,7 +7341,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W7900RSA",
@@ -7011,6 +7351,7 @@
     "series": "W79",
     "sku": "W7900RSA",
     "name": "W7900RSA",
+    "tempSteps": 13,
     "image": "iron-kr_W7900LA.webp",
     "released": "2020.1",
     "discontinued": true,
@@ -7042,7 +7383,8 @@
       "터치센서"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W8001LA",
@@ -7051,6 +7393,7 @@
     "series": "W80",
     "sku": "W8001LA",
     "name": "W8001LA",
+    "tempSteps": 11,
     "image": "iron-kr_W8001LA.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -7080,7 +7423,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W8001MA",
@@ -7089,6 +7433,7 @@
     "series": "W80",
     "sku": "W8001MA",
     "name": "W8001MA",
+    "tempSteps": 11,
     "image": "iron-kr_W8001LA.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -7118,7 +7463,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W8001RA",
@@ -7127,6 +7473,7 @@
     "series": "W80",
     "sku": "W8001RA",
     "name": "W8001RA",
+    "tempSteps": 11,
     "image": "iron-kr_W8001LA.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -7155,7 +7502,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W8001SA",
@@ -7164,6 +7512,7 @@
     "series": "W80",
     "sku": "W8001SA",
     "name": "W8001SA",
+    "tempSteps": 11,
     "image": "iron-kr_W8001LA.webp",
     "released": "2011.03",
     "discontinued": true,
@@ -7193,7 +7542,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-W9001MA",
@@ -7202,6 +7552,7 @@
     "series": "W90",
     "sku": "W9001MA",
     "name": "NST워터 프루푸",
+    "tempSteps": 16,
     "image": "iron-kr_W9001MA.webp",
     "released": "2015.03",
     "discontinued": true,
@@ -7237,7 +7588,8 @@
       "프루푸"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WR3016A",
@@ -7246,6 +7598,7 @@
     "series": "WR30",
     "sku": "WR3016A",
     "name": "WR3016A",
+    "tempSteps": null,
     "image": "iron-kr_WR3016A.webp",
     "released": "2013.02",
     "discontinued": true,
@@ -7272,7 +7625,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WR3207B",
@@ -7281,6 +7635,7 @@
     "series": "WR30",
     "sku": "WR3207B",
     "name": "WR3207B",
+    "tempSteps": null,
     "image": "iron-kr_WR3207B.webp",
     "released": "2012.06",
     "discontinued": true,
@@ -7307,7 +7662,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WR4011A",
@@ -7316,6 +7672,7 @@
     "series": "WR40",
     "sku": "WR4011A",
     "name": "WR4011A",
+    "tempSteps": null,
     "image": "iron-kr_WR4011A.webp",
     "released": "미출시",
     "discontinued": true,
@@ -7341,7 +7698,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WR4011B",
@@ -7350,6 +7708,7 @@
     "series": "WR40",
     "sku": "WR4011B",
     "name": "WR4011B",
+    "tempSteps": null,
     "image": "iron-kr_WR4011A.webp",
     "released": "미출시",
     "discontinued": true,
@@ -7375,7 +7734,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WR4011C",
@@ -7384,6 +7744,7 @@
     "series": "WR40",
     "sku": "WR4011C",
     "name": "WR4011C",
+    "tempSteps": null,
     "image": "iron-kr_WR4011A.webp",
     "released": "미출시",
     "discontinued": true,
@@ -7409,7 +7770,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS5001MA",
@@ -7418,6 +7780,7 @@
     "series": "WS50",
     "sku": "WS5001MA",
     "name": "OBJET / [오브제]",
+    "tempSteps": 4,
     "image": "iron-kr_WS5001MA.webp",
     "released": "2020.12",
     "discontinued": true,
@@ -7453,7 +7816,8 @@
       "오브제"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS5001RA",
@@ -7462,6 +7826,7 @@
     "series": "WS50",
     "sku": "WS5001RA",
     "name": "WS5001RA",
+    "tempSteps": 4,
     "image": "iron-kr_WS5001RA.webp",
     "released": "2020.12",
     "discontinued": true,
@@ -7495,7 +7860,8 @@
       "열판잠금"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS5002MB",
@@ -7504,6 +7870,7 @@
     "series": "WS50",
     "sku": "WS5002MB",
     "name": "WS5002MB",
+    "tempSteps": 4,
     "image": "iron-kr_WS5002MB.webp",
     "released": "2021.04",
     "discontinued": false,
@@ -7537,7 +7904,8 @@
       "열판잠금"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS5002RB",
@@ -7546,6 +7914,7 @@
     "series": "WS50",
     "sku": "WS5002RB",
     "name": "WS5002RB",
+    "tempSteps": 4,
     "image": "iron-kr_WS5002RB.webp",
     "released": "2021.04",
     "discontinued": false,
@@ -7579,7 +7948,8 @@
       "열판잠금"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-CWS5011MC",
@@ -7588,6 +7958,7 @@
     "series": "WS50",
     "sku": "CWS5011MC",
     "name": "CWS5011MC",
+    "tempSteps": 4,
     "image": "iron-kr_CWS5011MC.webp",
     "released": "2021.07",
     "discontinued": false,
@@ -7622,7 +7993,8 @@
       "웜그레이"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS6001A",
@@ -7631,6 +8003,7 @@
     "series": "WS60",
     "sku": "WS6001A",
     "name": "Style ON / [스타일온]",
+    "tempSteps": 5,
     "image": "iron-kr_WS6001A.webp",
     "released": "2020.11",
     "discontinued": false,
@@ -7664,7 +8037,8 @@
       "스타일온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WS6002B",
@@ -7673,6 +8047,7 @@
     "series": "WS60",
     "sku": "WS6002B",
     "name": "WS6002B",
+    "tempSteps": 5,
     "image": "iron-kr_WS6002B.webp",
     "released": "2020.11",
     "discontinued": false,
@@ -7703,7 +8078,8 @@
       "스타일러"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WN8A01LA",
@@ -7712,6 +8088,7 @@
     "series": "WN8A",
     "sku": "WN8A01LA",
     "name": "SIGNATURE MAGIC / [시그니처 매직]",
+    "tempSteps": 12,
     "image": "iron-kr_WN8A01LA.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -7749,7 +8126,8 @@
       "시그니처"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WN8A01MA",
@@ -7758,6 +8136,7 @@
     "series": "WN8A",
     "sku": "WN8A01MA",
     "name": "WN8A01MA",
+    "tempSteps": 12,
     "image": "iron-kr_WN8A01LA.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -7791,7 +8170,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WN8A01RA",
@@ -7800,6 +8180,7 @@
     "series": "WN8A",
     "sku": "WN8A01RA",
     "name": "WN8A01RA",
+    "tempSteps": 12,
     "image": "iron-kr_WN8A01LA.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -7833,7 +8214,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WN8A01SA",
@@ -7842,6 +8224,7 @@
     "series": "WN8A",
     "sku": "WN8A01SA",
     "name": "WN8A01SA",
+    "tempSteps": 12,
     "image": "iron-kr_WN8A01LA.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -7875,7 +8258,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-kr-WN8A01RSA",
@@ -7884,6 +8268,7 @@
     "series": "WN8A",
     "sku": "WN8A01RSA",
     "name": "WN8A01RSA",
+    "tempSteps": 12,
     "image": "iron-kr_WN8A01LA.webp",
     "released": "2023.05",
     "discontinued": false,
@@ -7917,7 +8302,8 @@
       "슬립모드"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SW3A01MA",
@@ -7926,6 +8312,7 @@
     "series": "소싱",
     "sku": "SW3A01MA",
     "name": "플랫핑크",
+    "tempSteps": 4,
     "image": "iron-src_SW3A01MA.webp",
     "released": "2024.09",
     "discontinued": false,
@@ -7960,7 +8347,8 @@
       "플랫핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SRB3A01A",
@@ -7969,6 +8357,7 @@
     "series": "소싱",
     "sku": "SRB3A01A",
     "name": "볼륨온",
+    "tempSteps": 5,
     "image": "iron-src_SRB3A01A.webp",
     "released": "2025.03",
     "discontinued": false,
@@ -8000,7 +8389,8 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SRB3A02B",
@@ -8009,6 +8399,7 @@
     "series": "소싱",
     "sku": "SRB3A02B",
     "name": "SRB3A02B",
+    "tempSteps": 5,
     "image": "iron-src_SRB3A02B.webp",
     "released": "2025.12",
     "discontinued": false,
@@ -8039,7 +8430,8 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SRB3A03C",
@@ -8048,6 +8440,7 @@
     "series": "소싱",
     "sku": "SRB3A03C",
     "name": "SRB3A03C",
+    "tempSteps": 5,
     "image": "iron-src_SRB3A03C.webp",
     "released": "2025.12",
     "discontinued": false,
@@ -8078,7 +8471,8 @@
       "화이트"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SRI5A01A",
@@ -8087,6 +8481,7 @@
     "series": "소싱",
     "sku": "SRI5A01A",
     "name": "프리피",
+    "tempSteps": 3,
     "image": "iron-src_SRI5A01A.webp",
     "released": "2025.09",
     "discontinued": false,
@@ -8117,7 +8512,8 @@
       "프리피"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SWC5A01A",
@@ -8126,6 +8522,7 @@
     "series": "소싱",
     "sku": "SWC5A01A",
     "name": "글로우온",
+    "tempSteps": 11,
     "image": "iron-src_SWC5A01A.webp",
     "released": "2025.11",
     "discontinued": false,
@@ -8157,7 +8554,8 @@
       "음이온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "iron-src-SRB4A01A",
@@ -8166,6 +8564,7 @@
     "series": "소싱",
     "sku": "SRB4A01A",
     "name": "볼륨온 플러스",
+    "tempSteps": 5,
     "image": "iron-src_SRB4A01A.webp",
     "released": "2026.04",
     "discontinued": false,
@@ -8198,7 +8597,8 @@
       "플러스"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null
   },
   {
     "id": "curl-WC5028A",
@@ -8244,7 +8644,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WC5032A",
@@ -8286,7 +8688,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WC5036A",
@@ -8328,7 +8732,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WC5040A",
@@ -8370,7 +8776,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS6032A",
@@ -8415,7 +8823,9 @@
       "픽앤컬"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS6036A",
@@ -8456,7 +8866,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS6040A",
@@ -8497,7 +8909,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS4A36A",
@@ -8544,7 +8958,9 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS4A40A",
@@ -8588,7 +9004,9 @@
       "핑크"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS5A36A",
@@ -8634,7 +9052,9 @@
       "컬링온"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS5A40A",
@@ -8678,7 +9098,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS5A36B",
@@ -8722,7 +9144,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "curl-WCS5A40B",
@@ -8766,7 +9190,9 @@
       "컬링아이언"
     ],
     "isAccessory": false,
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "home-JBD1900A",
@@ -8809,7 +9235,9 @@
       "음이온케어",
       "적외선"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "home-CLS5A01A",
@@ -8852,7 +9280,9 @@
       "화이트",
       "회전"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "home-CLS3A01A",
@@ -8893,7 +9323,9 @@
       "화이트",
       "회전"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "home-CTS7A01A",
@@ -8942,7 +9374,9 @@
       "풍속",
       "회전"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "home-CMF1000A",
@@ -8987,7 +9421,9 @@
       "화이트",
       "회전"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "bytulz-FA01A",
@@ -9051,7 +9487,9 @@
       "함침",
       "활성탄"
     ],
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "bytulz-FA-FILTER_A",
@@ -9091,7 +9529,9 @@
       "주방가전",
       "필터"
     ],
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   },
   {
     "id": "bytulz-FA-DRY_A",
@@ -9131,6 +9571,8 @@
       "음식물처리기",
       "주방가전"
     ],
-    "lineGroup": null
+    "lineGroup": null,
+    "switchSteps": null,
+    "tempSteps": null
   }
 ]

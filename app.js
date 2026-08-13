@@ -2,12 +2,16 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.8';
+const CURRENT_VERSION = 'V2.9';
 const VERSION_LOG = [
-  { v: 'V2.8', date: '2026.08', notes: [
-    '상단바에 쇼핑몰 5개 바로가기 메뉴 추가 (JMW 공식몰/네이버, 엘리첸 네이버, 바이툴즈 공식몰/네이버) — 클릭 시 새 탭으로 바로 이동',
-    '모델별 자사몰 링크 자동 매칭은 정확도 문제로 보류 — 상품코드+URL 매핑을 엑셀로 받으면 정확하게 연결 가능',
+  { v: 'V2.9', date: '2026.08', notes: [
+    '"정렬 기준"/"빠른 선택"/"시리즈" 영역을 각각 라벨과 구분선으로 명확히 분리 (기존엔 한 줄에 섞여 있어 헷갈림)',
+    '드라이기: 스위치 단수(2~6단) 빠른 선택 칩 추가',
+    '아이론: 온도 단계(1~16단) 빠른 선택 칩 추가',
+    '단계 칩끼리는 OR(하나라도 해당), 다른 키워드와는 AND로 결합 — 텍스트 매칭이 아닌 정확한 숫자 추출 방식이라 "11단"이 "1단"에 잘못 걸리는 오류 없음',
+    '블로우셋/블로우셋 프로 → "블로우셋", 케어부스터/케어부스터FV → "케어부스터"로 시리즈 통합',
   ]},
+  { v: 'V2.8', date: '2026.08', notes: ['상단바에 쇼핑몰 5개 바로가기 메뉴 추가 (JMW 공식몰/네이버, 엘리첸 네이버, 바이툴즈 공식몰/네이버) — 클릭 시 새 탭으로 바로 이동'] },
   { v: 'V2.7', date: '2026.08', notes: [
     '드라이기에 "프리볼트" 키워드 추가 (100-240V 겸용 모델 2종)',
     '빠른 키워드 다중 선택 지원 — 여러 개 선택 시 AND 조합으로 필터링',
@@ -156,12 +160,16 @@ const SMART_TAGS = {
   ],
 };
 
+// 단계 필터 대상 필드 (드라이기=스위치 단수, 아이론=온도 단계) — 값이 상호배타적이라 이 항목끼리는 OR, 다른 조건과는 AND
+const STEP_FIELD = { dryer: 'switchSteps', iron: 'tempSteps' };
+
 let PRODUCTS = [];
 let state = {
   category: '이미용가전',
   subcategory: 'dryer',
   query: '',
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
+  stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
   seriesFilter: null,     // 계열/라인 그룹 필터
   dryerType: 'all',
   includeDiscontinued: true,
@@ -221,6 +229,7 @@ function setCategory(cat, sub) {
   state.subcategory = sub || Object.keys(CATS[cat].subs)[0];
   state.dryerType = 'all';
   state.tagFilter = new Set();
+  state.stepFilter = new Set();
   state.seriesFilter = null;
   state.smartSort = null;
   state.query = '';
@@ -289,6 +298,12 @@ function getFiltered() {
     }
     if (state.tagFilter.size > 0) {
       items = items.filter(p => Array.from(state.tagFilter).every(tag => matchesQuery(p, expandQuery(tag))));
+    }
+    if (state.stepFilter.size > 0) {
+      const field = STEP_FIELD[state.subcategory];
+      if (field) {
+        items = items.filter(p => p[field] !== null && p[field] !== undefined && state.stepFilter.has(p[field]));
+      }
     }
     if (state.seriesFilter) {
       items = items.filter(p => seriesGroupKey(p) === state.seriesFilter);
@@ -470,21 +485,22 @@ function render() {
 
   const smartTags = isGlobalSearch() ? [] : (SMART_TAGS[state.subcategory] || []);
   const tagTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []);
-  const smartChipsHtml = smartTags.map(t =>
-    `<button class="chip chip-smart ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`
+
+  $('#sortTagsMain').innerHTML = smartTags.map(t =>
+    `<button class="chip ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`
   ).join('');
-  const tagChipsHtml = tagTags.map(t =>
-    `<button class="chip ${state.tagFilter.has(t) ? 'active' : ''}" data-tag="${t}">${t}</button>`
-  ).join('');
-  $('#quickTagsMain').innerHTML = smartChipsHtml + tagChipsHtml;
-  $$('.chip[data-smart]', $('#quickTagsMain')).forEach(btn => {
+  $$('.chip[data-smart]', $('#sortTagsMain')).forEach(btn => {
     btn.addEventListener('click', () => {
       const label = btn.dataset.smart;
       state.smartSort = (state.smartSort && state.smartSort.label === label) ? null : matchSmartTagByLabel(label);
       render();
     });
   });
-  $$('.chip[data-tag]', $('#quickTagsMain')).forEach(btn => {
+
+  $('#filterTagsMain').innerHTML = tagTags.map(t =>
+    `<button class="chip ${state.tagFilter.has(t) ? 'active' : ''}" data-tag="${t}">${t}</button>`
+  ).join('');
+  $$('.chip[data-tag]', $('#filterTagsMain')).forEach(btn => {
     btn.addEventListener('click', () => {
       const tag = btn.dataset.tag;
       if (state.tagFilter.has(tag)) state.tagFilter.delete(tag);
@@ -493,10 +509,34 @@ function render() {
     });
   });
 
+  // 단계 칩 (드라이기: 스위치 단수 / 아이론: 온도 단계) — 같은 종류끼리는 OR
+  const stepField = STEP_FIELD[state.subcategory];
+  if (!isGlobalSearch() && stepField) {
+    const baseForSteps = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
+    const stepValues = Array.from(new Set(baseForSteps.map(p => p[stepField]).filter(v => v !== null && v !== undefined))).sort((a, b) => a - b);
+    const stepChipsHtml = stepValues.map(v =>
+      `<button class="chip ${state.stepFilter.has(v) ? 'active' : ''}" data-step="${v}">${v}단</button>`
+    ).join('');
+    $('#filterTagsMain').insertAdjacentHTML('beforeend', stepChipsHtml);
+    $$('.chip[data-step]', $('#filterTagsMain')).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = Number(btn.dataset.step);
+        if (state.stepFilter.has(v)) state.stepFilter.delete(v);
+        else state.stepFilter.add(v);
+        render();
+      });
+    });
+  }
+
+  $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
+  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField) ? '' : 'none';
+
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
+  const seriesSection = seriesRow.closest('.chip-section');
   if (isGlobalSearch()) {
     seriesRow.innerHTML = '';
+    seriesSection.style.display = 'none';
   } else {
     const baseItems = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
     const counts = new Map();
@@ -506,8 +546,9 @@ function render() {
     });
     const groups = Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
     if (groups.length > 1) {
-      seriesRow.innerHTML = `<span class="series-row-label">시리즈</span>` + groups.map(([key, count]) =>
-        `<button class="chip chip-series ${state.seriesFilter === key ? 'active' : ''}" data-series="${escapeHtml(key)}">${escapeHtml(key)} <span class="chip-count">${count}</span></button>`
+      seriesSection.style.display = '';
+      seriesRow.innerHTML = groups.map(([key, count]) =>
+        `<button class="chip ${state.seriesFilter === key ? 'active' : ''}" data-series="${escapeHtml(key)}">${escapeHtml(key)} <span class="chip-count">${count}</span></button>`
       ).join('');
       $$('.chip[data-series]', seriesRow).forEach(btn => {
         btn.addEventListener('click', () => {
@@ -518,12 +559,13 @@ function render() {
       });
     } else {
       seriesRow.innerHTML = '';
+      seriesSection.style.display = 'none';
     }
   }
 
   const grid = $('#grid');
   if (items.length === 0) {
-    const terms = [state.query, ...Array.from(state.tagFilter), state.seriesFilter].filter(Boolean);
+    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), state.seriesFilter].filter(Boolean);
     const shownTerm = terms.join(', ');
     grid.innerHTML = `
       <div class="empty-state">
