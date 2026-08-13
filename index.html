@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.11
+  Version: V2.12
   Updated: 2026.08.13
   Changelog: 이번 버전엔 아래 항목 참고 (전체 변경이력은 좌측 사이드바 "버전 정보" 또는 README.md 참고)
-    - "유통" 빠른 선택 섹션 추가 (제품명과 혼동 없이 유통 필드만 정확히 매칭)
-    - 비교창 모델 삭제 버튼 시인성 개선
+    - 유통 필터를 엑셀 원본 값 그대로 표시 (OR 선택)
+    - 비교창 전체 폭 확장 + 고정 크기 + 모델별 칸 균등 배분
+    - 비교표에 "더 좋은 값" 자동 하이라이트(▲) 추가
 -->
 <html lang="ko">
 <head>
@@ -71,7 +72,7 @@
       <div class="quick-tags" id="filterTagsMain"></div>
     </div>
     <div class="chip-section chip-section-divider" id="distSection">
-      <p class="chip-section-label">유통 <span class="hint">복수 선택 시 AND(모두 만족)</span></p>
+      <p class="chip-section-label">유통 <span class="hint">복수 선택 시 OR(하나라도 일치) · 엑셀 원본 값 그대로 표시</span></p>
       <div class="quick-tags" id="distTagsMain"></div>
     </div>
     <div class="chip-section chip-section-divider">
@@ -91,7 +92,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.11 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.12 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->

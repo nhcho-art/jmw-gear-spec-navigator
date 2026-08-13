@@ -2,8 +2,13 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.11';
+const CURRENT_VERSION = 'V2.12';
 const VERSION_LOG = [
+  { v: 'V2.12', date: '2026.08', notes: [
+    '유통 필터를 엑셀 원본 값 그대로 표시하도록 변경 (예: "MASS / 온라인직영"을 쪼개지 않고 그 문구 자체로 선택) — 복수 선택 시 OR',
+    '비교창 전체 폭을 넓히고, 선택 개수(2~6개)와 무관하게 전체 창 크기는 고정, 모델별 칸 너비만 균등하게 자동 배분',
+    '비교표에 "더 좋은 값" 자동 하이라이트(▲) 추가 — 무게는 가벼울수록, 코드길이·풍온·풍속·와트·온도범위·스위치 단계는 높을수록 좋은 것으로 판단해 방향에 맞게 표시',
+  ]},
   { v: 'V2.11', date: '2026.08', notes: [
     '"유통" 빠른 선택 섹션 추가 (드라이기: MASS/PRO/직판/온라인직영/특판/온라인/오프라인/홈쇼핑, 아이론: MASS/PRO/직판/직영, 컬링아이언: MASS/PRO)',
     '유통 필터는 "유통" 필드만 정확히 매칭 — 제품명에 "PRO"가 들어간 것과 실제 유통채널이 PRO인 것을 혼동하지 않도록 전용 필드 사용 (검증 중 5개 제품에서 오탐 가능성 발견해 수정)',
@@ -95,12 +100,6 @@ const QUICK_TAGS = {
   bodydryer:  ['음이온케어', '예열기능', '메모리기능'],
   circulator: ['수면풍', '자연풍', '무선', '회전'],
   bytulz:     ['감량율', '살균', '자동'],
-};
-
-const DISTRIBUTION_TAGS = {
-  dryer:   ['MASS', 'PRO', '직판', '온라인직영', '특판', '온라인', '오프라인', '홈쇼핑'],
-  iron:    ['MASS', 'PRO', '직판', '직영'],
-  curling: ['MASS', 'PRO'],
 };
 
 const SYNONYMS = {
@@ -323,9 +322,7 @@ function getFiltered() {
       }
     }
     if (state.distFilter.size > 0) {
-      items = items.filter(p => Array.from(state.distFilter).every(ch =>
-        (p.distChannels || []).some(c => c.toUpperCase() === ch.toUpperCase())
-      ));
+      items = items.filter(p => state.distFilter.has(p.specs['유통'] || ''));
     }
     if (state.seriesFilter) {
       items = items.filter(p => seriesGroupKey(p) === state.seriesFilter);
@@ -553,20 +550,37 @@ function render() {
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
   $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField) ? '' : 'none';
 
-  // 유통 채널 칩 — distChannels 필드만 정확히 매칭 (제품명 등 다른 텍스트와 혼동되지 않음)
-  const distTags = isGlobalSearch() ? [] : (DISTRIBUTION_TAGS[state.subcategory] || []);
-  $('#distTagsMain').innerHTML = distTags.map(t =>
-    `<button class="chip ${state.distFilter.has(t) ? 'active' : ''}" data-dist="${t}">${t}</button>`
-  ).join('');
-  $$('.chip[data-dist]', $('#distTagsMain')).forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tag = btn.dataset.dist;
-      if (state.distFilter.has(tag)) state.distFilter.delete(tag);
-      else state.distFilter.add(tag);
-      render();
+  // 유통 채널 칩 — 엑셀 "유통" 원본 값 그대로 표시 (조합/분해 없이). 값은 서로 배타적이므로 복수 선택 시 OR.
+  const distSection = $('#distSection');
+  if (isGlobalSearch()) {
+    $('#distTagsMain').innerHTML = '';
+    distSection.style.display = 'none';
+  } else {
+    const baseForDist = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
+    const distCounts = new Map();
+    baseForDist.forEach(p => {
+      const v = p.specs['유통'];
+      if (v) distCounts.set(v, (distCounts.get(v) || 0) + 1);
     });
-  });
-  $('#distSection').style.display = distTags.length ? '' : 'none';
+    const distValues = Array.from(distCounts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+    if (distValues.length > 1) {
+      distSection.style.display = '';
+      $('#distTagsMain').innerHTML = distValues.map(([v, count]) =>
+        `<button class="chip ${state.distFilter.has(v) ? 'active' : ''}" data-dist="${escapeHtml(v)}">${escapeHtml(v)} <span class="chip-count">${count}</span></button>`
+      ).join('');
+      $$('.chip[data-dist]', $('#distTagsMain')).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.dist;
+          if (state.distFilter.has(v)) state.distFilter.delete(v);
+          else state.distFilter.add(v);
+          render();
+        });
+      });
+    } else {
+      $('#distTagsMain').innerHTML = '';
+      distSection.style.display = 'none';
+    }
+  }
 
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
@@ -709,6 +723,18 @@ function openProductModal(id) {
   showOverlay('#productOverlay');
 }
 
+// 비교표에서 "더 좋은 값"을 판단할 방향 (desc=높을수록 좋음, asc=낮을수록 좋음)
+const SPEC_DIRECTION = {
+  '무게': { dir: 'asc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
+  '코드길이': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
+  '코드 길이': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
+  '풍온': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
+  '풍속': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
+  '와트': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
+  '온도범위': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
+  '스위치': { dir: 'desc', fn: v => { const m = String(v || '').match(/(\d+)\s*단/); return m ? Number(m[1]) : null; } },
+};
+
 function openCompareModal() {
   const items = Array.from(state.compare).map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
   if (items.length < 2) return;
@@ -716,8 +742,11 @@ function openCompareModal() {
   const labelOrder = [];
   items.forEach(p => Object.keys(p.specs).forEach(k => { if (!labelOrder.includes(k)) labelOrder.push(k); }));
 
+  const ROW_LABEL_WIDTH = 130; // px
+  const colWidthStyle = `width:calc((100% - ${ROW_LABEL_WIDTH}px) / ${items.length})`;
+
   const headCells = items.map(p => `
-    <th class="compare-head-cell">
+    <th class="compare-head-cell" style="${colWidthStyle}">
       <img src="images/${p.image}" alt="">
       <div class="cname">${escapeHtml(p.name)}</div>
       <div class="csku">${escapeHtml(p.sku)}</div>
@@ -727,9 +756,24 @@ function openCompareModal() {
   const bodyRows = labelOrder.map(label => {
     const values = items.map(p => p.specs[label] || '—');
     const allSame = values.every(v => v === values[0]);
-    const cells = items.map((p, i) => `<td class="${allSame ? '' : 'diff'}">${escapeHtml(values[i])}</td>`).join('');
-    return `<tr><td class="row-label">${escapeHtml(label)}</td>${cells}</tr>`;
+    const direction = SPEC_DIRECTION[label];
+    let bestFlags = null;
+    if (direction && !allSame) {
+      const nums = items.map(p => direction.fn(p.specs[label]));
+      const valid = nums.filter(n => n !== null && n !== undefined && !isNaN(n));
+      if (valid.length >= 2) {
+        const best = direction.dir === 'asc' ? Math.min(...valid) : Math.max(...valid);
+        bestFlags = nums.map(n => n !== null && n !== undefined && !isNaN(n) && n === best);
+      }
+    }
+    const cells = items.map((p, i) => {
+      let cls = allSame ? '' : 'diff';
+      if (bestFlags && bestFlags[i]) cls = 'best';
+      return `<td class="${cls}" style="${colWidthStyle}">${bestFlags && bestFlags[i] ? '<span class="best-mark">▲</span> ' : ''}${escapeHtml(values[i])}</td>`;
+    }).join('');
+    return `<tr><td class="row-label" style="width:${ROW_LABEL_WIDTH}px">${escapeHtml(label)}</td>${cells}</tr>`;
   }).join('');
+
 
   const relByProduct = relativeInsights(items);
   const insightCards = items.map(p => {
@@ -750,7 +794,7 @@ function openCompareModal() {
 
   $('#compareModalBody').innerHTML = `
     <h2>스펙 비교</h2>
-    <p class="sub">선택한 ${items.length}개 모델의 사양을 나란히 비교합니다. 값이 다른 항목은 강조 표시됩니다.</p>
+    <p class="sub">선택한 ${items.length}개 모델의 사양을 나란히 비교합니다. <span class="best-mark">▲</span>는 해당 항목에서 더 좋은 값(가벼움·긴 코드·높은 출력 등, 방향에 맞게 자동 판단)을 의미하며, 그 외 값이 다른 항목은 주황색으로 강조됩니다.</p>
     <div class="compare-scroll">
       <table class="compare-table">
         <thead><tr><th class="row-label">모델</th>${headCells}</tr></thead>
