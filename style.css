@@ -310,7 +310,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 .quick-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .quick-tags .chip { font-size: 12px; }
-.quick-tags .chip::before { content: '✦ '; opacity: .6; }
+.quick-tags .chip[data-tag]::before { content: '✦ '; opacity: .6; }
+.quick-tags .chip[data-smart]::before { content: '↕ '; opacity: .6; }
+.quick-tags .chip[data-smart] { border-style: dashed; }
+.quick-tags .chip[data-smart].active { border-style: solid; }
 
 /* ==========================================================================
    Compare tray

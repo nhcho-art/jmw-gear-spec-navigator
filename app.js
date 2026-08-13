@@ -36,12 +36,12 @@ const CARD_SPEC_KEYS = {
 };
 
 const QUICK_TAGS = {
-  dryer:      ['두피케어', 'LED케어', '망치형', '음이온', '신제품'],
-  iron:       ['슬립모드', '무빙센서', '터치센서', '방수', '골드', '프리볼트'],
-  curling:    ['자동전원차단', '사용자온도기억', '프리볼트', '음이온'],
+  dryer:      ['음이온', '셀프클리닝', '전자파차단', 'LED케어', '세이프 모드'],
+  iron:       ['슬립모드', '터치센서', '열판잠금', '무빙센서', '방수', '프리볼트'],
+  curling:    ['자동전원차단', '사용자온도기억', '열판회전', '프리볼트'],
   bodydryer:  ['음이온케어', '예열기능', '메모리기능'],
   circulator: ['수면풍', '자연풍', '무선', '회전'],
-  bytulz:     ['살균', '자동', '필터'],
+  bytulz:     ['감량율', '살균', '자동'],
 };
 
 const SYNONYMS = {
@@ -62,7 +62,7 @@ const SYNONYMS = {
   '프리볼트': ['free voltage', 'freevoltage'],
 };
 
-/* ---- 드라이기 전용: 스펙 기반 스마트 정렬 키워드 ------------------------ */
+/* ---- 스펙 기반 스마트 정렬 키워드 (중분류별) ---------------------------- */
 function parseNumList(str) {
   if (!str) return [];
   const cleaned = String(str).replace(/,/g, '');
@@ -84,16 +84,37 @@ function specStepCount(p, key) {
   return matches ? new Set(matches).size : 0;
 }
 
-const DRYER_SMART_TAGS = [
-  { label: '풍속 높은순',     key: '풍속', fn: specMaxNum,   dir: 'desc' },
-  { label: '풍속 낮은순',     key: '풍속', fn: specMaxNum,   dir: 'asc'  },
-  { label: '풍속 단계 많은순', key: '풍속', fn: specStepCount, dir: 'desc' },
-  { label: '와트 높은순',     key: '와트', fn: specFirstNum, dir: 'desc' },
-  { label: '와트 낮은순',     key: '와트', fn: specFirstNum, dir: 'asc'  },
-  { label: '온도 높은순',     key: '풍온', fn: specMaxNum,   dir: 'desc' },
-  { label: '온도 낮은순',     key: '풍온', fn: specMaxNum,   dir: 'asc'  },
-  { label: '가벼운순',        key: '무게', fn: specFirstNum, dir: 'asc'  },
-];
+const SMART_TAGS = {
+  dryer: [
+    { label: '풍속 높은순',     key: '풍속', fn: specMaxNum,   dir: 'desc' },
+    { label: '풍속 낮은순',     key: '풍속', fn: specMaxNum,   dir: 'asc'  },
+    { label: '풍속 단계 많은순', key: '풍속', fn: specStepCount, dir: 'desc' },
+    { label: '와트 높은순',     key: '와트', fn: specFirstNum, dir: 'desc' },
+    { label: '와트 낮은순',     key: '와트', fn: specFirstNum, dir: 'asc'  },
+    { label: '온도 높은순',     key: '풍온', fn: specMaxNum,   dir: 'desc' },
+    { label: '온도 낮은순',     key: '풍온', fn: specMaxNum,   dir: 'asc'  },
+    { label: '가벼운순',        key: '무게', fn: specFirstNum, dir: 'asc'  },
+  ],
+  iron: [
+    { label: '온도 높은순', key: '온도범위', fn: specMaxNum,   dir: 'desc' },
+    { label: '온도 낮은순', key: '온도범위', fn: specMaxNum,   dir: 'asc'  },
+    { label: '와트 높은순', key: '와트',     fn: specFirstNum, dir: 'desc' },
+    { label: '와트 낮은순', key: '와트',     fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',    key: '무게',     fn: specFirstNum, dir: 'asc'  },
+  ],
+  curling: [
+    { label: '온도 높은순',   key: '온도범위',   fn: specMaxNum,   dir: 'desc' },
+    { label: '온도 낮은순',   key: '온도범위',   fn: specMaxNum,   dir: 'asc'  },
+    { label: '열판 큰순',     key: '열판사이즈', fn: specFirstNum, dir: 'desc' },
+    { label: '열판 작은순',   key: '열판사이즈', fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',      key: '무게',       fn: specFirstNum, dir: 'asc'  },
+  ],
+  circulator: [
+    { label: '와트 높은순', key: '와트', fn: specFirstNum, dir: 'desc' },
+    { label: '와트 낮은순', key: '와트', fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',    key: '무게', fn: specFirstNum, dir: 'asc'  },
+  ],
+};
 
 let PRODUCTS = [];
 let state = {
@@ -102,7 +123,7 @@ let state = {
   query: '',
   tagFilter: null,        // 사이드바 "빠른 키워드" 칩 — 현재 중분류 내에서만 필터링
   dryerType: 'all',
-  includeDiscontinued: false,
+  includeDiscontinued: true,
   sort: 'newest',
   smartSort: null,
   compare: new Set(),
@@ -168,7 +189,7 @@ function setCategory(cat, sub) {
 }
 
 function matchSmartTagByLabel(label) {
-  return DRYER_SMART_TAGS.find(t => t.label === label) || null;
+  return (SMART_TAGS[state.subcategory] || []).find(t => t.label === label) || null;
 }
 
 function expandQuery(q) {
@@ -279,19 +300,6 @@ function renderRail() {
       </div>`;
   }
 
-  let smartSortBox = '';
-  if (!isGlobalSearch() && state.subcategory === 'dryer') {
-    smartSortBox = `
-      <div class="rail-group recommend-box">
-        <p class="rail-title">스펙 정밀 정렬</p>
-        <div class="chip-row" id="smartSortChips">
-          ${DRYER_SMART_TAGS.map(t => `<button class="chip ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`).join('')}
-        </div>
-      </div>`;
-  }
-
-  const quickTags = QUICK_TAGS[state.subcategory] || [];
-
   $('#rail').innerHTML = `
     <div class="rail-group">
       <p class="rail-title">Product Line</p>
@@ -302,13 +310,6 @@ function renderRail() {
       <div class="toggle-row">
         <span class="toggle-label">단종 모델 포함</span>
         <div class="switch ${state.includeDiscontinued ? 'on' : ''}" id="discToggle"></div>
-      </div>
-    </div>
-    ${smartSortBox}
-    <div class="rail-group recommend-box">
-      <p class="rail-title">빠른 키워드 추천</p>
-      <div class="chip-row" id="quickTagChips">
-        ${quickTags.map(t => `<button class="chip ${state.tagFilter === t ? 'active' : ''}" data-tag="${t}">${t}</button>`).join('')}
       </div>
     </div>
   `;
@@ -336,25 +337,9 @@ function renderRail() {
       });
     });
   }
-  const ssChips = $('#smartSortChips');
-  if (ssChips) {
-    $$('.chip', ssChips).forEach(btn => {
-      btn.addEventListener('click', () => {
-        const label = btn.dataset.smart;
-        state.smartSort = (state.smartSort && state.smartSort.label === label) ? null : matchSmartTagByLabel(label);
-        render();
-      });
-    });
-  }
   $('#discToggle').addEventListener('click', () => {
     state.includeDiscontinued = !state.includeDiscontinued;
     render();
-  });
-  $$('.chip', $('#quickTagChips')).forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.tagFilter = state.tagFilter === btn.dataset.tag ? null : btn.dataset.tag;
-      render();
-    });
   });
 }
 
@@ -415,11 +400,23 @@ function render() {
   }
   $('#resultCount').innerHTML = `<b>${items.length}</b>개 모델`;
 
-  const quickTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []);
-  $('#quickTagsMain').innerHTML = quickTags.map(t =>
+  const smartTags = isGlobalSearch() ? [] : (SMART_TAGS[state.subcategory] || []);
+  const tagTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []);
+  const smartChipsHtml = smartTags.map(t =>
+    `<button class="chip chip-smart ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`
+  ).join('');
+  const tagChipsHtml = tagTags.map(t =>
     `<button class="chip ${state.tagFilter === t ? 'active' : ''}" data-tag="${t}">${t}</button>`
   ).join('');
-  $$('.chip', $('#quickTagsMain')).forEach(btn => {
+  $('#quickTagsMain').innerHTML = smartChipsHtml + tagChipsHtml;
+  $$('.chip[data-smart]', $('#quickTagsMain')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const label = btn.dataset.smart;
+      state.smartSort = (state.smartSort && state.smartSort.label === label) ? null : matchSmartTagByLabel(label);
+      render();
+    });
+  });
+  $$('.chip[data-tag]', $('#quickTagsMain')).forEach(btn => {
     btn.addEventListener('click', () => {
       state.tagFilter = state.tagFilter === btn.dataset.tag ? null : btn.dataset.tag;
       render();
