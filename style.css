@@ -475,9 +475,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .compare-head-cell .cname { font-family: var(--font-display); font-weight: 600; font-size: 13.5px; margin-bottom: 2px; color: var(--text); }
 .compare-head-cell .csku { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }
 .compare-head-cell button {
-  margin-top: 8px; font-size: 11px; background: transparent; border: 1px solid var(--line);
-  color: var(--text-faint); border-radius: 6px; padding: 4px 8px; cursor: pointer;
+  margin-top: 8px; font-size: 12px; font-weight: 600; background: var(--panel-2);
+  border: 1px solid var(--line-strong); color: var(--danger); border-radius: 7px;
+  padding: 6px 10px; cursor: pointer; width: 100%; transition: all .15s;
 }
+.compare-head-cell button:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
 .compare-table td.diff { color: var(--warn); font-weight: 700; }
 .compare-table tbody tr:hover td { background: rgba(20,21,26,.02); }
 

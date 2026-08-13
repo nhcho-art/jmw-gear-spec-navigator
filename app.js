@@ -2,8 +2,17 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.9';
+const CURRENT_VERSION = 'V2.11';
 const VERSION_LOG = [
+  { v: 'V2.11', date: '2026.08', notes: [
+    '"유통" 빠른 선택 섹션 추가 (드라이기: MASS/PRO/직판/온라인직영/특판/온라인/오프라인/홈쇼핑, 아이론: MASS/PRO/직판/직영, 컬링아이언: MASS/PRO)',
+    '유통 필터는 "유통" 필드만 정확히 매칭 — 제품명에 "PRO"가 들어간 것과 실제 유통채널이 PRO인 것을 혼동하지 않도록 전용 필드 사용 (검증 중 5개 제품에서 오탐 가능성 발견해 수정)',
+    '비교창 모델별 삭제 버튼을 "✕ 비교에서 제외"로 더 눈에 띄게 개선 (기능은 기존에도 있었음)',
+  ]},
+  { v: 'V2.10', date: '2026.08', notes: [
+    '드라이기 "프리볼트" 키워드에 FREEGO(프리고, MVF6A01A) 추가',
+    '국내 드라이기는 엑셀에 전압 정보 컬럼이 없어 "100-240V" 자동 판별이 불가 — 확인된 모델을 수동 등록하는 방식으로 전환 (추가로 아는 프리볼트 모델 있으면 알려주면 반영)',
+  ]},
   { v: 'V2.9', date: '2026.08', notes: [
     '"정렬 기준"/"빠른 선택"/"시리즈" 영역을 각각 라벨과 구분선으로 명확히 분리 (기존엔 한 줄에 섞여 있어 헷갈림)',
     '드라이기: 스위치 단수(2~6단) 빠른 선택 칩 추가',
@@ -88,6 +97,12 @@ const QUICK_TAGS = {
   bytulz:     ['감량율', '살균', '자동'],
 };
 
+const DISTRIBUTION_TAGS = {
+  dryer:   ['MASS', 'PRO', '직판', '온라인직영', '특판', '온라인', '오프라인', '홈쇼핑'],
+  iron:    ['MASS', 'PRO', '직판', '직영'],
+  curling: ['MASS', 'PRO'],
+};
+
 const SYNONYMS = {
   '곱슬머리': ['컬링', '웨이브', '노즐', '브러시노즐', '매직'],
   '컬머리': ['컬링', '웨이브'],
@@ -170,6 +185,7 @@ let state = {
   query: '',
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
   stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
+  distFilter: new Set(),  // 유통 채널 칩 — distChannels 필드만 정확히 매칭 (제품명 등과 혼동 방지), 다중 선택 시 AND
   seriesFilter: null,     // 계열/라인 그룹 필터
   dryerType: 'all',
   includeDiscontinued: true,
@@ -230,6 +246,7 @@ function setCategory(cat, sub) {
   state.dryerType = 'all';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
+  state.distFilter = new Set();
   state.seriesFilter = null;
   state.smartSort = null;
   state.query = '';
@@ -304,6 +321,11 @@ function getFiltered() {
       if (field) {
         items = items.filter(p => p[field] !== null && p[field] !== undefined && state.stepFilter.has(p[field]));
       }
+    }
+    if (state.distFilter.size > 0) {
+      items = items.filter(p => Array.from(state.distFilter).every(ch =>
+        (p.distChannels || []).some(c => c.toUpperCase() === ch.toUpperCase())
+      ));
     }
     if (state.seriesFilter) {
       items = items.filter(p => seriesGroupKey(p) === state.seriesFilter);
@@ -531,6 +553,21 @@ function render() {
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
   $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField) ? '' : 'none';
 
+  // 유통 채널 칩 — distChannels 필드만 정확히 매칭 (제품명 등 다른 텍스트와 혼동되지 않음)
+  const distTags = isGlobalSearch() ? [] : (DISTRIBUTION_TAGS[state.subcategory] || []);
+  $('#distTagsMain').innerHTML = distTags.map(t =>
+    `<button class="chip ${state.distFilter.has(t) ? 'active' : ''}" data-dist="${t}">${t}</button>`
+  ).join('');
+  $$('.chip[data-dist]', $('#distTagsMain')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.dist;
+      if (state.distFilter.has(tag)) state.distFilter.delete(tag);
+      else state.distFilter.add(tag);
+      render();
+    });
+  });
+  $('#distSection').style.display = distTags.length ? '' : 'none';
+
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
   const seriesSection = seriesRow.closest('.chip-section');
@@ -565,7 +602,7 @@ function render() {
 
   const grid = $('#grid');
   if (items.length === 0) {
-    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), state.seriesFilter].filter(Boolean);
+    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), ...Array.from(state.distFilter), state.seriesFilter].filter(Boolean);
     const shownTerm = terms.join(', ');
     grid.innerHTML = `
       <div class="empty-state">
@@ -684,7 +721,7 @@ function openCompareModal() {
       <img src="images/${p.image}" alt="">
       <div class="cname">${escapeHtml(p.name)}</div>
       <div class="csku">${escapeHtml(p.sku)}</div>
-      <button data-remove-cmp="${p.id}">제외</button>
+      <button data-remove-cmp="${p.id}">✕ 비교에서 제외</button>
     </th>`).join('');
 
   const bodyRows = labelOrder.map(label => {

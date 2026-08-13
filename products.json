@@ -38,7 +38,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM1525B",
@@ -79,7 +82,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM2001A",
@@ -120,7 +126,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM5514A",
@@ -160,7 +169,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM5525B",
@@ -200,7 +212,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM5535C",
@@ -240,7 +255,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM5545D",
@@ -280,7 +298,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM5565E",
@@ -320,7 +341,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM6001A",
@@ -359,7 +383,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM6528B",
@@ -399,7 +426,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DM6020C",
@@ -438,7 +468,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-DS1514A",
@@ -478,7 +512,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS1523B",
@@ -518,7 +555,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS2021B",
@@ -558,7 +598,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS2031C",
@@ -598,7 +641,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS3514A",
@@ -638,7 +684,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS3534C",
@@ -678,7 +727,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-DS3703ED",
@@ -719,7 +771,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-HM5010A",
@@ -761,7 +816,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판",
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-HM5010B",
@@ -802,7 +862,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-I5001A",
@@ -840,7 +903,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-I5011B",
@@ -878,7 +944,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-I5021C",
@@ -916,7 +985,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3001A",
@@ -958,7 +1030,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3040F",
@@ -999,7 +1074,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-M3050F",
@@ -1040,7 +1118,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-M3060F",
@@ -1081,7 +1162,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M3150R",
@@ -1125,7 +1210,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M3150R_SE",
@@ -1171,7 +1260,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M3505E",
@@ -1212,7 +1305,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3602H",
@@ -1253,7 +1349,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3701K",
@@ -1294,7 +1393,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3206B",
@@ -1336,7 +1438,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3307C",
@@ -1378,7 +1483,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3405D",
@@ -1420,7 +1528,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3801LWS",
@@ -1466,7 +1577,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MH3170",
@@ -1507,7 +1621,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M3901J",
@@ -1548,7 +1665,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MC3A01A",
@@ -1592,7 +1712,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-MC3A02B",
@@ -1633,7 +1757,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-MC4A01A",
@@ -1676,7 +1804,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-MC4A02B",
@@ -1718,7 +1850,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-HHD-JM1550W",
@@ -1761,7 +1897,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "오프라인"
+    ]
   },
   {
     "id": "dryer-kr-MC4B01A",
@@ -1804,7 +1944,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "특판"
+    ]
   },
   {
     "id": "dryer-kr-MC4B02B",
@@ -1848,7 +1992,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "특판",
+      "하이마트향"
+    ]
   },
   {
     "id": "dryer-kr-MC4B03C",
@@ -1892,7 +2041,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "특판",
+      "하이마트향"
+    ]
   },
   {
     "id": "dryer-kr-MC5A01A",
@@ -1936,7 +2090,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-MC5A02B",
@@ -1977,7 +2135,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인"
+    ]
   },
   {
     "id": "dryer-kr-M5001A",
@@ -2019,7 +2181,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5150R",
@@ -2064,7 +2229,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M5150RS",
@@ -2111,7 +2280,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M5035C",
@@ -2152,7 +2325,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5042D",
@@ -2193,7 +2369,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5802A",
@@ -2234,7 +2413,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M5001A PLUS",
@@ -2277,7 +2459,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO",
@@ -2321,7 +2506,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO_W",
@@ -2366,7 +2554,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5061FWS",
@@ -2411,7 +2602,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5201A",
@@ -2454,7 +2648,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M5002B PLUS",
@@ -2497,7 +2694,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M7502A",
@@ -2538,7 +2738,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-M7502A PLUS",
@@ -2581,7 +2785,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "dryer-kr-MA5001A",
@@ -2624,7 +2832,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MA503B",
@@ -2667,7 +2878,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MA6001A",
@@ -2710,7 +2924,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MG1700",
@@ -2752,7 +2969,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MG1800",
@@ -2794,7 +3014,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MG1700 PLUS",
@@ -2836,7 +3059,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MG1800 PLUS",
@@ -2878,7 +3104,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-The New MG1800",
@@ -2921,7 +3150,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5001A",
@@ -2965,7 +3197,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5002B",
@@ -3006,7 +3241,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-atomy hair dryer",
@@ -3050,7 +3288,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5030C",
@@ -3095,7 +3336,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5040D",
@@ -3142,7 +3386,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5050E",
@@ -3189,7 +3436,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5060F",
@@ -3234,7 +3484,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5101DWS",
@@ -3280,7 +3533,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF5102F",
@@ -3320,7 +3576,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCF5A01A",
@@ -3365,7 +3624,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCF5A02B",
@@ -3407,7 +3669,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCF5A03C",
@@ -3449,7 +3714,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCF5A02B-벨리곰",
@@ -3495,7 +3763,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCF5B01A",
@@ -3538,7 +3809,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF6001A",
@@ -3582,7 +3856,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF6002B",
@@ -3627,7 +3904,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MF6003C",
@@ -3671,7 +3951,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS502",
@@ -3712,7 +3995,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6001A",
@@ -3755,7 +4041,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6020B",
@@ -3800,7 +4089,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6010A",
@@ -3842,7 +4134,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6003C",
@@ -3888,7 +4183,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6004D",
@@ -3929,7 +4227,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "오프라인"
+    ]
   },
   {
     "id": "dryer-kr-MS6100A",
@@ -3970,7 +4271,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-TR6100A",
@@ -4010,7 +4314,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6030C",
@@ -4057,7 +4364,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6040D",
@@ -4101,7 +4411,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6210A",
@@ -4142,7 +4455,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6031E",
@@ -4189,7 +4505,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6041F",
@@ -4233,7 +4552,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6301A",
@@ -4284,7 +4606,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6301A-M",
@@ -4337,7 +4662,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-CC6310A",
@@ -4378,7 +4706,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-CC6311B",
@@ -4419,7 +4750,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6401A",
@@ -4464,7 +4798,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS6402B",
@@ -4511,7 +4848,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MC6001A",
@@ -4556,7 +4896,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "특판"
+    ]
   },
   {
     "id": "dryer-kr-MC6002B",
@@ -4597,7 +4940,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "특판"
+    ]
   },
   {
     "id": "dryer-kr-MC6A11A",
@@ -4640,7 +4986,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "특판"
+    ]
   },
   {
     "id": "dryer-kr-MCS6001A",
@@ -4690,7 +5039,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MCS6002B",
@@ -4737,7 +5090,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MCS6003C",
@@ -4784,7 +5141,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MCS6004D",
@@ -4831,7 +5192,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MCS6003C-벨리곰",
@@ -4882,7 +5247,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MVF6A01A",
@@ -4924,11 +5293,15 @@
       "메모리",
       "모브크림",
       "스마트",
-      "프리고"
+      "프리고",
+      "프리볼트"
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS7002B",
@@ -4974,7 +5347,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS7001A",
@@ -5018,7 +5394,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MCP7A01A",
@@ -5067,7 +5446,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS8001A",
@@ -5115,7 +5497,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-MS8002B",
@@ -5159,7 +5544,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-M8001A",
@@ -5209,7 +5597,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "Pro"
+    ]
   },
   {
     "id": "dryer-kr-M8001A-B",
@@ -5260,7 +5651,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-S30001A",
@@ -5301,7 +5695,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-SD7001A",
@@ -5341,7 +5738,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판",
+      "MASS"
+    ]
   },
   {
     "id": "dryer-kr-SC7010A",
@@ -5386,7 +5788,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-SC7020B",
@@ -5429,7 +5834,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-STL7001A",
@@ -5479,7 +5887,13 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영",
+      "특판",
+      "홈쇼핑"
+    ]
   },
   {
     "id": "dryer-kr-STL7002B",
@@ -5527,7 +5941,13 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "온라인직영",
+      "특판",
+      "홈쇼핑"
+    ]
   },
   {
     "id": "dryer-kr-STL7101A",
@@ -5578,7 +5998,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-kr-MP9A01A",
@@ -5624,7 +6047,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-MP9A02B",
@@ -5669,7 +6095,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-kr-MCI8A01A",
@@ -5714,7 +6143,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "온라인직영"
+    ]
   },
   {
     "id": "dryer-src-SDU3A01A",
@@ -5759,7 +6191,10 @@
       "케어부스터"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SC1500A",
@@ -5803,7 +6238,10 @@
       "음이온"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SC1500B",
@@ -5846,7 +6284,10 @@
       "음이온"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SDA5A01A",
@@ -5893,7 +6334,10 @@
       "화이트"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SDN3A1A",
@@ -5937,7 +6381,10 @@
       "음이온"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "특판"
+    ]
   },
   {
     "id": "dryer-src-SDF4B1A",
@@ -5985,7 +6432,10 @@
       "화이트"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SDS3A1A",
@@ -6031,7 +6481,10 @@
       "헤어케어모드"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SAT3A2B",
@@ -6078,7 +6531,10 @@
       "프로"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "dryer-src-SAT3A1A",
@@ -6124,7 +6580,10 @@
       "음이온"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "dryer-src-SDMF4A1A",
@@ -6170,7 +6629,11 @@
       "프리볼트"
     ],
     "isAccessory": false,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS",
+      "무신사 전용"
+    ]
   },
   {
     "id": "iron-kr-W1001A",
@@ -6211,7 +6674,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W1014A",
@@ -6250,7 +6716,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W1014B",
@@ -6288,7 +6757,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W1014C",
@@ -6326,7 +6798,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2001MA",
@@ -6367,7 +6842,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판",
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2203MA",
@@ -6410,7 +6890,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2304MC",
@@ -6454,7 +6937,12 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판",
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2305MD",
@@ -6498,7 +6986,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2101MD",
@@ -6540,7 +7031,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W2010ME",
@@ -6582,7 +7076,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W5001LA",
@@ -6625,7 +7122,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W5001MA",
@@ -6668,7 +7168,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W5001RA",
@@ -6709,7 +7212,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W5001SA",
@@ -6750,7 +7256,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W6001MA",
@@ -6792,7 +7301,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W6001RA",
@@ -6832,7 +7344,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W6014MB",
@@ -6874,7 +7389,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W7001RA",
@@ -6916,7 +7434,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700MA",
@@ -6958,7 +7480,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700LA",
@@ -7000,7 +7526,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700RA",
@@ -7042,7 +7572,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700RSA",
@@ -7084,7 +7618,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700SA",
@@ -7126,7 +7664,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7700MD",
@@ -7167,7 +7709,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7900LA",
@@ -7216,7 +7762,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7900MA",
@@ -7258,7 +7808,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7900SA",
@@ -7300,7 +7854,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7900RA",
@@ -7342,7 +7900,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W7900RSA",
@@ -7384,7 +7946,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-W8001LA",
@@ -7424,7 +7990,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W8001MA",
@@ -7464,7 +8033,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W8001RA",
@@ -7503,7 +8075,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W8001SA",
@@ -7543,7 +8118,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-W9001MA",
@@ -7589,7 +8167,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO",
+      "직판"
+    ]
   },
   {
     "id": "iron-kr-WR3016A",
@@ -7626,7 +8208,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WR3207B",
@@ -7663,7 +8248,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WR4011A",
@@ -7699,7 +8287,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WR4011B",
@@ -7735,7 +8326,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WR4011C",
@@ -7771,7 +8365,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WS5001MA",
@@ -7817,7 +8414,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WS5001RA",
@@ -7861,7 +8461,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WS5002MB",
@@ -7905,7 +8508,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WS5002RB",
@@ -7949,7 +8555,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-CWS5011MC",
@@ -7994,7 +8603,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-kr-WS6001A",
@@ -8038,7 +8650,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS",
+      "직영"
+    ]
   },
   {
     "id": "iron-kr-WS6002B",
@@ -8079,7 +8695,11 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS",
+      "직영"
+    ]
   },
   {
     "id": "iron-kr-WN8A01LA",
@@ -8127,7 +8747,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "iron-kr-WN8A01MA",
@@ -8171,7 +8794,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "iron-kr-WN8A01RA",
@@ -8215,7 +8841,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "iron-kr-WN8A01SA",
@@ -8259,7 +8888,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "iron-kr-WN8A01RSA",
@@ -8303,7 +8935,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "iron-src-SW3A01MA",
@@ -8348,7 +8983,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-src-SRB3A01A",
@@ -8390,7 +9028,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-src-SRB3A02B",
@@ -8431,7 +9072,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-src-SRB3A03C",
@@ -8472,7 +9116,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-src-SRI5A01A",
@@ -8513,7 +9160,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "iron-src-SWC5A01A",
@@ -8555,7 +9205,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "EC파트너스"
+    ]
   },
   {
     "id": "iron-src-SRB4A01A",
@@ -8598,7 +9251,10 @@
     ],
     "isAccessory": false,
     "lineGroup": null,
-    "switchSteps": null
+    "switchSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WC5028A",
@@ -8646,7 +9302,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "curl-WC5032A",
@@ -8690,7 +9349,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "curl-WC5036A",
@@ -8734,7 +9396,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "curl-WC5040A",
@@ -8778,7 +9443,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "PRO"
+    ]
   },
   {
     "id": "curl-WCS6032A",
@@ -8825,7 +9493,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS6036A",
@@ -8868,7 +9539,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS6040A",
@@ -8911,7 +9585,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS4A36A",
@@ -8960,7 +9637,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS4A40A",
@@ -9006,7 +9686,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS5A36A",
@@ -9054,7 +9737,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS5A40A",
@@ -9100,7 +9786,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS5A36B",
@@ -9146,7 +9835,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "curl-WCS5A40B",
@@ -9192,7 +9884,10 @@
     "isAccessory": false,
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "home-JBD1900A",
@@ -9237,7 +9932,10 @@
     ],
     "isAccessory": false,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "home-CLS5A01A",
@@ -9282,7 +9980,10 @@
     ],
     "isAccessory": false,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "home-CLS3A01A",
@@ -9325,7 +10026,10 @@
     ],
     "isAccessory": false,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "home-CTS7A01A",
@@ -9376,7 +10080,10 @@
     ],
     "isAccessory": false,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "home-CMF1000A",
@@ -9423,7 +10130,10 @@
     ],
     "isAccessory": false,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "bytulz-FA01A",
@@ -9489,7 +10199,10 @@
     ],
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "bytulz-FA-FILTER_A",
@@ -9531,7 +10244,10 @@
     ],
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   },
   {
     "id": "bytulz-FA-DRY_A",
@@ -9573,6 +10289,9 @@
     ],
     "lineGroup": null,
     "switchSteps": null,
-    "tempSteps": null
+    "tempSteps": null,
+    "distChannels": [
+      "MASS"
+    ]
   }
 ]
