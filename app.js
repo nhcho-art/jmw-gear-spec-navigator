@@ -1,6 +1,33 @@
 /* ==========================================================================
-   JMW Gear Spec Navigator — App Logic (V2.0)
+   JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
+
+const CURRENT_VERSION = 'V2.4';
+const VERSION_LOG = [
+  { v: 'V2.4', date: '2026.08', notes: ['좌측 사이드바에 버전 정보 + 업데이트 내역(버전별) 패널 추가'] },
+  { v: 'V2.3', date: '2026.08', notes: ['"단종 모델 포함" 기본값 ON으로 변경'] },
+  { v: 'V2.2', date: '2026.08', notes: [
+    '전체 데이터 재검증 (모델·이미지·스펙 컬럼 누락 없음 확인)',
+    '서큘레이터 4종 확인 (2종은 단종 처리라 기본화면에 숨김)',
+    '"신제품" 죽은 키워드 삭제',
+    '스펙 정밀 정렬·빠른 키워드를 상단으로 이동',
+    '실 데이터 기반으로 키워드 전면 재설계',
+  ]},
+  { v: 'V2.1', date: '2026.08', notes: [
+    'Iron·Culing Iron 등 사양 누락분(제어방식/안전장치 등) 반영',
+    '키워드 필터-전역검색 충돌 버그 수정',
+    '"프리볼트" 키워드 추가',
+    '화면 최대 폭 확장 (1440px → 1760px)',
+  ]},
+  { v: 'V2.0', date: '2026.08', notes: [
+    '전 카테고리 통합 검색',
+    '대분류+중분류 사이드바 트리로 개편',
+    '최신 출시순 기본 정렬',
+    '드라이기 스펙 정밀 정렬 추가',
+    '화이트/반투명 글래스모피즘 디자인으로 전면 리뉴얼',
+  ]},
+  { v: 'V1.0', date: '2026.08', notes: ['최초 배포 — 221개 모델 · 실사진 · 키워드 검색·추천 · 최대 6개 비교'] },
+];
 
 const CATS = {
   '이미용가전': {
@@ -311,6 +338,19 @@ function renderRail() {
         <span class="toggle-label">단종 모델 포함</span>
         <div class="switch ${state.includeDiscontinued ? 'on' : ''}" id="discToggle"></div>
       </div>
+    </div>
+    <div class="rail-group version-box">
+      <p class="rail-title">버전 정보</p>
+      <div class="version-current">현재 <b>${CURRENT_VERSION}</b></div>
+      <details class="version-log">
+        <summary>업데이트 내역 보기</summary>
+        ${VERSION_LOG.map(v => `
+          <div class="version-entry">
+            <div class="version-entry-head"><span class="version-badge">${v.v}</span><span class="version-date">${v.date}</span></div>
+            <ul>${v.notes.map(n => `<li>${escapeHtml(n)}</li>`).join('')}</ul>
+          </div>
+        `).join('')}
+      </details>
     </div>
   `;
 
