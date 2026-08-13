@@ -2,8 +2,12 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.14';
+const CURRENT_VERSION = 'V2.18';
 const VERSION_LOG = [
+  { v: 'V2.18', date: '2026.08', notes: ['비교표 칸 폭을 300px 고정(2~5개), 6개만 자동축소로 스크롤 방지 + 폰트·색상 대비 확대'] },
+  { v: 'V2.17', date: '2026.08', notes: ['상단바에 "JMW 공식몰 비교기능" 바로가기 추가'] },
+  { v: 'V2.16', date: '2026.08', notes: ['비교표 이미지 확대, 제목 여백 확보, 전압/주파수 오염 근본 수정, 기화측정·임시노출 기준 하이라이트 추가'] },
+  { v: 'V2.15', date: '2026.08', notes: ['비교표 "더 좋은 값" 계산 버그 수정 — 풍온 항목에서 "(220V 기준)"의 220을 온도로 잘못 인식하던 문제 해결'] },
   { v: 'V2.14', date: '2026.08', notes: ['유통 필터 위치·방식 개편(전체/단일선택), 라벨 폰트 강조, 신규 엑셀 반영(단종 4건)'] },
   { v: 'V2.13', date: '2026.08', notes: ['유통 값 "A+B+C" 정규화, 비교표 하이라이트·정렬 개선'] },
   { v: 'V2.12', date: '2026.08', notes: ['유통 필터 원본표기 적용, 비교창 폭 확장'] },
@@ -686,15 +690,29 @@ function openProductModal(id) {
 }
 
 // 비교표에서 "더 좋은 값"을 판단할 방향 (desc=높을수록 좋음, asc=낮을수록 좋음)
+// 전압(V)/주파수(Hz) 표기가 실제 성능 수치(온도·와트 등)와 섞여 잘못 비교되지 않도록 범위/단일 표기 모두 제거
+function stripVoltage(v) {
+  let s = String(v || '');
+  s = s.replace(/\d+(\.\d+)?\s*[-~]\s*\d+(\.\d+)?\s*V\b/gi, '');
+  s = s.replace(/\d+(\.\d+)?\s*V\b/gi, '');
+  s = s.replace(/\d+(\.\d+)?\s*[-~]\s*\d+(\.\d+)?\s*Hz\b/gi, '');
+  s = s.replace(/\d+(\.\d+)?\s*Hz\b/gi, '');
+  return s;
+}
+function maxNum(v) { const nums = parseNumList(stripVoltage(v)); return nums.length ? Math.max(...nums) : null; }
+function firstNum(v) { const nums = parseNumList(stripVoltage(v)); return nums.length ? nums[0] : null; }
+
 const SPEC_DIRECTION = {
-  '무게': { dir: 'asc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
-  '코드길이': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
-  '코드 길이': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
-  '풍온': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
-  '풍속': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
-  '와트': { dir: 'desc', fn: v => parseNumList(v).length ? parseNumList(v)[0] : null },
-  '온도범위': { dir: 'desc', fn: v => parseNumList(v).length ? Math.max(...parseNumList(v)) : null },
-  '스위치': { dir: 'desc', fn: v => { const m = String(v || '').match(/(\d+)\s*단/); return m ? Number(m[1]) : null; } },
+  '무게': { dir: 'asc', fn: firstNum },
+  '코드길이': { dir: 'desc', fn: firstNum },
+  '코드 길이': { dir: 'desc', fn: firstNum },
+  '풍온': { dir: 'desc', fn: maxNum },
+  '풍속': { dir: 'desc', fn: maxNum },
+  '와트': { dir: 'desc', fn: firstNum },
+  '온도범위': { dir: 'desc', fn: maxNum },
+  '기화측정기준': { dir: 'desc', fn: maxNum },
+  '임시노출기준': { dir: 'desc', fn: maxNum },
+  '스위치': { dir: 'desc', fn: v => { const m = stripVoltage(v).match(/(\d+)\s*단/); return m ? Number(m[1]) : null; } },
 };
 
 function openCompareModal() {
@@ -704,8 +722,12 @@ function openCompareModal() {
   const labelOrder = [];
   items.forEach(p => Object.keys(p.specs).forEach(k => { if (!labelOrder.includes(k)) labelOrder.push(k); }));
 
-  const ROW_LABEL_WIDTH = 130; // px
-  const colWidthStyle = `width:calc((100% - ${ROW_LABEL_WIDTH}px) / ${items.length})`;
+  // 5개까진 고정 300px(요청하신 딱 맞는 폭), 6개일 때만 모달 폭에 맞춰 살짝 축소(가로 스크롤 방지)
+  const ROW_LABEL_WIDTH = 140; // px
+  const CONTENT_WIDTH_ESTIMATE = 1600; // px, 모달 내부 실사용 폭 대략치
+  const PRODUCT_COL_WIDTH = items.length <= 5 ? 300 : Math.floor((CONTENT_WIDTH_ESTIMATE - ROW_LABEL_WIDTH) / items.length);
+  const colWidthStyle = `width:${PRODUCT_COL_WIDTH}px`;
+  const tableWidthPx = ROW_LABEL_WIDTH + items.length * PRODUCT_COL_WIDTH;
 
   const headCells = items.map(p => `
     <th class="compare-head-cell" style="${colWidthStyle}">
@@ -760,7 +782,7 @@ function openCompareModal() {
     <h2>스펙 비교</h2>
     <p class="sub">선택한 ${items.length}개 모델의 사양을 나란히 비교합니다. <span class="best-mark">▲</span>는 해당 항목에서 더 좋은 값(가벼움·긴 코드·높은 출력 등, 방향에 맞게 자동 판단)을 의미하며, 그 외 값이 다른 항목은 주황색으로 강조됩니다.</p>
     <div class="compare-scroll">
-      <table class="compare-table">
+      <table class="compare-table" style="width:${tableWidthPx}px">
         <thead><tr><th class="row-label">모델</th>${headCells}</tr></thead>
         <tbody>${bodyRows}</tbody>
       </table>

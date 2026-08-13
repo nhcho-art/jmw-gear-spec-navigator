@@ -468,22 +468,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .cmodal h2 { font-family: var(--font-display); font-size: 20px; margin: 0 0 4px; color: var(--text); }
 .cmodal .sub { color: var(--text-faint); font-size: 13px; margin-bottom: 20px; line-height: 1.6; }
 .compare-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line); background: var(--panel-3); }
-.compare-table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+.compare-table { border-collapse: collapse; table-layout: fixed; }
 .compare-table th, .compare-table td {
   border-bottom: 1px solid var(--line-soft); border-right: 1px solid var(--line-soft);
-  padding: 10px 14px; text-align: left; vertical-align: top; font-size: 13px;
-  word-break: break-word;
+  padding: 12px 14px; text-align: left; vertical-align: top; font-size: 14.5px;
+  word-break: break-word; line-height: 1.5;
 }
 .compare-table th:last-child, .compare-table td:last-child { border-right: none; }
 .compare-table thead th { background: var(--panel-2); position: sticky; top: 0; }
 .compare-table .row-label {
-  font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--text-faint);
-  background: var(--panel-2); white-space: nowrap;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--text-dim);
+  background: var(--panel-2); white-space: nowrap; letter-spacing: .01em;
 }
 .compare-head-cell { vertical-align: top; padding: 0 !important; }
 .compare-head-cell .chc-inner { display: flex; flex-direction: column; align-items: stretch; height: 100%; padding: 10px 14px; box-sizing: border-box; }
-.compare-head-cell img { width: 100%; height: 100px; object-fit: contain; background: #f4f2ee; border-radius: 8px; margin-bottom: 8px; }
-.compare-head-cell .cname { font-family: var(--font-display); font-weight: 600; font-size: 13.5px; margin-bottom: 2px; color: var(--text); line-height: 1.35; }
+.compare-head-cell img { width: 100%; height: 200px; object-fit: contain; background: #f4f2ee; border-radius: 10px; margin-bottom: 10px; }
+.compare-head-cell .cname { font-family: var(--font-display); font-weight: 600; font-size: 13.5px; margin-bottom: 2px; color: var(--text); line-height: 1.4; min-height: 2.8em; }
 .compare-head-cell .csku { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }
 .compare-head-cell button {
   margin-top: auto; padding-top: 10px;
@@ -492,12 +492,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   padding: 6px 10px; cursor: pointer; width: 100%; transition: all .15s;
 }
 .compare-head-cell button:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
-.compare-table td.diff { color: var(--warn); font-weight: 700; }
+.compare-table td.diff { color: #92580f; font-weight: 700; background: rgba(224,180,100,.12); }
 .compare-table td.best {
-  color: #0b6b60; font-weight: 800; background: rgba(24,156,147,.24);
-  border-left: 3px solid var(--acc-home); padding-left: 11px;
+  color: #0b6b60; font-weight: 800; background: rgba(24,156,147,.28);
+  border-left: 4px solid var(--acc-home); padding-left: 10px;
 }
-.best-mark { font-size: 11px; color: var(--acc-home); }
+.best-mark { font-size: 12px; color: var(--acc-home); }
 .compare-table tbody tr:hover td { background: rgba(20,21,26,.02); }
 
 .compare-insights { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
