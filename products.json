@@ -35,7 +35,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM1525B",
@@ -73,7 +74,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM2001A",
@@ -111,7 +113,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM5514A",
@@ -148,7 +151,8 @@
       "드라이기",
       "퍼플"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM5525B",
@@ -185,7 +189,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM5535C",
@@ -222,7 +227,8 @@
       "드라이기",
       "카키"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM5545D",
@@ -259,7 +265,8 @@
       "드라이기",
       "블루"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM5565E",
@@ -296,7 +303,8 @@
       "드라이기",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM6001A",
@@ -332,7 +340,8 @@
       "드라이기",
       "블루"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM6528B",
@@ -369,7 +378,8 @@
       "블랙",
       "실버"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DM6020C",
@@ -405,7 +415,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS1514A",
@@ -442,7 +453,8 @@
       "드라이기",
       "오렌지"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS1523B",
@@ -479,7 +491,8 @@
       "그린",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS2021B",
@@ -516,7 +529,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS2031C",
@@ -553,7 +567,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS3514A",
@@ -590,7 +605,8 @@
       "오렌지",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS3534C",
@@ -627,7 +643,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-DS3703ED",
@@ -665,7 +682,8 @@
       "스카이블루",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-HM5010A",
@@ -704,7 +722,8 @@
       "레드",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-HM5010B",
@@ -742,7 +761,8 @@
       "드라이기",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-I5001A",
@@ -777,7 +797,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-I5011B",
@@ -812,7 +833,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-I5021C",
@@ -847,7 +869,8 @@
       "고정형",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3001A",
@@ -886,7 +909,8 @@
       "실버",
       "퍼플"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3040F",
@@ -924,7 +948,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3050F",
@@ -962,7 +987,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3060F",
@@ -1000,7 +1026,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3150R",
@@ -1041,7 +1068,8 @@
       "블랙",
       "에어핏"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3150R_SE",
@@ -1084,7 +1112,8 @@
       "아이보리",
       "에어핏"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3505E",
@@ -1122,7 +1151,8 @@
       "드라이기",
       "블루"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3602H",
@@ -1160,7 +1190,8 @@
       "드라이기",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3701K",
@@ -1198,7 +1229,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3206B",
@@ -1237,7 +1269,8 @@
       "드라이기",
       "와인"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3307C",
@@ -1276,7 +1309,8 @@
       "메탈",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3405D",
@@ -1315,7 +1349,8 @@
       "드라이기",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3801LWS",
@@ -1358,7 +1393,8 @@
       "에어",
       "화이트+블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MH3170",
@@ -1396,7 +1432,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M3901J",
@@ -1434,7 +1471,8 @@
       "핑크",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC3A01A",
@@ -1475,7 +1513,8 @@
       "에어슈팅",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC3A02B",
@@ -1513,7 +1552,8 @@
       "그레이",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC4A01A",
@@ -1553,7 +1593,8 @@
       "아이보리",
       "에어비"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC4A02B",
@@ -1592,7 +1633,8 @@
       "드라이기",
       "민트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-HHD-JM1550W",
@@ -1632,7 +1674,8 @@
       "드라이기",
       "아이보리"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC4B01A",
@@ -1672,7 +1715,8 @@
       "에어원",
       "연보라빛"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC4B02B",
@@ -1713,7 +1757,8 @@
       "드라이기",
       "에어원"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC4B03C",
@@ -1754,7 +1799,8 @@
       "에어원",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC5A01A",
@@ -1795,7 +1841,8 @@
       "에어루나",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC5A02B",
@@ -1833,7 +1880,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5001A",
@@ -1872,7 +1920,8 @@
       "실버",
       "퍼플"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5150R",
@@ -1914,7 +1963,8 @@
       "실버",
       "에어스톰"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5150RS",
@@ -1958,7 +2008,8 @@
       "세이지",
       "에어스톰"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5035C",
@@ -1996,7 +2047,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5042D",
@@ -2034,7 +2086,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5802A",
@@ -2072,7 +2125,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5001A PLUS",
@@ -2112,7 +2166,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO",
@@ -2153,7 +2208,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5001A PLUS PRO_W",
@@ -2195,7 +2251,8 @@
       "로즈",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5061FWS",
@@ -2237,7 +2294,8 @@
       "블라스트",
       "에어"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5201A",
@@ -2277,7 +2335,8 @@
       "베이지",
       "오렌지"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M5002B PLUS",
@@ -2317,7 +2376,8 @@
       "블랙",
       "실버"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M7502A",
@@ -2355,7 +2415,8 @@
       "드라이기",
       "브라운"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M7502A PLUS",
@@ -2395,7 +2456,8 @@
       "엠버골드",
       "차콜블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MA5001A",
@@ -2435,7 +2497,8 @@
       "레드",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MA503B",
@@ -2475,7 +2538,8 @@
       "스카이블루",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MA6001A",
@@ -2515,7 +2579,8 @@
       "블랙",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MG1700",
@@ -2554,7 +2619,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MG1800",
@@ -2593,7 +2659,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MG1700 PLUS",
@@ -2632,7 +2699,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MG1800 PLUS",
@@ -2671,7 +2739,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-The New MG1800",
@@ -2711,7 +2780,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5001A",
@@ -2752,7 +2822,8 @@
       "맥스",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5002B",
@@ -2790,7 +2861,8 @@
       "네이비",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-atomy hair dryer",
@@ -2831,7 +2903,8 @@
       "드라이기",
       "애터미"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5030C",
@@ -2873,7 +2946,8 @@
       "맥스",
       "클래식"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5040D",
@@ -2917,7 +2991,8 @@
       "메탈릭",
       "베이지"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5050E",
@@ -2961,7 +3036,8 @@
       "핑크",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5060F",
@@ -3003,7 +3079,8 @@
       "블루",
       "이모션"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5101DWS",
@@ -3046,7 +3123,8 @@
       "블라스트",
       "에어"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF5102F",
@@ -3083,7 +3161,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCF5A01A",
@@ -3125,7 +3204,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCF5A02B",
@@ -3164,7 +3244,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCF5A03C",
@@ -3203,7 +3284,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCF5A02B-벨리곰",
@@ -3246,7 +3328,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCF5B01A",
@@ -3286,7 +3369,8 @@
       "전자파차단",
       "트리드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF6001A",
@@ -3327,7 +3411,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF6002B",
@@ -3369,7 +3454,8 @@
       "전자파차단",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MF6003C",
@@ -3410,7 +3496,8 @@
       "음이온",
       "전자파차단"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS502",
@@ -3448,7 +3535,8 @@
       "드라이기",
       "브라운"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6001A",
@@ -3488,7 +3576,8 @@
       "팬텀",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6020B",
@@ -3530,7 +3619,8 @@
       "블랙",
       "에어젯"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6010A",
@@ -3569,7 +3659,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6003C",
@@ -3612,7 +3703,8 @@
       "팬텀",
       "프라임"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6004D",
@@ -3650,7 +3742,8 @@
       "드라이기",
       "연분홍"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6100A",
@@ -3688,7 +3781,8 @@
       "웜그레이",
       "쿠퍼"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-TR6100A",
@@ -3725,7 +3819,8 @@
       "웜그레이",
       "쿠퍼"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6030C",
@@ -3769,7 +3864,8 @@
       "에어젯",
       "울트라"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6040D",
@@ -3810,7 +3906,8 @@
       "페일",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6210A",
@@ -3848,7 +3945,8 @@
       "드라이기",
       "웜그레이"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6031E",
@@ -3892,7 +3990,8 @@
       "에어젯",
       "울트라"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6041F",
@@ -3933,7 +4032,8 @@
       "페일",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6301A",
@@ -3981,7 +4081,8 @@
       "울트라",
       "프로"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6301A-M",
@@ -4031,7 +4132,8 @@
       "프로",
       "흑도금"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-CC6310A",
@@ -4069,7 +4171,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-CC6311B",
@@ -4107,7 +4210,8 @@
       "드라이기",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6401A",
@@ -4149,7 +4253,8 @@
       "팬텀",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS6402B",
@@ -4193,7 +4298,8 @@
       "캐시미어",
       "팬텀"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC6001A",
@@ -4235,7 +4341,8 @@
       "에어",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC6002B",
@@ -4273,7 +4380,8 @@
       "그레이",
       "드라이기"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MC6A11A",
@@ -4313,7 +4421,8 @@
       "드라이기",
       "컴핏"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCS6001A",
@@ -4360,7 +4469,8 @@
       "터치센서",
       "터치온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCS6002B",
@@ -4404,7 +4514,8 @@
       "터치센서",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCS6003C",
@@ -4448,7 +4559,8 @@
       "터치센서",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCS6004D",
@@ -4492,7 +4604,8 @@
       "오션그레이",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCS6003C-벨리곰",
@@ -4540,7 +4653,8 @@
       "터치온",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MVF6A01A",
@@ -4583,7 +4697,8 @@
       "스마트",
       "프리고"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS7002B",
@@ -4626,7 +4741,8 @@
       "스마트메모리",
       "에어센스"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS7001A",
@@ -4667,7 +4783,8 @@
       "스마트메모리",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCP7A01A",
@@ -4713,7 +4830,8 @@
       "에어모션",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS8001A",
@@ -4758,7 +4876,8 @@
       "컬렉션",
       "코팅"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MS8002B",
@@ -4799,7 +4918,8 @@
       "코팅",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M8001A",
@@ -4846,7 +4966,8 @@
       "코팅",
       "프로"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-M8001A-B",
@@ -4894,7 +5015,8 @@
       "컬렉션",
       "코팅"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-S30001A",
@@ -4932,7 +5054,8 @@
       "드라이기",
       "블랙"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-SD7001A",
@@ -4969,7 +5092,8 @@
       "드라이기",
       "오렌지"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-SC7010A",
@@ -5011,7 +5135,8 @@
       "아이보리",
       "아이코닉"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-SC7020B",
@@ -5051,7 +5176,8 @@
       "로즈골드",
       "쉐이드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-STL7001A",
@@ -5098,7 +5224,8 @@
       "프리셋",
       "항균코팅"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-STL7002B",
@@ -5143,7 +5270,8 @@
       "핑크",
       "항균코팅"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-STL7101A",
@@ -5191,7 +5319,8 @@
       "프리셋",
       "항균코팅"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MP9A01A",
@@ -5234,7 +5363,8 @@
       "블랙",
       "파워에어"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MP9A02B",
@@ -5276,7 +5406,8 @@
       "파워에어",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-kr-MCI8A01A",
@@ -5318,7 +5449,8 @@
       "플라즈마",
       "플린"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDU3A01A",
@@ -5360,7 +5492,8 @@
       "음이온",
       "케어부스터"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SC1500A",
@@ -5401,7 +5534,8 @@
       "에어팜",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SC1500B",
@@ -5441,7 +5575,8 @@
       "아이보리",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDA5A01A",
@@ -5485,7 +5620,8 @@
       "플라즈마",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDN3A1A",
@@ -5526,7 +5662,8 @@
       "아이보리",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDF4B1A",
@@ -5571,7 +5708,8 @@
       "프리볼트",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDS3A1A",
@@ -5614,7 +5752,8 @@
       "워터이온",
       "헤어케어모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SAT3A2B",
@@ -5658,7 +5797,8 @@
       "음이온",
       "프로"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SAT3A1A",
@@ -5701,7 +5841,8 @@
       "아이보리",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "dryer-src-SDMF4A1A",
@@ -5741,9 +5882,11 @@
       "망치형",
       "볼티",
       "셀프클리닝",
-      "음이온"
+      "음이온",
+      "프리볼트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W1001A",
@@ -5781,7 +5924,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W1014A",
@@ -5817,7 +5961,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W1014B",
@@ -5852,7 +5997,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W1014C",
@@ -5887,7 +6033,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2001MA",
@@ -5925,7 +6072,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2203MA",
@@ -5965,7 +6113,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2304MC",
@@ -6006,7 +6155,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2305MD",
@@ -6047,7 +6197,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2101MD",
@@ -6086,7 +6237,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W2010ME",
@@ -6125,7 +6277,8 @@
       "슬립모드",
       "쿠퍼골드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W5001LA",
@@ -6165,7 +6318,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W5001MA",
@@ -6205,7 +6359,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W5001RA",
@@ -6243,7 +6398,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W5001SA",
@@ -6281,7 +6437,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W6001MA",
@@ -6320,7 +6477,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W6001RA",
@@ -6357,7 +6515,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W6014MB",
@@ -6396,7 +6555,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7001RA",
@@ -6435,7 +6595,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700MA",
@@ -6474,7 +6635,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700LA",
@@ -6513,7 +6675,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700RA",
@@ -6552,7 +6715,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700RSA",
@@ -6591,7 +6755,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700SA",
@@ -6630,7 +6795,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7700MD",
@@ -6668,7 +6834,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7900LA",
@@ -6714,7 +6881,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7900MA",
@@ -6753,7 +6921,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7900SA",
@@ -6792,7 +6961,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7900RA",
@@ -6831,7 +7001,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W7900RSA",
@@ -6870,7 +7041,8 @@
       "스타일러",
       "터치센서"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W8001LA",
@@ -6907,7 +7079,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W8001MA",
@@ -6944,7 +7117,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W8001RA",
@@ -6980,7 +7154,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W8001SA",
@@ -7017,7 +7192,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-W9001MA",
@@ -7060,7 +7236,8 @@
       "스타일러",
       "프루푸"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WR3016A",
@@ -7094,7 +7271,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WR3207B",
@@ -7128,7 +7306,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WR4011A",
@@ -7161,7 +7340,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WR4011B",
@@ -7194,7 +7374,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WR4011C",
@@ -7227,7 +7408,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS5001MA",
@@ -7270,7 +7452,8 @@
       "열판잠금",
       "오브제"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS5001RA",
@@ -7311,7 +7494,8 @@
       "슬립모드",
       "열판잠금"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS5002MB",
@@ -7352,7 +7536,8 @@
       "슬립모드",
       "열판잠금"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS5002RB",
@@ -7393,7 +7578,8 @@
       "슬립모드",
       "열판잠금"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-CWS5011MC",
@@ -7435,7 +7621,8 @@
       "열판잠금",
       "웜그레이"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS6001A",
@@ -7476,7 +7663,8 @@
       "스타일러",
       "스타일온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WS6002B",
@@ -7514,7 +7702,8 @@
       "매직기",
       "스타일러"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WN8A01LA",
@@ -7559,7 +7748,8 @@
       "슬립모드",
       "시그니처"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WN8A01MA",
@@ -7600,7 +7790,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WN8A01RA",
@@ -7641,7 +7832,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WN8A01SA",
@@ -7682,7 +7874,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-kr-WN8A01RSA",
@@ -7723,7 +7916,8 @@
       "스타일러",
       "슬립모드"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SW3A01MA",
@@ -7765,7 +7959,8 @@
       "슬립모드",
       "플랫핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SRB3A01A",
@@ -7804,7 +7999,8 @@
       "스타일러",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SRB3A02B",
@@ -7842,7 +8038,8 @@
       "아이보리",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SRB3A03C",
@@ -7880,7 +8077,8 @@
       "음이온",
       "화이트"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SRI5A01A",
@@ -7918,7 +8116,8 @@
       "웜베이지",
       "프리피"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SWC5A01A",
@@ -7957,7 +8156,8 @@
       "스타일러",
       "음이온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "iron-src-SRB4A01A",
@@ -7997,7 +8197,8 @@
       "음이온",
       "플러스"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WC5028A",
@@ -8042,7 +8243,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WC5032A",
@@ -8083,7 +8285,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WC5036A",
@@ -8124,7 +8327,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WC5040A",
@@ -8165,7 +8369,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS6032A",
@@ -8209,7 +8414,8 @@
       "컬링아이언",
       "픽앤컬"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS6036A",
@@ -8249,7 +8455,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS6040A",
@@ -8289,7 +8496,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS4A36A",
@@ -8335,7 +8543,8 @@
       "폴리컬",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS4A40A",
@@ -8378,7 +8587,8 @@
       "컬링아이언",
       "핑크"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS5A36A",
@@ -8423,7 +8633,8 @@
       "컬링아이언",
       "컬링온"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS5A40A",
@@ -8466,7 +8677,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS5A36B",
@@ -8509,7 +8721,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "curl-WCS5A40B",
@@ -8552,7 +8765,8 @@
       "컬링",
       "컬링아이언"
     ],
-    "isAccessory": false
+    "isAccessory": false,
+    "lineGroup": null
   },
   {
     "id": "home-JBD1900A",
@@ -8561,6 +8775,7 @@
     "series": null,
     "sku": "JBD1900A",
     "name": "바디드라이어 / 벨린",
+    "lineGroup": "바디드라이어",
     "image": "home_JBD1900A.webp",
     "released": "2025.08",
     "discontinued": false,
@@ -8603,6 +8818,7 @@
     "series": null,
     "sku": "CLS5A01A",
     "name": "에어뮤즈 대형",
+    "lineGroup": "에어뮤즈",
     "image": "home_CLS5A01A.webp",
     "released": "2024.05",
     "discontinued": false,
@@ -8618,7 +8834,8 @@
       "기능": "20단 풍속 / 자연풍 / 수면풍 / 120도 회전",
       "유통": "MASS",
       "KC인증": "HU101097-20003",
-      "전자파인증": "R-R-JMW-CLS5A01A"
+      "전자파인증": "R-R-JMW-CLS5A01A",
+      "풍속": "20단"
     },
     "tags": [
       "120도",
@@ -8644,6 +8861,7 @@
     "series": null,
     "sku": "CLS3A01A",
     "name": "에어뮤즈 소형",
+    "lineGroup": "에어뮤즈",
     "image": "home_CLS3A01A.webp",
     "released": "2024.05",
     "discontinued": true,
@@ -8659,7 +8877,8 @@
       "기능": "10단 풍속 / 80도 회전",
       "유통": "MASS",
       "KC인증": "HU101097-23007A",
-      "전자파인증": "R-R-JMW-CLS3A01A"
+      "전자파인증": "R-R-JMW-CLS3A01A",
+      "풍속": "10단"
     },
     "tags": [
       "10단",
@@ -8683,6 +8902,7 @@
     "series": null,
     "sku": "CTS7A01A",
     "name": "에어뮤즈 벨로",
+    "lineGroup": "에어뮤즈",
     "image": "home_CTS7A01A.webp",
     "released": "2025.04",
     "discontinued": true,
@@ -8697,7 +8917,8 @@
       "기능": "유무선 겸용 / 8시간 타이머, 12단 풍속, 자연풍, 수면풍, / 상하 / 좌우 3D 회전 / 접이식 보관가능",
       "유통": "MASS",
       "KC인증": "YU101589-22001(배터리) / HU101026-19003B",
-      "전자파인증": "R-R-JMW-CTS7A01A"
+      "전자파인증": "R-R-JMW-CTS7A01A",
+      "풍속": "12단"
     },
     "tags": [
       "12단",
@@ -8730,6 +8951,7 @@
     "series": null,
     "sku": "CMF1000A",
     "name": "미니 무선 선풍기",
+    "lineGroup": "미니 선풍기",
     "image": "home_CMF1000A.webp",
     "released": "2025.04",
     "discontinued": false,
@@ -8744,7 +8966,9 @@
       "기능": "4000mAh 배터리 / 4시간 타이머 / 4단 풍속 / 120도 회전",
       "유통": "MASS",
       "KC인증": "YU101071-23003",
-      "전자파인증": "R-R-JMW-CMF1000A"
+      "전자파인증": "R-R-JMW-CMF1000A",
+      "배터리용량": "4000mAh",
+      "풍속": "4단"
     },
     "tags": [
       "120도",
@@ -8826,7 +9050,8 @@
       "필터",
       "함침",
       "활성탄"
-    ]
+    ],
+    "lineGroup": null
   },
   {
     "id": "bytulz-FA-FILTER_A",
@@ -8865,7 +9090,8 @@
       "음식물처리기",
       "주방가전",
       "필터"
-    ]
+    ],
+    "lineGroup": null
   },
   {
     "id": "bytulz-FA-DRY_A",
@@ -8904,6 +9130,7 @@
       "별매",
       "음식물처리기",
       "주방가전"
-    ]
+    ],
+    "lineGroup": null
   }
 ]

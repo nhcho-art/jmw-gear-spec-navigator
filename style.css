@@ -107,6 +107,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   color: var(--text-faint); text-transform: uppercase; white-space: nowrap;
 }
 
+.shortcut-links { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.shortcut-links a {
+  font-size: 12.5px; font-weight: 500; color: var(--text-dim); text-decoration: none;
+  padding: 7px 12px; border-radius: 9px; border: 1px solid var(--line); background: var(--panel);
+  white-space: nowrap; transition: all .15s;
+}
+.shortcut-links a:hover { color: var(--text); border-color: var(--text-faint); background: var(--panel-2); }
+
 .topbar-search { margin-left: auto; display: flex; align-items: center; gap: 10px; width: 100%; max-width: 460px; }
 .search-box { position: relative; width: 100%; }
 .search-box input {
@@ -226,6 +234,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .version-log[open] summary::before { content: '▾ '; }
 .version-log summary:hover { color: var(--text-dim); background: var(--panel); }
 .version-entry { padding: 10px 10px 2px; }
+.version-entry-open { padding: 8px 10px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); margin-bottom: 6px; }
 .version-entry-head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
 .version-badge {
   font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--accent);
@@ -339,6 +348,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .quick-tags .chip[data-smart]::before { content: '↕ '; opacity: .6; }
 .quick-tags .chip[data-smart] { border-style: dashed; }
 .quick-tags .chip[data-smart].active { border-style: solid; }
+
+.series-tags { margin-top: -6px; }
+.series-row-label {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-faint);
+  text-transform: uppercase; letter-spacing: .06em; align-self: center; margin-right: 2px;
+}
+.chip-series { }
+.chip-count { font-family: var(--font-mono); font-size: 10.5px; opacity: .65; margin-left: 2px; }
 
 /* ==========================================================================
    Compare tray
@@ -459,6 +476,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .compare-table td.diff { color: var(--warn); font-weight: 700; }
 .compare-table tbody tr:hover td { background: rgba(20,21,26,.02); }
+
+.compare-insights { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.compare-insights h3 { font-family: var(--font-display); font-size: 16px; margin: 0 0 4px; color: var(--text); }
+.compare-insights .sub { margin-bottom: 14px; }
+.insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.insight-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; }
+.insight-name { font-family: var(--font-display); font-weight: 600; font-size: 13.5px; margin-bottom: 6px; color: var(--text); }
+.insight-card ul { margin: 0; padding-left: 16px; }
+.insight-card li { font-size: 12.5px; color: var(--text-dim); line-height: 1.5; margin-bottom: 4px; }
 
 /* ==========================================================================
    Mobile
