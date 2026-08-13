@@ -537,12 +537,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .pmodal { grid-template-columns: 1fr; }
   .pmodal-media { border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 20px; }
   .pmodal-media img { max-height: 220px; }
+
+  /* 비교창: 데스크톱용 고정폭·축소효과가 좁은 화면에선 오히려 깨지므로 끄고,
+     가로 스크롤로 넘겨보는 방식으로 전환 */
+  .cmodal { zoom: 1; width: 94vw; padding: 18px; }
+  .cmodal .sub { font-size: 12px; }
+  .compare-table th, .compare-table td { width: 190px !important; padding: 10px; font-size: 13px; }
+  .compare-table .row-label { width: 100px !important; font-size: 11px; }
+  .compare-head-cell .chc-inner { padding: 8px 10px; }
+  .compare-head-cell img { height: 120px; }
+  .compare-head-cell .cname { font-size: 12.5px; min-height: 2.4em; }
+  .insight-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
   .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
   .card-body { padding: 10px; }
   .card-name { font-size: 13px; }
+  .shortcut-links { display: none; }
+  .chip-section-label-row { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 
 /* Scrollbar */
