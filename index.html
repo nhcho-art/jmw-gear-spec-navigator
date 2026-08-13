@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMW Gear Spec Navigator</title>
+<meta name="description" content="JMW 이미용가전 · 생활가전 · 주방가전 전 모델 스펙 비교 및 검색 도구">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark"><span class="dot"></span>JMW</span>
+      <span class="brand-sub">Gear Spec Navigator</span>
+    </div>
+    <nav class="cat-tabs" id="catTabs"></nav>
+    <div class="topbar-search">
+      <div class="search-box" id="searchBox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="모델명, 품번, 기능, 색상으로 검색…">
+        <button class="search-clear" id="searchClear">✕</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail" id="rail"></aside>
+
+  <main class="main">
+    <button class="rail-toggle" id="railToggle">☰ 필터 &amp; 카테고리</button>
+
+    <div class="main-head">
+      <div class="main-title-group">
+        <h1 id="mainTitle">Dryer</h1>
+        <div class="path" id="mainPath">이미용가전 / 드라이기</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <span class="result-count" id="resultCount"></span>
+        <select class="sort-select" id="sortSelect">
+          <option value="default">기본 정렬</option>
+          <option value="newest">최신 출시순</option>
+          <option value="name">이름순</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="quick-tags" id="quickTagsMain"></div>
+
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<div class="tray" id="tray">
+  <div class="tray-thumbs" id="trayThumbs"></div>
+  <span class="tray-count" id="trayCount">0개 선택</span>
+  <button class="tray-clear" id="trayClear">전체 해제</button>
+  <button class="tray-cta" id="trayCta">스펙 비교하기 →</button>
+</div>
+
+<footer class="site-footer">
+  <b>JMW Gear Spec Navigator</b> · V1.0 · Internal Use Only · Data updated 2026.08
+</footer>
+
+<!-- Product detail modal -->
+<div class="overlay" id="productOverlay">
+  <div class="modal pmodal">
+    <button class="modal-close">✕</button>
+    <div id="productModalBody" style="display:contents;"></div>
+  </div>
+</div>
+
+<!-- Compare modal -->
+<div class="overlay" id="compareOverlay">
+  <div class="modal cmodal">
+    <button class="modal-close">✕</button>
+    <div id="compareModalBody"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
