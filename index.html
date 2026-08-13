@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.13
+  Version: V2.14
   Updated: 2026.08.13
-  Changelog: 이번 버전엔 아래 항목 참고 (전체 변경이력은 좌측 사이드바 "버전 정보" 또는 README.md 참고)
-    - 유통 값 "A+B+C" 형태로 완전 정규화 (줄바꿈·슬래시·쉼표 혼용 표기 전부 인식)
-    - 빠른 선택 칩 줄바꿈 방지
-    - 비교표 하이라이트 진하게 개선, 헤더 정렬(제외 버튼 줄맞춤), 폭 재확장
+  Changelog: 유통 필터 위치·방식 개편, 라벨 폰트 강조, 신규 엑셀 반영 (전체 이력은 좌측 "버전 정보" 참고)
 -->
 <html lang="ko">
 <head>
@@ -71,10 +68,6 @@
       <p class="chip-section-label">빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계 칩은 서로 OR(하나라도 해당)</span></p>
       <div class="quick-tags" id="filterTagsMain"></div>
     </div>
-    <div class="chip-section chip-section-divider" id="distSection">
-      <p class="chip-section-label">유통 <span class="hint">복수 선택 시 OR(하나라도 일치) · 엑셀 원본 값 그대로 표시</span></p>
-      <div class="quick-tags" id="distTagsMain"></div>
-    </div>
     <div class="chip-section chip-section-divider">
       <p class="chip-section-label">시리즈</p>
       <div class="quick-tags" id="seriesTagsMain"></div>
@@ -92,7 +85,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.13 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.14 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->

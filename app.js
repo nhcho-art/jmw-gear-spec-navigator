@@ -2,69 +2,24 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.13';
+const CURRENT_VERSION = 'V2.14';
 const VERSION_LOG = [
-  { v: 'V2.13', date: '2026.08', notes: [
-    '유통 필터를 "A+B+C" 형태로 완전히 정규화 — 엑셀 원본 셀 안에 줄바꿈·슬래시·쉼표가 뒤섞여 있어도(예: "MASS\\n온라인직영, 특판, 홈쇼핑") 전부 인식해서 "MASS+온라인직영+특판+홈쇼핑"처럼 하나의 값으로 통일',
-    '빠른 선택 칩에 줄바꿈 방지(white-space: nowrap) 적용 — 긴 유통 값이 두 줄로 쪼개져 보이던 문제 해결',
-    '비교표 "더 좋은 값" 하이라이트를 훨씬 진하게(초록 배경 + 굵은 글씨 + 좌측 강조선) 변경해 눈에 띄도록 개선',
-    '비교창 헤더를 세로 flex 구조로 변경해, 모델명이 2줄이든 3줄이든 "비교에서 제외" 버튼이 항상 같은 줄에 맞춰지도록 정렬',
-    '비교창 전체 폭을 최대 1720px까지 재확장',
-  ]},
-  { v: 'V2.12', date: '2026.08', notes: [
-    '유통 필터를 엑셀 원본 값 그대로 표시하도록 변경 (예: "MASS / 온라인직영"을 쪼개지 않고 그 문구 자체로 선택) — 복수 선택 시 OR',
-    '비교창 전체 폭을 넓히고, 선택 개수(2~6개)와 무관하게 전체 창 크기는 고정, 모델별 칸 너비만 균등하게 자동 배분',
-    '비교표에 "더 좋은 값" 자동 하이라이트(▲) 추가 — 무게는 가벼울수록, 코드길이·풍온·풍속·와트·온도범위·스위치 단계는 높을수록 좋은 것으로 판단해 방향에 맞게 표시',
-  ]},
-  { v: 'V2.11', date: '2026.08', notes: [
-    '"유통" 빠른 선택 섹션 추가 (드라이기: MASS/PRO/직판/온라인직영/특판/온라인/오프라인/홈쇼핑, 아이론: MASS/PRO/직판/직영, 컬링아이언: MASS/PRO)',
-    '유통 필터는 "유통" 필드만 정확히 매칭 — 제품명에 "PRO"가 들어간 것과 실제 유통채널이 PRO인 것을 혼동하지 않도록 전용 필드 사용 (검증 중 5개 제품에서 오탐 가능성 발견해 수정)',
-    '비교창 모델별 삭제 버튼을 "✕ 비교에서 제외"로 더 눈에 띄게 개선 (기능은 기존에도 있었음)',
-  ]},
-  { v: 'V2.10', date: '2026.08', notes: [
-    '드라이기 "프리볼트" 키워드에 FREEGO(프리고, MVF6A01A) 추가',
-    '국내 드라이기는 엑셀에 전압 정보 컬럼이 없어 "100-240V" 자동 판별이 불가 — 확인된 모델을 수동 등록하는 방식으로 전환 (추가로 아는 프리볼트 모델 있으면 알려주면 반영)',
-  ]},
-  { v: 'V2.9', date: '2026.08', notes: [
-    '"정렬 기준"/"빠른 선택"/"시리즈" 영역을 각각 라벨과 구분선으로 명확히 분리 (기존엔 한 줄에 섞여 있어 헷갈림)',
-    '드라이기: 스위치 단수(2~6단) 빠른 선택 칩 추가',
-    '아이론: 온도 단계(1~16단) 빠른 선택 칩 추가',
-    '단계 칩끼리는 OR(하나라도 해당), 다른 키워드와는 AND로 결합 — 텍스트 매칭이 아닌 정확한 숫자 추출 방식이라 "11단"이 "1단"에 잘못 걸리는 오류 없음',
-    '블로우셋/블로우셋 프로 → "블로우셋", 케어부스터/케어부스터FV → "케어부스터"로 시리즈 통합',
-  ]},
-  { v: 'V2.8', date: '2026.08', notes: ['상단바에 쇼핑몰 5개 바로가기 메뉴 추가 (JMW 공식몰/네이버, 엘리첸 네이버, 바이툴즈 공식몰/네이버) — 클릭 시 새 탭으로 바로 이동'] },
-  { v: 'V2.7', date: '2026.08', notes: [
-    '드라이기에 "프리볼트" 키워드 추가 (100-240V 겸용 모델 2종)',
-    '빠른 키워드 다중 선택 지원 — 여러 개 선택 시 AND 조합으로 필터링',
-    '카드 표시 사양 확장: 드라이기(풍온), 아이론·바디드라이어(온도범위), 서큘레이터(배터리용량·풍속), 음식물처리기(제품무게·온도범위)',
-    '비교함 하단에 "인사이트 & 추천" 섹션 추가 — 모델별 장점과 추천 사용 상황을 실제 사양 기반으로 요약',
-    '상단 키워드 영역 아래에 계열/라인별 그룹 필터 행 추가 (소싱 제품은 품명, 생활가전은 제품 라인 기준)',
-  ]},
-  { v: 'V2.6', date: '2026.08', notes: ['우클릭 방지 및 F12/Ctrl+Shift+I 등 개발자도구 단축키 차단 (완전 차단은 아니며 캐주얼한 복사 방지용)'] },
-  { v: 'V2.5', date: '2026.08', notes: ['버전 정보 패널: 최신 2개 버전은 자동으로 펼쳐서 표시, 이전 버전은 "더보기"로 확인'] },
-  { v: 'V2.4', date: '2026.08', notes: ['좌측 사이드바에 버전 정보 + 업데이트 내역(버전별) 패널 추가'] },
-  { v: 'V2.3', date: '2026.08', notes: ['"단종 모델 포함" 기본값 ON으로 변경'] },
-  { v: 'V2.2', date: '2026.08', notes: [
-    '전체 데이터 재검증 (모델·이미지·스펙 컬럼 누락 없음 확인)',
-    '서큘레이터 4종 확인 (2종은 단종 처리라 기본화면에 숨김)',
-    '"신제품" 죽은 키워드 삭제',
-    '스펙 정밀 정렬·빠른 키워드를 상단으로 이동',
-    '실 데이터 기반으로 키워드 전면 재설계',
-  ]},
-  { v: 'V2.1', date: '2026.08', notes: [
-    'Iron·Culing Iron 등 사양 누락분(제어방식/안전장치 등) 반영',
-    '키워드 필터-전역검색 충돌 버그 수정',
-    '"프리볼트" 키워드 추가',
-    '화면 최대 폭 확장 (1440px → 1760px)',
-  ]},
-  { v: 'V2.0', date: '2026.08', notes: [
-    '전 카테고리 통합 검색',
-    '대분류+중분류 사이드바 트리로 개편',
-    '최신 출시순 기본 정렬',
-    '드라이기 스펙 정밀 정렬 추가',
-    '화이트/반투명 글래스모피즘 디자인으로 전면 리뉴얼',
-  ]},
-  { v: 'V1.0', date: '2026.08', notes: ['최초 배포 — 221개 모델 · 실사진 · 키워드 검색·추천 · 최대 6개 비교'] },
+  { v: 'V2.14', date: '2026.08', notes: ['유통 필터 위치·방식 개편(전체/단일선택), 라벨 폰트 강조, 신규 엑셀 반영(단종 4건)'] },
+  { v: 'V2.13', date: '2026.08', notes: ['유통 값 "A+B+C" 정규화, 비교표 하이라이트·정렬 개선'] },
+  { v: 'V2.12', date: '2026.08', notes: ['유통 필터 원본표기 적용, 비교창 폭 확장'] },
+  { v: 'V2.11', date: '2026.08', notes: ['유통 빠른선택 추가, 비교 삭제버튼 개선'] },
+  { v: 'V2.10', date: '2026.08', notes: ['프리볼트 키워드에 프리고 추가'] },
+  { v: 'V2.9', date: '2026.08', notes: ['정렬/빠른선택/시리즈 영역 분리, 단계 필터 추가, 시리즈 통합'] },
+  { v: 'V2.8', date: '2026.08', notes: ['쇼핑몰 바로가기 메뉴 추가'] },
+  { v: 'V2.7', date: '2026.08', notes: ['키워드 복수선택, 카드 사양 확장, 비교 인사이트·시리즈 필터 추가'] },
+  { v: 'V2.6', date: '2026.08', notes: ['우클릭/개발자도구 차단'] },
+  { v: 'V2.5', date: '2026.08', notes: ['버전 패널 자동펼침 개선'] },
+  { v: 'V2.4', date: '2026.08', notes: ['버전 정보 패널 추가'] },
+  { v: 'V2.3', date: '2026.08', notes: ['단종 모델 기본 포함으로 변경'] },
+  { v: 'V2.2', date: '2026.08', notes: ['데이터 재검증, 키워드 재설계'] },
+  { v: 'V2.1', date: '2026.08', notes: ['사양 누락분 반영, 필터 버그 수정'] },
+  { v: 'V2.0', date: '2026.08', notes: ['통합검색·사이드바 개편, 화이트 테마 리뉴얼'] },
+  { v: 'V1.0', date: '2026.08', notes: ['최초 배포 — 221개 모델'] },
 ];
 
 const CATS = {
@@ -191,7 +146,7 @@ let state = {
   query: '',
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
   stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
-  distFilter: new Set(),  // 유통 채널 칩 — distChannels 필드만 정확히 매칭 (제품명 등과 혼동 방지), 다중 선택 시 AND
+  distFilter: 'all',      // 유통 — 타입 필터와 동일하게 단일 선택 (전체/특정 값)
   seriesFilter: null,     // 계열/라인 그룹 필터
   dryerType: 'all',
   includeDiscontinued: true,
@@ -252,7 +207,7 @@ function setCategory(cat, sub) {
   state.dryerType = 'all';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
-  state.distFilter = new Set();
+  state.distFilter = 'all';
   state.seriesFilter = null;
   state.smartSort = null;
   state.query = '';
@@ -328,8 +283,8 @@ function getFiltered() {
         items = items.filter(p => p[field] !== null && p[field] !== undefined && state.stepFilter.has(p[field]));
       }
     }
-    if (state.distFilter.size > 0) {
-      items = items.filter(p => state.distFilter.has(p.specs['유통'] || ''));
+    if (state.distFilter !== 'all') {
+      items = items.filter(p => (p.specs['유통'] || '') === state.distFilter);
     }
     if (state.seriesFilter) {
       items = items.filter(p => seriesGroupKey(p) === state.seriesFilter);
@@ -377,11 +332,33 @@ function renderRail() {
       </div>`;
   }).join('');
 
+  // 유통 — 타입 필터와 동일한 형태(전체 + 단일 선택)로 현재 중분류의 실제 값만 표시
+  let distBlock = '';
+  if (!isGlobalSearch()) {
+    const baseForDist = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
+    const distCounts = new Map();
+    baseForDist.forEach(p => {
+      const v = p.specs['유통'];
+      if (v) distCounts.set(v, (distCounts.get(v) || 0) + 1);
+    });
+    const distValues = Array.from(distCounts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
+    if (distValues.length > 1) {
+      distBlock = `
+      <div class="rail-group">
+        <p class="rail-heading">유통</p>
+        <div class="chip-row" id="distChips">
+          <button class="chip ${state.distFilter === 'all' ? 'active' : ''}" data-dist="all">전체</button>
+          ${distValues.map(([v, count]) => `<button class="chip ${state.distFilter === v ? 'active' : ''}" data-dist="${escapeHtml(v)}">${escapeHtml(v)}</button>`).join('')}
+        </div>
+      </div>`;
+    }
+  }
+
   let extraFilters = '';
   if (!isGlobalSearch() && state.subcategory === 'dryer') {
     extraFilters = `
       <div class="rail-group">
-        <p class="rail-title">타입</p>
+        <p class="rail-heading">타입</p>
         <div class="chip-row" id="dryerTypeChips">
           <button class="chip ${state.dryerType === 'all' ? 'active' : ''}" data-type="all">전체</button>
           <button class="chip ${state.dryerType === '고정형' ? 'active' : ''}" data-type="고정형">고정형</button>
@@ -392,9 +369,10 @@ function renderRail() {
 
   $('#rail').innerHTML = `
     <div class="rail-group">
-      <p class="rail-title">Product Line</p>
+      <p class="rail-heading rail-heading-top">Product Line</p>
       ${treeHtml}
     </div>
+    ${distBlock}
     ${extraFilters}
     <div class="rail-group">
       <div class="toggle-row">
@@ -403,7 +381,7 @@ function renderRail() {
       </div>
     </div>
     <div class="rail-group version-box">
-      <p class="rail-title">버전 정보</p>
+      <p class="rail-heading">버전 정보</p>
       <div class="version-current">현재 <b>${CURRENT_VERSION}</b></div>
       ${VERSION_LOG.slice(0, 2).map(v => `
         <div class="version-entry version-entry-open">
@@ -443,6 +421,15 @@ function renderRail() {
     $$('.chip', dtChips).forEach(btn => {
       btn.addEventListener('click', () => {
         state.dryerType = btn.dataset.type;
+        render();
+      });
+    });
+  }
+  const distChips = $('#distChips');
+  if (distChips) {
+    $$('.chip', distChips).forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.distFilter = btn.dataset.dist;
         render();
       });
     });
@@ -557,38 +544,6 @@ function render() {
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
   $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField) ? '' : 'none';
 
-  // 유통 채널 칩 — 엑셀 "유통" 원본 값 그대로 표시 (조합/분해 없이). 값은 서로 배타적이므로 복수 선택 시 OR.
-  const distSection = $('#distSection');
-  if (isGlobalSearch()) {
-    $('#distTagsMain').innerHTML = '';
-    distSection.style.display = 'none';
-  } else {
-    const baseForDist = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
-    const distCounts = new Map();
-    baseForDist.forEach(p => {
-      const v = p.specs['유통'];
-      if (v) distCounts.set(v, (distCounts.get(v) || 0) + 1);
-    });
-    const distValues = Array.from(distCounts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ko'));
-    if (distValues.length > 1) {
-      distSection.style.display = '';
-      $('#distTagsMain').innerHTML = distValues.map(([v, count]) =>
-        `<button class="chip ${state.distFilter.has(v) ? 'active' : ''}" data-dist="${escapeHtml(v)}">${escapeHtml(v)} <span class="chip-count">${count}</span></button>`
-      ).join('');
-      $$('.chip[data-dist]', $('#distTagsMain')).forEach(btn => {
-        btn.addEventListener('click', () => {
-          const v = btn.dataset.dist;
-          if (state.distFilter.has(v)) state.distFilter.delete(v);
-          else state.distFilter.add(v);
-          render();
-        });
-      });
-    } else {
-      $('#distTagsMain').innerHTML = '';
-      distSection.style.display = 'none';
-    }
-  }
-
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
   const seriesSection = seriesRow.closest('.chip-section');
@@ -623,7 +578,7 @@ function render() {
 
   const grid = $('#grid');
   if (items.length === 0) {
-    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), ...Array.from(state.distFilter), state.seriesFilter].filter(Boolean);
+    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), state.distFilter !== 'all' ? state.distFilter : null, state.seriesFilter].filter(Boolean);
     const shownTerm = terms.join(', ');
     grid.innerHTML = `
       <div class="empty-state">
@@ -754,10 +709,12 @@ function openCompareModal() {
 
   const headCells = items.map(p => `
     <th class="compare-head-cell" style="${colWidthStyle}">
-      <img src="images/${p.image}" alt="">
-      <div class="cname">${escapeHtml(p.name)}</div>
-      <div class="csku">${escapeHtml(p.sku)}</div>
-      <button data-remove-cmp="${p.id}">✕ 비교에서 제외</button>
+      <div class="chc-inner">
+        <img src="images/${p.image}" alt="">
+        <div class="cname">${escapeHtml(p.name)}</div>
+        <div class="csku">${escapeHtml(p.sku)}</div>
+        <button data-remove-cmp="${p.id}">✕ 비교에서 제외</button>
+      </div>
     </th>`).join('');
 
   const bodyRows = labelOrder.map(label => {
