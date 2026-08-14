@@ -4,5 +4,59 @@
     "productId": "bytulz-FA01A",
     "title": "음식물 처리기 사용설명서",
     "fileName": "FA01A.pdf"
+  },
+  {
+    "sku": "SWC5A01A",
+    "productId": "iron-src-SWC5A01A",
+    "title": "글로우온 사용설명서",
+    "fileName": "SWC5A01A.pdf"
+  },
+  {
+    "sku": "SDN3A1A",
+    "productId": "dryer-src-SDN3A1A",
+    "title": "데일로 사용설명서",
+    "fileName": "SDN3A1A.pdf"
+  },
+  {
+    "sku": "JBD1900A",
+    "productId": "home-JBD1900A",
+    "title": "벨린 바디드라이어 사용설명서",
+    "fileName": "JBD1900A.pdf"
+  },
+  {
+    "sku": "SRB4A01A",
+    "productId": "iron-src-SRB4A01A",
+    "title": "볼륨온 플러스 사용설명서",
+    "fileName": "SRB4A01A.pdf"
+  },
+  {
+    "sku": "CTS7A01A",
+    "productId": "home-CTS7A01A",
+    "title": "에어뮤즈 벨로 사용설명서",
+    "fileName": "CTS7A01A.pdf"
+  },
+  {
+    "sku": "CLS5A01A",
+    "productId": "home-CLS5A01A",
+    "title": "에어뮤즈 대형 사용설명서",
+    "fileName": "CLS5A01A.pdf"
+  },
+  {
+    "sku": "SDA5A01A",
+    "productId": "dryer-src-SDA5A01A",
+    "title": "에이플로 사용설명서",
+    "fileName": "SDA5A01A.pdf"
+  },
+  {
+    "sku": "SDU3A01A",
+    "productId": "dryer-src-SDU3A01A",
+    "title": "케어부스터 사용설명서",
+    "fileName": "SDU3A01A.pdf"
+  },
+  {
+    "sku": "SW3A01MA",
+    "productId": "iron-src-SW3A01MA",
+    "title": "플랫핑크 사용설명서",
+    "fileName": "SW3A01MA.pdf"
   }
 ]

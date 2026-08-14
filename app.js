@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.29';
+const CURRENT_VERSION = 'V2.30';
 const VERSION_LOG = [
+  { v: 'V2.30', date: '2026.08', notes: ['매뉴얼 9종 추가(총 10종), 대문접지형 매뉴얼 자동 가로폭맞춤(FitH) 적용, 용량 큰 PDF 2건 압축(15.6MB→3.5MB, 11.3MB→3.6MB, 화질 손상 없음)'] },
   { v: 'V2.29', date: '2026.08', notes: ['매뉴얼 뷰어 창 확대(96vw, 최대 1900px) + 매뉴얼 영역 비중 확대, "매뉴얼 닫기" 버튼을 좌측으로 이동해 전체 닫기(✕) 버튼과 겹침 해소'] },
   { v: 'V2.28', date: '2026.08', notes: ['매뉴얼 보기를 새 탭 대신 네비게이터 내장 뷰어로 변경 — 상세창이 넓어지며 좌측 사양정보 + 우측 매뉴얼(iframe)이 한 화면에 나란히 표시'] },
   { v: 'V2.27', date: '2026.08', notes: ['제품 상세 팝업에 "매뉴얼 보기·다운로드·URL복사" 버튼 추가 (PDF 직접 호스팅, 브라우저 기본 뷰어로 검색·페이지이동 지원) — BYTULZ 매뉴얼로 우선 테스트'] },
@@ -957,7 +958,7 @@ function openProductModal(id) {
     viewBtn.addEventListener('click', () => {
       const opening = !pmodalEl.classList.contains('manual-open');
       pmodalEl.classList.toggle('manual-open', opening);
-      if (opening) $('#manualIframe').src = manualUrl;
+      if (opening) $('#manualIframe').src = manualUrl + '#view=FitH';
     });
   }
   const closeBtn = $('#manualCloseBtn');
