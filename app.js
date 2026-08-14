@@ -2,8 +2,11 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.33';
+const CURRENT_VERSION = 'V2.35';
 const VERSION_LOG = [
+  { v: 'V2.35', date: '2026.08', notes: ['빠른 선택에 "JMW(한국)/소싱" 칩 추가(드라이기·아이론에서만 노출, 컬링아이언은 전부 한국·생활가전/바이툴즈는 전부 소싱), 검색어 "국내/해외/외주"도 지원, 이용방법 가이드 갱신'] },
+  { v: 'V2.35', date: '2026.08', notes: ['빠른 선택에 "JMW(한국)/소싱" 칩 추가(드라이기·아이론만, OR결합) — 컬링아이언은 전부 국내, 생활가전·바이툴즈는 전부 소싱으로 처리. 검색창에 국내/해외/외주 등 입력해도 검색됨. 이용방법 가이드에도 반영'] },
+  { v: 'V2.34', date: '2026.08', notes: ['상단바에 "이용방법" 가이드 추가 — 쇼핑몰 링크와 다른 카드형 디자인, 검색·필터·비교·매뉴얼·영상 핵심 사용법 정리, 하단에 영업지원팀 문의 안내'] },
   { v: 'V2.33', date: '2026.08', notes: ['글로우온·볼륨온플러스·플랫핑크 매뉴얼을 "1장에 4패널 다닥다닥" 형식에서 패널별 4페이지로 자동 분할·여백 제거 — 텍스트 크기 대폭 확대'] },
   { v: 'V2.32', date: '2026.08', notes: ['데일로·에이플로 매뉴얼 파일 오류 발견 — 실제 매뉴얼이 아닌 인쇄용 "디자인 개발 사양서" 파일이 잘못 첨부되어 임시 제외 (총 10종 → 8종). 나머지 6종은 정상 확인 완료'] },
   { v: 'V2.31', date: '2026.08', notes: ['빠른 선택에 "매뉴얼" 칩 추가(매뉴얼 있는 중분류만 자동 노출), 검색창에 "매뉴얼/메뉴얼" 입력 시 전역검색 지원, 카드 썸네일에 매뉴얼 보유 배지 표시'] },
@@ -85,6 +88,10 @@ const QUICK_TAGS = {
 
 const SYNONYMS = {
   '메뉴얼': ['매뉴얼'],
+  '국내': ['jmw(한국)'],
+  '해외': ['소싱'],
+  '외주': ['소싱'],
+  '자체': ['jmw(한국)'],
   '곱슬머리': ['컬링', '웨이브', '노즐', '브러시노즐', '매직'],
   '컬머리': ['컬링', '웨이브'],
   '두피': ['두피케어'],
@@ -180,6 +187,7 @@ let state = {
   query: '',
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
   stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
+  originFilter: new Set(), // JMW(한국)/소싱 칩 — 다중 선택 시 OR, 다른 필터와는 AND
   distFilter: 'all',      // 유통 — 타입 필터와 동일하게 단일 선택 (전체/특정 값)
   contentsView: null,     // null = 제품 브라우징, 'dryer'|'iron' = Contents 섹션 보는 중
   contentsTypeFilter: 'all', // Contents 안에서 전체/tutorial/tip 필터
@@ -253,6 +261,7 @@ function goHome() {
   state.query = '';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
+  state.originFilter = new Set();
   state.distFilter = 'all';
   state.seriesFilter = null;
   state.dryerType = 'all';
@@ -286,6 +295,7 @@ function setCategory(cat, sub) {
   state.dryerType = 'all';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
+  state.originFilter = new Set();
   state.distFilter = 'all';
   state.seriesFilter = null;
   state.smartSort = null;
@@ -328,7 +338,8 @@ function matchesQuery(p, tokens) {
     p.name, p.sku, p.series,
     ...(p.tags || []),
     ...Object.values(p.specs || {}),
-    hasManual(p) ? '매뉴얼' : ''
+    hasManual(p) ? '매뉴얼' : '',
+    getOrigin(p)
   ].join(' ').toLowerCase();
   return tokens.some(t => haystack.includes(t));
 }
@@ -379,6 +390,12 @@ function contentsGroupLabel(g) {
   return map[g] || g;
 }
 
+function getOrigin(p) {
+  if (p.subcategory === 'bodydryer' || p.subcategory === 'circulator' || p.subcategory === 'bytulz') return '소싱';
+  if (p.subcategory === 'curling') return 'JMW(한국)';
+  return p.id.includes('-src-') ? '소싱' : 'JMW(한국)';
+}
+
 function seriesGroupKey(p) {
   return p.series || p.lineGroup || p.name;
 }
@@ -408,6 +425,9 @@ function getFiltered() {
       if (field) {
         items = items.filter(p => p[field] !== null && p[field] !== undefined && state.stepFilter.has(p[field]));
       }
+    }
+    if (state.originFilter.size > 0) {
+      items = items.filter(p => state.originFilter.has(getOrigin(p)));
     }
     if (state.distFilter !== 'all') {
       items = items.filter(p => (p.specs['유통'] || '') === state.distFilter);
@@ -681,7 +701,7 @@ function render() {
   });
 
   $('#filterTagsMain').closest('.chip-section').querySelector('.chip-section-label').innerHTML =
-    '빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계 칩은 서로 OR(하나라도 해당)</span>';
+    '빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계·출처(JMW 한국/소싱) 칩은 서로 OR(하나라도 해당)</span>';
   $('#filterTagsMain').innerHTML = tagTags.map(t =>
     `<button class="chip ${state.tagFilter.has(t) ? 'active' : ''}" data-tag="${t}">${t}</button>`
   ).join('');
@@ -713,8 +733,30 @@ function render() {
     });
   }
 
+  // JMW(한국)/소싱 칩 — 두 출처가 실제로 섞여있는 중분류(드라이기·아이론)에서만 표시, 같은 종류끼리는 OR
+  let originValuesPresent = [];
+  if (!isGlobalSearch()) {
+    const baseForOrigin = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
+    originValuesPresent = Array.from(new Set(baseForOrigin.map(getOrigin)));
+    if (originValuesPresent.length > 1) {
+      const originOrder = ['JMW(한국)', '소싱'];
+      const originChipsHtml = originOrder.filter(v => originValuesPresent.includes(v)).map(v =>
+        `<button class="chip ${state.originFilter.has(v) ? 'active' : ''}" data-origin="${v}">${v}</button>`
+      ).join('');
+      $('#filterTagsMain').insertAdjacentHTML('beforeend', originChipsHtml);
+      $$('.chip[data-origin]', $('#filterTagsMain')).forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.origin;
+          if (state.originFilter.has(v)) state.originFilter.delete(v);
+          else state.originFilter.add(v);
+          render();
+        });
+      });
+    }
+  }
+
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
-  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField) ? '' : 'none';
+  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField || originValuesPresent.length > 1) ? '' : 'none';
 
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
@@ -750,7 +792,7 @@ function render() {
 
   const grid = $('#grid');
   if (items.length === 0) {
-    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), state.distFilter !== 'all' ? state.distFilter : null, state.seriesFilter].filter(Boolean);
+    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), ...Array.from(state.originFilter), state.distFilter !== 'all' ? state.distFilter : null, state.seriesFilter].filter(Boolean);
     const shownTerm = terms.join(', ');
     grid.innerHTML = `
       <div class="empty-state">
@@ -1188,6 +1230,79 @@ $$('.modal-close').forEach(btn => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') $$('.overlay.show').forEach(ov => hideOverlay('#' + ov.id));
 });
+
+const GUIDE_SECTIONS = [
+  {
+    icon: '🔍', title: '검색',
+    items: [
+      '우측 상단 검색창에 <b>모델명, 품번, 기능, 사양(색상·와트 등)</b> 뭐든 입력하면 전체 카테고리에서 바로 찾아줍니다',
+      '"매뉴얼" / "메뉴얼"처럼 흔한 오타도 다 잡아줍니다',
+      '"국내" "해외" "소싱" 같은 검색어로도 출처별 제품을 찾을 수 있습니다',
+    ]
+  },
+  {
+    icon: '🧭', title: '필터 & 정렬',
+    items: [
+      '<b>좌측 사이드바</b>: 대분류 → 중분류 순으로 제품 찾기',
+      '<b>정렬 기준</b>: 최신순/오래된순 등, 드라이기는 와트·풍속·풍온 높은순/낮은순까지',
+      '<b>빠른 선택</b>: 키워드 여러 개 동시 선택 가능 (예: 음이온+저소음 조합)',
+      '<b>JMW(한국)/소싱</b> 칩으로 국내 자체 개발과 소싱(해외 외주) 제품 구분 — 드라이기·아이론에서만 노출',
+      '<b>유통 / 시리즈</b>: 판매채널별, 제품 라인별로 좁혀보기',
+      '<b>JMW(한국) / 소싱</b>: 드라이기·아이론에서 자체 개발(국내)과 소싱 제품을 구분해서 보기 (검색창에 "국내"·"소싱"·"해외" 입력해도 찾아짐)',
+      '<b>단종 모델 포함</b> 토글로 판매중만 볼지 전체 볼지 선택',
+    ]
+  },
+  {
+    icon: '⚖️', title: '비교하기',
+    items: [
+      '카드 좌측 상단 체크박스로 <b>최대 6개</b> 선택',
+      '화면 하단에 뜨는 "비교하기" 클릭',
+      '다른 값보다 더 좋은 스펙에는 <b>▲ 표시</b>가 자동으로 붙습니다',
+    ]
+  },
+  {
+    icon: '📄', title: '매뉴얼 보기',
+    items: [
+      '제품 클릭 → 상세창에서 "매뉴얼 보기" 누르면 <b>바로 옆에서 PDF 열람</b>',
+      '다운로드, URL 복사도 버튼 하나로',
+      '빠른 선택의 <b>"매뉴얼"</b> 칩 누르면 매뉴얼 있는 모델만 모아보기',
+    ]
+  },
+  {
+    icon: '🎬', title: '튜토리얼 영상',
+    items: [
+      '좌측 <b>Contents</b> 섹션에서 제품별 사용법·스타일링 영상 시청',
+      '<b>영상 링크 공유하는 법</b>: 영상 클릭 → 화면 좌측 하단 화살표(공유) 아이콘 클릭 → 뜨는 창 상단 URL 클릭하면 자동 복사됨',
+    ]
+  },
+];
+
+function openGuideModal() {
+  $('#guideModalBody').innerHTML = `
+    <div class="guide-header">
+      <span class="guide-header-icon">📘</span>
+      <div>
+        <h2>이용방법</h2>
+        <p>JMW Gear Spec Navigator를 더 편하게 쓰는 핵심 팁만 모았습니다</p>
+      </div>
+    </div>
+    <div class="guide-grid">
+      ${GUIDE_SECTIONS.map(s => `
+        <div class="guide-card">
+          <div class="guide-card-icon">${s.icon}</div>
+          <h3>${escapeHtml(s.title)}</h3>
+          <ul>${s.items.map(i => `<li>${i}</li>`).join('')}</ul>
+        </div>
+      `).join('')}
+    </div>
+    <div class="guide-footer">
+      <span>📮</span> 수정 요청이나 추가 요구사항은 <b>영업지원팀</b>으로 문의해주세요.
+    </div>
+  `;
+  showOverlay('#guideOverlay');
+}
+
+$('#guideBtn').addEventListener('click', openGuideModal);
 
 loadData();
 

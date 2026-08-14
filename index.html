@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.33
+  Version: V2.35
   Updated: 2026.08.13
-  Changelog: 글로우온·볼륨온플러스·플랫핑크 매뉴얼 4페이지 자동분할 (텍스트 확대)
+  Changelog: 빠른 선택에 "JMW(한국)/소싱" 칩 추가, 검색어 지원, 이용방법 갱신
 -->
 <html lang="ko">
 <head>
@@ -29,6 +29,7 @@
       <a href="https://smartstore.naver.com/elechen" target="_blank" rel="noopener">엘리첸 네이버 스토어</a>
       <a href="https://bytulz.co.kr/" target="_blank" rel="noopener">바이툴즈 공식 쇼핑몰</a>
       <a href="https://smartstore.naver.com/bytulz" target="_blank" rel="noopener">바이툴즈 네이버 스토어</a>
+      <button type="button" class="chip guide-btn" id="guideBtn">📘 이용방법</button>
     </nav>
     <div class="topbar-search">
       <div class="search-box" id="searchBox">
@@ -72,7 +73,7 @@
       <div class="quick-tags" id="sortTagsMain"></div>
     </div>
     <div class="chip-section chip-section-divider">
-      <p class="chip-section-label">빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계 칩은 서로 OR(하나라도 해당)</span></p>
+      <p class="chip-section-label">빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계·출처(JMW 한국/소싱) 칩은 서로 OR(하나라도 해당)</span></p>
       <div class="quick-tags" id="filterTagsMain"></div>
     </div>
     <div class="chip-section chip-section-divider">
@@ -92,7 +93,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.33 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.35 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->
@@ -116,6 +117,14 @@
   <div class="modal vmodal">
     <button class="modal-close">✕</button>
     <div id="videoModalBody"></div>
+  </div>
+</div>
+
+<!-- 이용방법 가이드 모달 -->
+<div class="overlay" id="guideOverlay">
+  <div class="modal guidemodal">
+    <button class="modal-close">✕</button>
+    <div id="guideModalBody"></div>
   </div>
 </div>
 
