@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.28';
+const CURRENT_VERSION = 'V2.29';
 const VERSION_LOG = [
+  { v: 'V2.29', date: '2026.08', notes: ['매뉴얼 뷰어 창 확대(96vw, 최대 1900px) + 매뉴얼 영역 비중 확대, "매뉴얼 닫기" 버튼을 좌측으로 이동해 전체 닫기(✕) 버튼과 겹침 해소'] },
   { v: 'V2.28', date: '2026.08', notes: ['매뉴얼 보기를 새 탭 대신 네비게이터 내장 뷰어로 변경 — 상세창이 넓어지며 좌측 사양정보 + 우측 매뉴얼(iframe)이 한 화면에 나란히 표시'] },
   { v: 'V2.27', date: '2026.08', notes: ['제품 상세 팝업에 "매뉴얼 보기·다운로드·URL복사" 버튼 추가 (PDF 직접 호스팅, 브라우저 기본 뷰어로 검색·페이지이동 지원) — BYTULZ 매뉴얼로 우선 테스트'] },
   { v: 'V2.26', date: '2026.08', notes: ['Contents 구조 재정비 — Product Line과 동급 독립 섹션으로 변경, 영상 있는 그룹(Dryer/Iron/Bytulz)만 표시, Tutorial/Styling Tip 상단 필터 칩 추가. 총 24개 영상(BYTULZ 7편 포함) 등록'] },
