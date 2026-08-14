@@ -1,37 +1,218 @@
 [
   {
     "sku": "SDF4B1A",
-    "productId": "dryer-src-SDF4B1A",
+    "productName": "케어부스터 FV",
+    "group": "dryer",
+    "type": "tutorial",
     "title": "케어부스터FV 드라이어 튜토리얼",
     "subtitle": "제품 사용 방법 안내",
     "youtubeId": "34C7JP3pkzo"
   },
   {
     "sku": "SDS3A1A",
-    "productId": "dryer-src-SDS3A1A",
+    "productName": "올핏",
+    "group": "dryer",
+    "type": "tutorial",
     "title": "올핏 헤어 드라이어 튜토리얼 (남성ver)",
     "subtitle": "제품 사용 방법 안내",
     "youtubeId": "LTVbqatoh2c"
   },
   {
     "sku": "SDS3A1A",
-    "productId": "dryer-src-SDS3A1A",
+    "productName": "올핏",
+    "group": "dryer",
+    "type": "tutorial",
     "title": "올핏 헤어 드라이어 튜토리얼 (여성ver)",
     "subtitle": "제품 사용 방법 안내",
     "youtubeId": "ARrLpXRrI7g"
   },
   {
     "sku": "SDA5A01A",
-    "productId": "dryer-src-SDA5A01A",
+    "productName": "에이플로",
+    "group": "dryer",
+    "type": "tutorial",
     "title": "에이플로 헤어 드라이어 튜토리얼",
     "subtitle": "제품 사용 방법 안내",
     "youtubeId": "a45qHn3AR8o"
   },
   {
     "sku": "MCI8A01A",
-    "productId": "dryer-kr-MCI8A01A",
+    "productName": "플린",
+    "group": "dryer",
+    "type": "tutorial",
     "title": "플린 헤어 드라이어 튜토리얼",
     "subtitle": "제품 사용 방법 안내",
     "youtubeId": "3vupdlQpg_I"
+  },
+  {
+    "sku": "MC4A01A",
+    "productName": "에어비",
+    "group": "dryer",
+    "type": "tip",
+    "title": "누구나 할 수 있는 뿌리 볼륨 살리기",
+    "subtitle": "JMW 에어비 드라이기",
+    "youtubeId": "BMrhAsNepok"
+  },
+  {
+    "sku": "W6001RA",
+    "productName": "W6001RA",
+    "group": "iron",
+    "type": "tip",
+    "title": "비오는 날 고데기 머리 유지하기",
+    "subtitle": "JMW W6001RA",
+    "youtubeId": "vlkDdP_orR4"
+  },
+  {
+    "sku": "WCS6032A",
+    "productName": "픽앤컬",
+    "group": "iron",
+    "type": "tutorial",
+    "title": "헤어디자이너가 알려주는 봉고데기 사용법",
+    "subtitle": "feat. JMW 픽앤컬",
+    "youtubeId": "b_wmp0RvHEY"
+  },
+  {
+    "sku": "WCS6032A",
+    "productName": "픽앤컬",
+    "group": "iron",
+    "type": "tip",
+    "title": "픽앤컬로 가능한 다양한 헤어 스타일",
+    "subtitle": "S컬 웨이브부터 포니테일 묶는법까지",
+    "youtubeId": "PtoHKjH5yic"
+  },
+  {
+    "sku": "STL7001A",
+    "productName": "루미에어",
+    "group": "dryer",
+    "type": "tutorial",
+    "title": "JMW 루미에어 사용법이 궁금하다면?!",
+    "subtitle": "제품 사용 방법 안내",
+    "youtubeId": "ADUvTDeUV3U"
+  },
+  {
+    "sku": null,
+    "productName": "드라이기",
+    "group": "dryer",
+    "type": "tip",
+    "title": "5분 뚝딱! 볼륨업 헤어롤 드라이",
+    "subtitle": "헤어롤+드라이기 웨이브 스타일링",
+    "youtubeId": "1ac3TsH7rM0"
+  },
+  {
+    "sku": "MS8001A",
+    "productName": "에어컬렉션",
+    "group": "dryer",
+    "type": "tutorial",
+    "title": "JMW 에어컬렉션 사용 가이드 영상",
+    "subtitle": "제품 사용 방법 안내",
+    "youtubeId": "PjeTwAvnPn4"
+  },
+  {
+    "sku": "WC5028A",
+    "productName": "스핀앤컬",
+    "group": "iron",
+    "type": "tutorial",
+    "title": "JMW 전문가용 봉고데기 스핀앤컬 사용방법",
+    "subtitle": "제품 사용 방법 안내",
+    "youtubeId": "tb8hR6XxtMU"
+  },
+  {
+    "sku": null,
+    "productName": "드라이기",
+    "group": "dryer",
+    "type": "tip",
+    "title": "드라이기만으로 자연스런 웨이브 만들기 도전!",
+    "subtitle": "",
+    "youtubeId": "bC_Z-Fv8VOI"
+  },
+  {
+    "sku": null,
+    "productName": "드라이기",
+    "group": "dryer",
+    "type": "tip",
+    "title": "드라이기+구르프로 간단히 뿌리 볼륨 만들기!",
+    "subtitle": "",
+    "youtubeId": "K7fMYiAIvMo"
+  },
+  {
+    "sku": null,
+    "productName": "",
+    "group": "dryer",
+    "type": "tip",
+    "title": "단아하고 사랑스러운 러블리 포니테일",
+    "subtitle": "이대로만 따라해봐요",
+    "youtubeId": "rfj43tPnuPU"
+  },
+  {
+    "sku": "M5001A PLUS PRO_W",
+    "productName": "M50 PP 화이트",
+    "group": "dryer",
+    "type": "tutorial",
+    "title": "JMW 드라이기 M50 PP 화이트 튜토리얼",
+    "subtitle": "제품 사용 방법 안내",
+    "youtubeId": "71ePlPprpuE"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 음식물처리기 간편 사용 방법",
+    "subtitle": "",
+    "youtubeId": "PNhUrBQ56qs"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 추가 기능",
+    "subtitle": "",
+    "youtubeId": "xF3aSh1tWw8"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 제품 사용법",
+    "subtitle": "",
+    "youtubeId": "ietel_7XOx0"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 언박싱 및 구성품 안내",
+    "subtitle": "",
+    "youtubeId": "00-MWmV3Euc"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 세척 및 관리법",
+    "subtitle": "",
+    "youtubeId": "BPtNBxk532M"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 필터 교체 방법",
+    "subtitle": "",
+    "youtubeId": "K5diTeO6544"
+  },
+  {
+    "sku": "FA01A",
+    "productName": "BYTULZ",
+    "group": "bytulz",
+    "type": "tutorial",
+    "title": "일상을 쉽게, BYTULZ | 고장 안내",
+    "subtitle": "",
+    "youtubeId": "ni8EpJCxX2U"
   }
 ]

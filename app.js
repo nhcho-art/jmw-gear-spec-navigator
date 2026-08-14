@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.25';
+const CURRENT_VERSION = 'V2.26';
 const VERSION_LOG = [
+  { v: 'V2.26', date: '2026.08', notes: ['Contents 구조 재정비 — Product Line과 동급 독립 섹션으로 변경, 영상 있는 그룹(Dryer/Iron/Bytulz)만 표시, Tutorial/Styling Tip 상단 필터 칩 추가. 총 24개 영상(BYTULZ 7편 포함) 등록'] },
   { v: 'V2.25', date: '2026.08', notes: ['Product Line에 "Contents > Tutorial" 대분류 신설 — 유튜브 사용법 영상을 제품처럼 그리드로 보고 클릭 시 팝업 재생 (현재 드라이기 5편 등록, 다운로드 없이 임베드 방식)'] },
   { v: 'V2.24', date: '2026.08', notes: ['좌측 상단 "JMW Gear Spec Navigator" 클릭 시 초기 화면으로 이동(모든 필터·검색·비교 초기화)'] },
   { v: 'V2.23', date: '2026.08', notes: ['M5042D 스위치 정보 오류(무게값 잘못 복사됨) 수정 반영. 데이터 전수 감사 추가 진행(추가 이상 없음).'] },
@@ -53,14 +54,6 @@ const CATS = {
     accent: 'kitchen',
     subs: {
       bytulz: { label: 'Bytulz', kr: '음식물처리기' },
-    }
-  },
-  'Contents': {
-    accent: 'content',
-    groupLabel: 'Tutorial',
-    subs: {
-      'tutorial-dryer': { label: 'Dryer', kr: '드라이기 사용법' },
-      'tutorial-iron':  { label: 'Iron',  kr: '아이론 사용법' },
     }
   }
 };
@@ -179,6 +172,8 @@ let state = {
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
   stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
   distFilter: 'all',      // 유통 — 타입 필터와 동일하게 단일 선택 (전체/특정 값)
+  contentsView: null,     // null = 제품 브라우징, 'dryer'|'iron' = Contents 섹션 보는 중
+  contentsTypeFilter: 'all', // Contents 안에서 전체/tutorial/tip 필터
   seriesFilter: null,     // 계열/라인 그룹 필터
   dryerType: 'all',
   includeDiscontinued: true,
@@ -197,11 +192,6 @@ async function loadData() {
   try {
     const tRes = await fetch('tutorials.json');
     TUTORIALS = await tRes.json();
-    TUTORIALS.forEach(t => {
-      const p = PRODUCTS.find(x => x.id === t.productId);
-      t.group = p ? `tutorial-${p.subcategory}` : 'tutorial-dryer';
-      t.productName = p ? p.name : '';
-    });
   } catch (e) {
     TUTORIALS = [];
   }
@@ -243,6 +233,8 @@ function initUI() {
 function goHome() {
   state.category = '이미용가전';
   state.subcategory = 'dryer';
+  state.contentsView = null;
+  state.contentsTypeFilter = 'all';
   state.query = '';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
@@ -275,6 +267,7 @@ function applyAccent() {
 function setCategory(cat, sub) {
   state.category = cat;
   state.subcategory = sub || Object.keys(CATS[cat].subs)[0];
+  state.contentsView = null;
   state.dryerType = 'all';
   state.tagFilter = new Set();
   state.stepFilter = new Set();
@@ -285,6 +278,15 @@ function setCategory(cat, sub) {
   $('#searchInput').value = '';
   $('#searchBox').classList.remove('has-value');
   applyAccent();
+  render();
+}
+
+function setContentsView(group) {
+  state.contentsView = group;
+  state.contentsTypeFilter = 'all';
+  state.query = '';
+  $('#searchInput').value = '';
+  $('#searchBox').classList.remove('has-value');
   render();
 }
 
@@ -325,18 +327,36 @@ function isGlobalSearch() {
 }
 
 function isTutorialView() {
-  return state.category === 'Contents';
+  return state.contentsView !== null;
 }
 
+const CONTENT_TYPE_LABEL = { tutorial: 'Tutorial', tip: 'Styling Tip' };
+
 function getTutorials() {
-  if (isGlobalSearch()) {
+  let list = TUTORIALS.filter(t => t.group === state.contentsView);
+  if (state.contentsTypeFilter !== 'all') {
+    list = list.filter(t => t.type === state.contentsTypeFilter);
+  }
+  if (state.query) {
     const tokens = expandQuery(state.query);
-    return TUTORIALS.filter(t => {
+    list = list.filter(t => {
       const hay = [t.title, t.subtitle, t.productName, t.sku].join(' ').toLowerCase();
       return tokens.some(tok => hay.includes(tok));
     });
   }
-  return TUTORIALS.filter(t => t.group === state.subcategory);
+  return list;
+}
+
+function contentsGroupsAvailable() {
+  // 실제 영상이 있는 그룹만 (없는 중분류는 만들지 않음)
+  const groups = Array.from(new Set(TUTORIALS.map(t => t.group)));
+  const order = ['dryer', 'iron', 'curling', 'bodydryer', 'circulator', 'bytulz'];
+  return order.filter(g => groups.includes(g));
+}
+
+function contentsGroupLabel(g) {
+  const map = { dryer: 'Dryer', iron: 'Iron', curling: 'Culing Iron', bodydryer: 'Body Dryer', circulator: 'Circulator', bytulz: 'Bytulz' };
+  return map[g] || g;
 }
 
 function seriesGroupKey(p) {
@@ -401,32 +421,42 @@ function getFiltered() {
 function renderRail() {
   const treeHtml = Object.entries(CATS).map(([catKey, catMeta]) => {
     const subsHtml = Object.entries(catMeta.subs).map(([subKey, subMeta]) => {
-      const count = catKey === 'Contents'
-        ? TUTORIALS.filter(t => t.group === subKey).length
-        : PRODUCTS.filter(p => p.category === catKey && p.subcategory === subKey && (state.includeDiscontinued || !p.discontinued)).length;
-      const active = !isGlobalSearch() && state.category === catKey && state.subcategory === subKey;
+      const count = PRODUCTS.filter(p => p.category === catKey && p.subcategory === subKey && (state.includeDiscontinued || !p.discontinued)).length;
+      const active = !isGlobalSearch() && !isTutorialView() && state.category === catKey && state.subcategory === subKey;
       return `<button class="sub-item ${active ? 'active' : ''}" data-cat="${catKey}" data-sub="${subKey}">
         <span>${subMeta.label}<br><small style="color:var(--text-faint);font-size:11px;font-weight:400">${subMeta.kr}</small></span>
         <span class="count">${count}</span>
       </button>`;
     }).join('');
-    const catActive = !isGlobalSearch() && state.category === catKey;
-    const groupLabelHtml = catMeta.groupLabel
-      ? `<div class="rail-group-label">${escapeHtml(catMeta.groupLabel)}</div>`
-      : '';
+    const catActive = !isGlobalSearch() && !isTutorialView() && state.category === catKey;
     return `
       <div class="rail-cat-group">
         <button class="rail-cat-header ${catActive ? 'active' : ''}" data-cat="${catKey}">
           <span class="rail-cat-dot dot-${catMeta.accent}"></span>${catKey}
         </button>
-        ${groupLabelHtml}
         <div class="sub-list">${subsHtml}</div>
       </div>`;
   }).join('');
 
+  // Contents — Product Line과 동급의 독립 섹션. 실제 영상이 있는 그룹만 표시.
+  const contentsGroups = contentsGroupsAvailable();
+  const contentsHtml = contentsGroups.map(g => {
+    const count = TUTORIALS.filter(t => t.group === g).length;
+    const active = isTutorialView() && state.contentsView === g;
+    return `<button class="sub-item ${active ? 'active' : ''}" data-contents-group="${g}">
+      <span>${contentsGroupLabel(g)}</span>
+      <span class="count">${count}</span>
+    </button>`;
+  }).join('');
+  const contentsBlock = contentsGroups.length ? `
+    <div class="rail-group">
+      <p class="rail-heading rail-heading-top">Contents</p>
+      <div class="sub-list" style="margin-left:0;padding-left:0;border-left:none;">${contentsHtml}</div>
+    </div>` : '';
+
   // 유통 — 타입 필터와 동일한 형태(전체 + 단일 선택)로 현재 중분류의 실제 값만 표시
   let distBlock = '';
-  if (!isGlobalSearch()) {
+  if (!isGlobalSearch() && !isTutorialView()) {
     const baseForDist = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
     const distCounts = new Map();
     baseForDist.forEach(p => {
@@ -447,7 +477,7 @@ function renderRail() {
   }
 
   let extraFilters = '';
-  if (!isGlobalSearch() && state.subcategory === 'dryer') {
+  if (!isGlobalSearch() && !isTutorialView() && state.subcategory === 'dryer') {
     extraFilters = `
       <div class="rail-group">
         <p class="rail-heading">타입</p>
@@ -464,6 +494,7 @@ function renderRail() {
       <p class="rail-heading rail-heading-top">Product Line</p>
       ${treeHtml}
     </div>
+    ${contentsBlock}
     ${distBlock}
     ${extraFilters}
     <div class="rail-group">
@@ -501,11 +532,18 @@ function renderRail() {
       setCategory(btn.dataset.cat);
     });
   });
-  $$('.sub-item', $('#rail')).forEach(btn => {
+  $$('.sub-item[data-cat]', $('#rail')).forEach(btn => {
     btn.addEventListener('click', () => {
       state.railOpen = false;
       $('#rail').classList.remove('open');
       setCategory(btn.dataset.cat, btn.dataset.sub);
+    });
+  });
+  $$('.sub-item[data-contents-group]', $('#rail')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.railOpen = false;
+      $('#rail').classList.remove('open');
+      setContentsView(btn.dataset.contentsGroup);
     });
   });
   const dtChips = $('#dryerTypeChips');
@@ -614,6 +652,8 @@ function render() {
     });
   });
 
+  $('#filterTagsMain').closest('.chip-section').querySelector('.chip-section-label').innerHTML =
+    '빠른 선택 <span class="hint">키워드는 복수 선택 시 AND(모두 만족) · 단계 칩은 서로 OR(하나라도 해당)</span>';
   $('#filterTagsMain').innerHTML = tagTags.map(t =>
     `<button class="chip ${state.tagFilter.has(t) ? 'active' : ''}" data-tag="${t}">${t}</button>`
   ).join('');
@@ -709,25 +749,43 @@ function render() {
 }
 
 function renderTutorialGrid() {
-  const subMeta = CATS['Contents'].subs[state.subcategory] || { label: 'Tutorial', kr: '사용법 튜토리얼' };
+  const groupLabel = contentsGroupLabel(state.contentsView);
   const list = getTutorials();
 
-  if (isGlobalSearch()) {
+  if (state.query) {
     $('#mainTitle').textContent = '검색 결과';
-    $('#mainPath').textContent = `튜토리얼 전체 검색 · "${state.query}"`;
+    $('#mainPath').textContent = `Contents / ${groupLabel} 검색 · "${state.query}"`;
   } else {
-    $('#mainTitle').textContent = subMeta.label;
-    $('#mainPath').textContent = `Contents / ${subMeta.kr}`;
+    $('#mainTitle').textContent = groupLabel;
+    $('#mainPath').textContent = `Contents / ${groupLabel}`;
   }
   $('#resultCount').innerHTML = `<b>${list.length}</b>개 영상`;
 
-  // 튜토리얼은 정렬/빠른선택/유통/시리즈 섹션 전부 숨김
+  // 정렬/유통/시리즈 섹션은 숨기고, "빠른 선택" 자리에 Tutorial/Styling Tip 필터만 사용
   $('#sortTagsMain').innerHTML = '';
   $('#sortTagsMain').closest('.chip-section').style.display = 'none';
-  $('#filterTagsMain').innerHTML = '';
-  $('#filterTagsMain').closest('.chip-section').style.display = 'none';
   $('#seriesTagsMain').innerHTML = '';
   $('#seriesTagsMain').closest('.chip-section').style.display = 'none';
+
+  const typesAvailable = Array.from(new Set(TUTORIALS.filter(t => t.group === state.contentsView).map(t => t.type)));
+  const filterSection = $('#filterTagsMain').closest('.chip-section');
+  if (typesAvailable.length > 1) {
+    filterSection.style.display = '';
+    filterSection.querySelector('.chip-section-label').innerHTML = '콘텐츠 유형 <span class="hint">하나만 선택</span>';
+    $('#filterTagsMain').innerHTML = `
+      <button class="chip ${state.contentsTypeFilter === 'all' ? 'active' : ''}" data-ctype="all">전체</button>
+      ${typesAvailable.map(t => `<button class="chip ${state.contentsTypeFilter === t ? 'active' : ''}" data-ctype="${t}">${CONTENT_TYPE_LABEL[t] || t}</button>`).join('')}
+    `;
+    $$('.chip[data-ctype]', $('#filterTagsMain')).forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.contentsTypeFilter = btn.dataset.ctype;
+        render();
+      });
+    });
+  } else {
+    $('#filterTagsMain').innerHTML = '';
+    filterSection.style.display = 'none';
+  }
 
   const grid = $('#grid');
   if (list.length === 0) {
@@ -735,7 +793,7 @@ function renderTutorialGrid() {
       <div class="empty-state">
         <div class="glyph">▶</div>
         <p>영상이 없습니다.</p>
-        <p>${isGlobalSearch() ? `<b>"${escapeHtml(state.query)}"</b>에 해당하는 영상을 찾지 못했어요.` : '이 항목에는 아직 등록된 튜토리얼이 없어요.'}</p>
+        <p>${state.query ? `<b>"${escapeHtml(state.query)}"</b>에 해당하는 영상을 찾지 못했어요.` : '이 항목에는 아직 등록된 콘텐츠가 없어요.'}</p>
       </div>`;
   } else {
     grid.innerHTML = list.map(tutorialCardHtml).join('');
@@ -748,15 +806,17 @@ function renderTutorialGrid() {
 }
 
 function tutorialCardHtml(t) {
+  const typeLabel = CONTENT_TYPE_LABEL[t.type] || t.type;
   return `
   <div class="card tutorial-card" data-ytid="${t.youtubeId}">
     <div class="card-frame tutorial-thumb-frame">
       <div class="card-corners"><i></i><i></i><i></i><i></i></div>
       <img src="https://img.youtube.com/vi/${t.youtubeId}/hqdefault.jpg" alt="${escapeHtml(t.title)}" loading="lazy">
       <div class="play-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      <span class="content-type-badge type-${t.type}">${escapeHtml(typeLabel)}</span>
     </div>
     <div class="card-body">
-      <div class="card-series">${escapeHtml(t.productName || t.sku)}</div>
+      <div class="card-series">${escapeHtml(t.productName || t.sku || '')}</div>
       <div class="card-name">${escapeHtml(t.title)}</div>
       <div class="card-sku">${escapeHtml(t.subtitle || '')}</div>
     </div>

@@ -343,6 +343,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   opacity: .92; transition: transform .15s;
 }
 .tutorial-card:hover .play-overlay svg { transform: scale(1.1); }
+.content-type-badge {
+  position: absolute; top: 10px; left: 10px; z-index: 3;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .03em;
+  padding: 4px 9px; border-radius: 6px; color: #fff; text-transform: uppercase;
+}
+.content-type-badge.type-tutorial { background: rgba(58,95,196,.85); }
+.content-type-badge.type-tip { background: rgba(217,154,104,.9); }
 .card-corners { position: absolute; inset: 10px; pointer-events: none; opacity: .4; }
 .card-corners i {
   position: absolute; width: 10px; height: 10px;
