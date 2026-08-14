@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.24
+  Version: V2.25
   Updated: 2026.08.13
-  Changelog: 로고 클릭 시 초기 화면으로 이동 기능 추가
+  Changelog: "Contents > Tutorial" 대분류 신설 — 유튜브 사용법 영상 그리드/팝업재생
 -->
 <html lang="ko">
 <head>
@@ -92,7 +92,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.24 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.25 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->
@@ -108,6 +108,14 @@
   <div class="modal cmodal">
     <button class="modal-close">✕</button>
     <div id="compareModalBody"></div>
+  </div>
+</div>
+
+<!-- Tutorial video modal -->
+<div class="overlay" id="videoOverlay">
+  <div class="modal vmodal">
+    <button class="modal-close">✕</button>
+    <div id="videoModalBody"></div>
   </div>
 </div>
 

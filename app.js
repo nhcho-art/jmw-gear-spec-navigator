@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.24';
+const CURRENT_VERSION = 'V2.25';
 const VERSION_LOG = [
+  { v: 'V2.25', date: '2026.08', notes: ['Product Line에 "Contents > Tutorial" 대분류 신설 — 유튜브 사용법 영상을 제품처럼 그리드로 보고 클릭 시 팝업 재생 (현재 드라이기 5편 등록, 다운로드 없이 임베드 방식)'] },
   { v: 'V2.24', date: '2026.08', notes: ['좌측 상단 "JMW Gear Spec Navigator" 클릭 시 초기 화면으로 이동(모든 필터·검색·비교 초기화)'] },
   { v: 'V2.23', date: '2026.08', notes: ['M5042D 스위치 정보 오류(무게값 잘못 복사됨) 수정 반영. 데이터 전수 감사 추가 진행(추가 이상 없음).'] },
   { v: 'V2.22', date: '2026.08', notes: ['숫자 오인식 버그 2건 수정 — "1.700W급"을 1.7로 잘못 읽던 문제, 무게 g/kg 단위 혼용 보정. (엑셀 자체 오류 1건 발견: M5042D 스위치란에 무게값이 잘못 들어감, 확인 필요)'] },
@@ -52,6 +53,14 @@ const CATS = {
     accent: 'kitchen',
     subs: {
       bytulz: { label: 'Bytulz', kr: '음식물처리기' },
+    }
+  },
+  'Contents': {
+    accent: 'content',
+    groupLabel: 'Tutorial',
+    subs: {
+      'tutorial-dryer': { label: 'Dryer', kr: '드라이기 사용법' },
+      'tutorial-iron':  { label: 'Iron',  kr: '아이론 사용법' },
     }
   }
 };
@@ -162,6 +171,7 @@ const SMART_TAGS = {
 const STEP_FIELD = { dryer: 'switchSteps', iron: 'tempSteps' };
 
 let PRODUCTS = [];
+let TUTORIALS = [];
 let state = {
   category: '이미용가전',
   subcategory: 'dryer',
@@ -184,6 +194,17 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 async function loadData() {
   const res = await fetch('products.json');
   PRODUCTS = await res.json();
+  try {
+    const tRes = await fetch('tutorials.json');
+    TUTORIALS = await tRes.json();
+    TUTORIALS.forEach(t => {
+      const p = PRODUCTS.find(x => x.id === t.productId);
+      t.group = p ? `tutorial-${p.subcategory}` : 'tutorial-dryer';
+      t.productName = p ? p.name : '';
+    });
+  } catch (e) {
+    TUTORIALS = [];
+  }
   initUI();
   render();
 }
@@ -243,8 +264,8 @@ function goHome() {
 }
 
 function applyAccent() {
-  const map = { beauty: '--acc-beauty', home: '--acc-home', kitchen: '--acc-kitchen' };
-  const glowMap = { beauty: '--acc-beauty-glow', home: '--acc-home-glow', kitchen: '--acc-kitchen-glow' };
+  const map = { beauty: '--acc-beauty', home: '--acc-home', kitchen: '--acc-kitchen', content: '--acc-content' };
+  const glowMap = { beauty: '--acc-beauty-glow', home: '--acc-home-glow', kitchen: '--acc-kitchen-glow', content: '--acc-content-glow' };
   const accentKey = CATS[state.category].accent;
   const root = document.documentElement;
   root.style.setProperty('--accent', `var(${map[accentKey]})`);
@@ -301,6 +322,21 @@ function parseReleaseDate(s) {
 
 function isGlobalSearch() {
   return !!state.query && !state.smartSort;
+}
+
+function isTutorialView() {
+  return state.category === 'Contents';
+}
+
+function getTutorials() {
+  if (isGlobalSearch()) {
+    const tokens = expandQuery(state.query);
+    return TUTORIALS.filter(t => {
+      const hay = [t.title, t.subtitle, t.productName, t.sku].join(' ').toLowerCase();
+      return tokens.some(tok => hay.includes(tok));
+    });
+  }
+  return TUTORIALS.filter(t => t.group === state.subcategory);
 }
 
 function seriesGroupKey(p) {
@@ -365,7 +401,9 @@ function getFiltered() {
 function renderRail() {
   const treeHtml = Object.entries(CATS).map(([catKey, catMeta]) => {
     const subsHtml = Object.entries(catMeta.subs).map(([subKey, subMeta]) => {
-      const count = PRODUCTS.filter(p => p.category === catKey && p.subcategory === subKey && (state.includeDiscontinued || !p.discontinued)).length;
+      const count = catKey === 'Contents'
+        ? TUTORIALS.filter(t => t.group === subKey).length
+        : PRODUCTS.filter(p => p.category === catKey && p.subcategory === subKey && (state.includeDiscontinued || !p.discontinued)).length;
       const active = !isGlobalSearch() && state.category === catKey && state.subcategory === subKey;
       return `<button class="sub-item ${active ? 'active' : ''}" data-cat="${catKey}" data-sub="${subKey}">
         <span>${subMeta.label}<br><small style="color:var(--text-faint);font-size:11px;font-weight:400">${subMeta.kr}</small></span>
@@ -373,11 +411,15 @@ function renderRail() {
       </button>`;
     }).join('');
     const catActive = !isGlobalSearch() && state.category === catKey;
+    const groupLabelHtml = catMeta.groupLabel
+      ? `<div class="rail-group-label">${escapeHtml(catMeta.groupLabel)}</div>`
+      : '';
     return `
       <div class="rail-cat-group">
         <button class="rail-cat-header ${catActive ? 'active' : ''}" data-cat="${catKey}">
           <span class="rail-cat-dot dot-${catMeta.accent}"></span>${catKey}
         </button>
+        ${groupLabelHtml}
         <div class="sub-list">${subsHtml}</div>
       </div>`;
   }).join('');
@@ -534,14 +576,19 @@ function cardHtml(p) {
 
 function render() {
   renderRail();
-  const items = getFiltered();
-
   const discToggleTop = $('#discToggleTop');
   discToggleTop.classList.toggle('on', state.includeDiscontinued);
   discToggleTop.onclick = () => {
     state.includeDiscontinued = !state.includeDiscontinued;
     render();
   };
+
+  if (isTutorialView()) {
+    renderTutorialGrid();
+    return;
+  }
+
+  const items = getFiltered();
 
   if (isGlobalSearch()) {
     $('#mainTitle').textContent = '검색 결과';
@@ -660,6 +707,71 @@ function render() {
 
   renderTray();
 }
+
+function renderTutorialGrid() {
+  const subMeta = CATS['Contents'].subs[state.subcategory] || { label: 'Tutorial', kr: '사용법 튜토리얼' };
+  const list = getTutorials();
+
+  if (isGlobalSearch()) {
+    $('#mainTitle').textContent = '검색 결과';
+    $('#mainPath').textContent = `튜토리얼 전체 검색 · "${state.query}"`;
+  } else {
+    $('#mainTitle').textContent = subMeta.label;
+    $('#mainPath').textContent = `Contents / ${subMeta.kr}`;
+  }
+  $('#resultCount').innerHTML = `<b>${list.length}</b>개 영상`;
+
+  // 튜토리얼은 정렬/빠른선택/유통/시리즈 섹션 전부 숨김
+  $('#sortTagsMain').innerHTML = '';
+  $('#sortTagsMain').closest('.chip-section').style.display = 'none';
+  $('#filterTagsMain').innerHTML = '';
+  $('#filterTagsMain').closest('.chip-section').style.display = 'none';
+  $('#seriesTagsMain').innerHTML = '';
+  $('#seriesTagsMain').closest('.chip-section').style.display = 'none';
+
+  const grid = $('#grid');
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="glyph">▶</div>
+        <p>영상이 없습니다.</p>
+        <p>${isGlobalSearch() ? `<b>"${escapeHtml(state.query)}"</b>에 해당하는 영상을 찾지 못했어요.` : '이 항목에는 아직 등록된 튜토리얼이 없어요.'}</p>
+      </div>`;
+  } else {
+    grid.innerHTML = list.map(tutorialCardHtml).join('');
+  }
+  $$('.tutorial-card', grid).forEach(card => {
+    card.addEventListener('click', () => openVideoModal(card.dataset.ytid));
+  });
+
+  renderTray();
+}
+
+function tutorialCardHtml(t) {
+  return `
+  <div class="card tutorial-card" data-ytid="${t.youtubeId}">
+    <div class="card-frame tutorial-thumb-frame">
+      <div class="card-corners"><i></i><i></i><i></i><i></i></div>
+      <img src="https://img.youtube.com/vi/${t.youtubeId}/hqdefault.jpg" alt="${escapeHtml(t.title)}" loading="lazy">
+      <div class="play-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="card-body">
+      <div class="card-series">${escapeHtml(t.productName || t.sku)}</div>
+      <div class="card-name">${escapeHtml(t.title)}</div>
+      <div class="card-sku">${escapeHtml(t.subtitle || '')}</div>
+    </div>
+  </div>`;
+}
+
+function openVideoModal(youtubeId) {
+  $('#videoModalBody').innerHTML = `
+    <div class="video-embed-wrap">
+      <iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1" title="YouTube video"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>`;
+  showOverlay('#videoOverlay');
+}
+
 
 function truncate(s, n) { return s.length > n ? s.slice(0, n - 1) + '…' : s; }
 function escapeHtml(s) {
@@ -912,7 +1024,11 @@ function relativeInsights(items) {
 }
 
 function showOverlay(sel) { $(sel).classList.add('show'); document.body.style.overflow = 'hidden'; }
-function hideOverlay(sel) { $(sel).classList.remove('show'); document.body.style.overflow = ''; }
+function hideOverlay(sel) {
+  $(sel).classList.remove('show');
+  document.body.style.overflow = '';
+  if (sel === '#videoOverlay') $('#videoModalBody').innerHTML = ''; // 닫으면 재생 중지
+}
 
 $$('.overlay').forEach(ov => {
   ov.addEventListener('click', e => { if (e.target === ov) { hideOverlay('#' + ov.id); } });
