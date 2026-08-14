@@ -99,7 +99,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   padding: 15px 28px;
   display: flex; align-items: center; gap: 28px;
 }
-.brand { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; }
+.brand { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; text-decoration: none; cursor: pointer; }
+.brand:hover .brand-mark { opacity: .85; }
 .brand-mark {
   font-family: var(--font-display); font-weight: 700; font-size: 21px;
   letter-spacing: .01em; color: var(--brand-purple);

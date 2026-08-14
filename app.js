@@ -2,8 +2,11 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.21';
+const CURRENT_VERSION = 'V2.24';
 const VERSION_LOG = [
+  { v: 'V2.24', date: '2026.08', notes: ['좌측 상단 "JMW Gear Spec Navigator" 클릭 시 초기 화면으로 이동(모든 필터·검색·비교 초기화)'] },
+  { v: 'V2.23', date: '2026.08', notes: ['M5042D 스위치 정보 오류(무게값 잘못 복사됨) 수정 반영. 데이터 전수 감사 추가 진행(추가 이상 없음).'] },
+  { v: 'V2.22', date: '2026.08', notes: ['숫자 오인식 버그 2건 수정 — "1.700W급"을 1.7로 잘못 읽던 문제, 무게 g/kg 단위 혼용 보정. (엑셀 자체 오류 1건 발견: M5042D 스위치란에 무게값이 잘못 들어감, 확인 필요)'] },
   { v: 'V2.21', date: '2026.08', notes: ['모바일 대응 보강 — 비교창 좁은 화면에서 깨지던 문제 수정(가로스크롤 방식으로 전환), 상단 바로가기 초소형 화면에서 숨김'] },
   { v: 'V2.20', date: '2026.08', notes: ['JMW 브랜드 퍼플 컬러 반영 (로고·바로가기·카테고리 대표 라벨 폰트)'] },
   { v: 'V2.19', date: '2026.08', notes: ['비교표 콤마-나열 숫자 오인식 버그 수정(온도범위 등), 좌측라벨 확장, 칸 100%채움 복원, 창 80% 축소, 정렬영역에 단종토글 추가'] },
@@ -99,6 +102,9 @@ function parseNumList(str) {
   if (commaCount === 1) {
     s = s.replace(/(\d{1,3}),(\d{3})/, '$1$2');
   }
+  // 드물게 마침표를 천단위 구분자로 쓴 경우("1.700W급") — 소수점(72.8, 99.999% 등)과 구분하기 위해
+  // "숫자.정확히3자리" 바로 뒤에 단위 글자(영문/한글)가 붙을 때만 천단위로 판단
+  s = s.replace(/(\d{1,3})\.(\d{3})(?=\s*[A-Za-z가-힣])/g, '$1$2');
   const matches = s.match(/\d+(?:\.\d+)?/g);
   return matches ? matches.map(Number) : [];
 }
@@ -109,6 +115,9 @@ function specMaxNum(p, key) {
 function specFirstNum(p, key) {
   const nums = parseNumList(p.specs[key]);
   return nums.length ? nums[0] : null;
+}
+function specWeightNum(p, key) {
+  return weightNum(p.specs[key]); // g/kg 단위 혼용 보정 (아래 weightNum 정의, hoisting으로 안전)
 }
 function specStepCount(p, key) {
   const v = p.specs[key];
@@ -126,26 +135,26 @@ const SMART_TAGS = {
     { label: '와트 낮은순',     key: '와트', fn: specFirstNum, dir: 'asc'  },
     { label: '온도 높은순',     key: '풍온', fn: specMaxNum,   dir: 'desc' },
     { label: '온도 낮은순',     key: '풍온', fn: specMaxNum,   dir: 'asc'  },
-    { label: '가벼운순',        key: '무게', fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',        key: '무게', fn: specWeightNum, dir: 'asc'  },
   ],
   iron: [
     { label: '온도 높은순', key: '온도범위', fn: specMaxNum,   dir: 'desc' },
     { label: '온도 낮은순', key: '온도범위', fn: specMaxNum,   dir: 'asc'  },
     { label: '와트 높은순', key: '와트',     fn: specFirstNum, dir: 'desc' },
     { label: '와트 낮은순', key: '와트',     fn: specFirstNum, dir: 'asc'  },
-    { label: '가벼운순',    key: '무게',     fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',    key: '무게',     fn: specWeightNum, dir: 'asc'  },
   ],
   curling: [
     { label: '온도 높은순',   key: '온도범위',   fn: specMaxNum,   dir: 'desc' },
     { label: '온도 낮은순',   key: '온도범위',   fn: specMaxNum,   dir: 'asc'  },
     { label: '열판 큰순',     key: '열판사이즈', fn: specFirstNum, dir: 'desc' },
     { label: '열판 작은순',   key: '열판사이즈', fn: specFirstNum, dir: 'asc'  },
-    { label: '가벼운순',      key: '무게',       fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',      key: '무게',       fn: specWeightNum, dir: 'asc'  },
   ],
   circulator: [
     { label: '와트 높은순', key: '와트', fn: specFirstNum, dir: 'desc' },
     { label: '와트 낮은순', key: '와트', fn: specFirstNum, dir: 'asc'  },
-    { label: '가벼운순',    key: '무게', fn: specFirstNum, dir: 'asc'  },
+    { label: '가벼운순',    key: '무게', fn: specWeightNum, dir: 'asc'  },
   ],
 };
 
@@ -202,7 +211,35 @@ function initUI() {
     $('#rail').classList.toggle('open', state.railOpen);
   });
 
+  $('#brandHome').addEventListener('click', (e) => {
+    e.preventDefault();
+    goHome();
+  });
+
   applyAccent();
+}
+
+function goHome() {
+  state.category = '이미용가전';
+  state.subcategory = 'dryer';
+  state.query = '';
+  state.tagFilter = new Set();
+  state.stepFilter = new Set();
+  state.distFilter = 'all';
+  state.seriesFilter = null;
+  state.dryerType = 'all';
+  state.sort = 'newest';
+  state.smartSort = null;
+  state.compare.clear();
+  state.includeDiscontinued = true;
+  state.railOpen = false;
+  $('#searchInput').value = '';
+  $('#searchBox').classList.remove('has-value');
+  $('#sortSelect').value = 'newest';
+  $('#rail').classList.remove('open');
+  applyAccent();
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function applyAccent() {
@@ -717,9 +754,16 @@ function stripVoltage(v) {
 }
 function maxNum(v) { const nums = parseNumList(stripVoltage(v)); return nums.length ? Math.max(...nums) : null; }
 function firstNum(v) { const nums = parseNumList(stripVoltage(v)); return nums.length ? nums[0] : null; }
+// 무게는 g/kg 단위가 섞여 있어 kg 표기를 g 기준으로 환산해 비교(예: "3.41kg" → 3410)
+function weightNum(v) {
+  const s = String(v || '');
+  const kg = s.match(/(\d+(?:\.\d+)?)\s*kg\b/i);
+  if (kg) return parseFloat(kg[1]) * 1000;
+  return firstNum(v);
+}
 
 const SPEC_DIRECTION = {
-  '무게': { dir: 'asc', fn: firstNum },
+  '무게': { dir: 'asc', fn: weightNum },
   '코드길이': { dir: 'desc', fn: firstNum },
   '코드 길이': { dir: 'desc', fn: firstNum },
   '풍온': { dir: 'desc', fn: maxNum },

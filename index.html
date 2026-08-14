@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.21
+  Version: V2.24
   Updated: 2026.08.13
-  Changelog: 모바일 대응 보강 (비교창 좁은 화면 깨짐 수정 등)
+  Changelog: 로고 클릭 시 초기 화면으로 이동 기능 추가
 -->
 <html lang="ko">
 <head>
@@ -18,10 +18,10 @@
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand">
+    <a href="#" class="brand" id="brandHome" aria-label="처음 화면으로">
       <span class="brand-mark"><span class="dot"></span>JMW</span>
       <span class="brand-sub">Gear Spec Navigator</span>
-    </div>
+    </a>
     <nav class="shortcut-links" aria-label="쇼핑몰 바로가기">
       <a href="https://www.jmwmall.co.kr/main/index.php" target="_blank" rel="noopener">JMW 공식 쇼핑몰</a>
       <a href="https://www.jmwmall.co.kr/goods/compare_goods.php?groupCd=A0000001" target="_blank" rel="noopener">JMW 공식몰 비교기능</a>
@@ -92,7 +92,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.21 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.24 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->
