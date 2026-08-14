@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.27';
+const CURRENT_VERSION = 'V2.28';
 const VERSION_LOG = [
+  { v: 'V2.28', date: '2026.08', notes: ['매뉴얼 보기를 새 탭 대신 네비게이터 내장 뷰어로 변경 — 상세창이 넓어지며 좌측 사양정보 + 우측 매뉴얼(iframe)이 한 화면에 나란히 표시'] },
   { v: 'V2.27', date: '2026.08', notes: ['제품 상세 팝업에 "매뉴얼 보기·다운로드·URL복사" 버튼 추가 (PDF 직접 호스팅, 브라우저 기본 뷰어로 검색·페이지이동 지원) — BYTULZ 매뉴얼로 우선 테스트'] },
   { v: 'V2.26', date: '2026.08', notes: ['Contents 구조 재정비 — Product Line과 동급 독립 섹션으로 변경, 영상 있는 그룹(Dryer/Iron/Bytulz)만 표시, Tutorial/Styling Tip 상단 필터 칩 추가. 총 24개 영상(BYTULZ 7편 포함) 등록'] },
   { v: 'V2.25', date: '2026.08', notes: ['Product Line에 "Contents > Tutorial" 대분류 신설 — 유튜브 사용법 영상을 제품처럼 그리드로 보고 클릭 시 팝업 재생 (현재 드라이기 5편 등록, 다운로드 없이 임베드 방식)'] },
@@ -902,10 +903,10 @@ function openProductModal(id) {
 
   const manualHtml = manual ? `
     <div class="manual-actions">
-      <a href="${manualUrl}" target="_blank" rel="noopener" class="manual-btn" title="새 탭에서 보기 (검색·페이지 이동 가능)">
+      <button type="button" class="manual-btn" id="manualViewBtn" title="네비게이터 안에서 바로 보기">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
         매뉴얼 보기
-      </a>
+      </button>
       <a href="${manualUrl}" download="${escapeHtml(manual.fileName)}" class="manual-btn" title="PDF 다운로드">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>
         다운로드
@@ -915,6 +916,9 @@ function openProductModal(id) {
         URL 복사
       </button>
     </div>` : '';
+
+  const pmodalEl = $('.pmodal');
+  pmodalEl.classList.remove('manual-open'); // 새 제품 열 때는 항상 접힌 상태로 시작
 
   $('#productModalBody').innerHTML = `
     <div class="pmodal-media"><img src="images/${p.image}" alt="${escapeHtml(p.name)}"></div>
@@ -935,11 +939,32 @@ function openProductModal(id) {
         <button class="btn-compare-add ${inCompare ? 'active' : ''}" id="modalCompareBtn">${inCompare ? '✓ 비교함에 담김' : '+ 비교함에 담기'}</button>
       </div>
     </div>
+    <div class="pmodal-manual-pane" id="pmodalManualPane">
+      <div class="pmodal-manual-pane-head">
+        <span>${manual ? escapeHtml(manual.title) : ''}</span>
+        <button type="button" id="manualCloseBtn">✕ 매뉴얼 닫기</button>
+      </div>
+      <iframe id="manualIframe" title="매뉴얼 뷰어"></iframe>
+    </div>
   `;
   $('#modalCompareBtn').addEventListener('click', () => {
     toggleCompare(id);
     openProductModal(id);
   });
+  const viewBtn = $('#manualViewBtn');
+  if (viewBtn) {
+    viewBtn.addEventListener('click', () => {
+      const opening = !pmodalEl.classList.contains('manual-open');
+      pmodalEl.classList.toggle('manual-open', opening);
+      if (opening) $('#manualIframe').src = manualUrl;
+    });
+  }
+  const closeBtn = $('#manualCloseBtn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      pmodalEl.classList.remove('manual-open');
+    });
+  }
   const copyBtn = $('#manualCopyBtn');
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
@@ -1127,6 +1152,12 @@ function hideOverlay(sel) {
   $(sel).classList.remove('show');
   document.body.style.overflow = '';
   if (sel === '#videoOverlay') $('#videoModalBody').innerHTML = ''; // 닫으면 재생 중지
+  if (sel === '#productOverlay') {
+    const pm = $('.pmodal');
+    if (pm) pm.classList.remove('manual-open'); // 닫으면 매뉴얼 확장 상태 초기화
+    const iframe = $('#manualIframe');
+    if (iframe) iframe.src = '';
+  }
 }
 
 $$('.overlay').forEach(ov => {
