@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.26';
+const CURRENT_VERSION = 'V2.27';
 const VERSION_LOG = [
+  { v: 'V2.27', date: '2026.08', notes: ['제품 상세 팝업에 "매뉴얼 보기·다운로드·URL복사" 버튼 추가 (PDF 직접 호스팅, 브라우저 기본 뷰어로 검색·페이지이동 지원) — BYTULZ 매뉴얼로 우선 테스트'] },
   { v: 'V2.26', date: '2026.08', notes: ['Contents 구조 재정비 — Product Line과 동급 독립 섹션으로 변경, 영상 있는 그룹(Dryer/Iron/Bytulz)만 표시, Tutorial/Styling Tip 상단 필터 칩 추가. 총 24개 영상(BYTULZ 7편 포함) 등록'] },
   { v: 'V2.25', date: '2026.08', notes: ['Product Line에 "Contents > Tutorial" 대분류 신설 — 유튜브 사용법 영상을 제품처럼 그리드로 보고 클릭 시 팝업 재생 (현재 드라이기 5편 등록, 다운로드 없이 임베드 방식)'] },
   { v: 'V2.24', date: '2026.08', notes: ['좌측 상단 "JMW Gear Spec Navigator" 클릭 시 초기 화면으로 이동(모든 필터·검색·비교 초기화)'] },
@@ -165,6 +166,7 @@ const STEP_FIELD = { dryer: 'switchSteps', iron: 'tempSteps' };
 
 let PRODUCTS = [];
 let TUTORIALS = [];
+let MANUALS = [];
 let state = {
   category: '이미용가전',
   subcategory: 'dryer',
@@ -194,6 +196,12 @@ async function loadData() {
     TUTORIALS = await tRes.json();
   } catch (e) {
     TUTORIALS = [];
+  }
+  try {
+    const mRes = await fetch('manuals.json');
+    MANUALS = await mRes.json();
+  } catch (e) {
+    MANUALS = [];
   }
   initUI();
   render();
@@ -889,6 +897,24 @@ function openProductModal(id) {
     <tr><td>${escapeHtml(k)}</td><td>${escapeHtml(v)}</td></tr>
   `).join('');
   const inCompare = state.compare.has(id);
+  const manual = MANUALS.find(m => m.sku === p.sku);
+  const manualUrl = manual ? new URL(`manuals/${manual.fileName}`, window.location.href).href : '';
+
+  const manualHtml = manual ? `
+    <div class="manual-actions">
+      <a href="${manualUrl}" target="_blank" rel="noopener" class="manual-btn" title="새 탭에서 보기 (검색·페이지 이동 가능)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        매뉴얼 보기
+      </a>
+      <a href="${manualUrl}" download="${escapeHtml(manual.fileName)}" class="manual-btn" title="PDF 다운로드">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>
+        다운로드
+      </a>
+      <button type="button" class="manual-btn" id="manualCopyBtn" data-url="${manualUrl}" title="URL 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        URL 복사
+      </button>
+    </div>` : '';
 
   $('#productModalBody').innerHTML = `
     <div class="pmodal-media"><img src="images/${p.image}" alt="${escapeHtml(p.name)}"></div>
@@ -896,10 +922,13 @@ function openProductModal(id) {
       <div class="pmodal-eyebrow">${escapeHtml(p.category)} · ${escapeHtml(CATS[p.category].subs[p.subcategory].label)}</div>
       <h2>${escapeHtml(p.name)}</h2>
       <div class="pmodal-sku">${escapeHtml(p.sku)} ${p.series ? '· ' + escapeHtml(p.series) + ' 시리즈' : ''}</div>
-      <div class="pmodal-badges">
-        ${p.released ? `<span class="badge">출시 ${escapeHtml(p.released)}</span>` : ''}
-        ${p.dryerType ? `<span class="badge">${escapeHtml(p.dryerType)}</span>` : ''}
-        ${p.discontinued ? `<span class="badge" style="color:var(--danger);border-color:rgba(217,117,117,.3)">단종</span>` : `<span class="badge" style="color:var(--acc-home)">판매중</span>`}
+      <div class="pmodal-badges-row">
+        <div class="pmodal-badges">
+          ${p.released ? `<span class="badge">출시 ${escapeHtml(p.released)}</span>` : ''}
+          ${p.dryerType ? `<span class="badge">${escapeHtml(p.dryerType)}</span>` : ''}
+          ${p.discontinued ? `<span class="badge" style="color:var(--danger);border-color:rgba(217,117,117,.3)">단종</span>` : `<span class="badge" style="color:var(--acc-home)">판매중</span>`}
+        </div>
+        ${manualHtml}
       </div>
       <table class="pmodal-spectable">${rows}</table>
       <div class="pmodal-actions">
@@ -911,6 +940,16 @@ function openProductModal(id) {
     toggleCompare(id);
     openProductModal(id);
   });
+  const copyBtn = $('#manualCopyBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(copyBtn.dataset.url).then(() => {
+        const original = copyBtn.innerHTML;
+        copyBtn.innerHTML = '✓ 복사됨';
+        setTimeout(() => { copyBtn.innerHTML = original; }, 1500);
+      });
+    });
+  }
   showOverlay('#productOverlay');
 }
 
