@@ -321,6 +321,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .card-badge.disc { background: rgba(193,73,63,.12); color: var(--danger); border: 1px solid rgba(193,73,63,.28); }
 .card-badge.new { background: rgba(181,121,31,.12); color: var(--warn); border: 1px solid rgba(181,121,31,.28); }
+.card-badge-manual {
+  position: absolute; bottom: 8px; left: 8px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 10px; font-weight: 700; font-family: var(--font-mono);
+  color: #fff; background: var(--brand-purple); padding: 3px 7px; border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.card-badge-manual svg { width: 10px; height: 10px; }
 
 .card-frame {
   position: relative; aspect-ratio: 1 / 0.82;

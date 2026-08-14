@@ -2,8 +2,11 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.30';
+const CURRENT_VERSION = 'V2.33';
 const VERSION_LOG = [
+  { v: 'V2.33', date: '2026.08', notes: ['글로우온·볼륨온플러스·플랫핑크 매뉴얼을 "1장에 4패널 다닥다닥" 형식에서 패널별 4페이지로 자동 분할·여백 제거 — 텍스트 크기 대폭 확대'] },
+  { v: 'V2.32', date: '2026.08', notes: ['데일로·에이플로 매뉴얼 파일 오류 발견 — 실제 매뉴얼이 아닌 인쇄용 "디자인 개발 사양서" 파일이 잘못 첨부되어 임시 제외 (총 10종 → 8종). 나머지 6종은 정상 확인 완료'] },
+  { v: 'V2.31', date: '2026.08', notes: ['빠른 선택에 "매뉴얼" 칩 추가(매뉴얼 있는 중분류만 자동 노출), 검색창에 "매뉴얼/메뉴얼" 입력 시 전역검색 지원, 카드 썸네일에 매뉴얼 보유 배지 표시'] },
   { v: 'V2.30', date: '2026.08', notes: ['매뉴얼 9종 추가(총 10종), 대문접지형 매뉴얼 자동 가로폭맞춤(FitH) 적용, 용량 큰 PDF 2건 압축(15.6MB→3.5MB, 11.3MB→3.6MB, 화질 손상 없음)'] },
   { v: 'V2.29', date: '2026.08', notes: ['매뉴얼 뷰어 창 확대(96vw, 최대 1900px) + 매뉴얼 영역 비중 확대, "매뉴얼 닫기" 버튼을 좌측으로 이동해 전체 닫기(✕) 버튼과 겹침 해소'] },
   { v: 'V2.28', date: '2026.08', notes: ['매뉴얼 보기를 새 탭 대신 네비게이터 내장 뷰어로 변경 — 상세창이 넓어지며 좌측 사양정보 + 우측 매뉴얼(iframe)이 한 화면에 나란히 표시'] },
@@ -81,6 +84,7 @@ const QUICK_TAGS = {
 };
 
 const SYNONYMS = {
+  '메뉴얼': ['매뉴얼'],
   '곱슬머리': ['컬링', '웨이브', '노즐', '브러시노즐', '매직'],
   '컬머리': ['컬링', '웨이브'],
   '두피': ['두피케어'],
@@ -314,12 +318,17 @@ function expandQuery(q) {
   return Array.from(expanded);
 }
 
+function hasManual(p) {
+  return MANUALS.some(m => m.sku === p.sku);
+}
+
 function matchesQuery(p, tokens) {
   if (tokens.length === 0) return true;
   const haystack = [
     p.name, p.sku, p.series,
     ...(p.tags || []),
-    ...Object.values(p.specs || {})
+    ...Object.values(p.specs || {}),
+    hasManual(p) ? '매뉴얼' : ''
   ].join(' ').toLowerCase();
   return tokens.some(t => haystack.includes(t));
 }
@@ -602,6 +611,9 @@ function cardHtml(p) {
   const catBadge = isGlobalSearch()
     ? `<div class="card-cat-badge">${escapeHtml(p.category)} · ${escapeHtml(CATS[p.category].subs[p.subcategory].label)}</div>`
     : '';
+  const manualBadge = hasManual(p)
+    ? `<span class="card-badge-manual" title="매뉴얼 있음"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>매뉴얼</span>`
+    : '';
 
   return `
   <div class="card ${selected ? 'selected' : ''}" data-id="${p.id}">
@@ -612,6 +624,7 @@ function cardHtml(p) {
     <div class="card-frame">
       <div class="card-corners"><i></i><i></i><i></i><i></i></div>
       <img src="images/${p.image}" alt="${escapeHtml(p.name)}" loading="lazy">
+      ${manualBadge}
     </div>
     <div class="card-body">
       ${catBadge}
@@ -650,7 +663,11 @@ function render() {
   $('#resultCount').innerHTML = `<b>${items.length}</b>개 모델`;
 
   const smartTags = isGlobalSearch() ? [] : (SMART_TAGS[state.subcategory] || []);
-  const tagTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []);
+  let tagTags = isGlobalSearch() ? [] : (QUICK_TAGS[state.subcategory] || []).slice();
+  if (!isGlobalSearch()) {
+    const hasAnyManual = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasManual(p));
+    if (hasAnyManual) tagTags.push('매뉴얼');
+  }
 
   $('#sortTagsMain').innerHTML = smartTags.map(t =>
     `<button class="chip ${state.smartSort && state.smartSort.label === t.label ? 'active' : ''}" data-smart="${t.label}">${t.label}</button>`
