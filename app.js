@@ -2,11 +2,12 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.41';
+const CURRENT_VERSION = 'V2.42';
 const VERSION_LOG = [
-  { v: 'V2.41', date: '2026.08', notes: ['이용방법 가이드 갱신 — "자사몰 바로가기" "우측 하단 바로가기" 섹션 신설(총 7개 섹션), MG1800 자사몰 링크 추가(총 78개)'] },
-  { v: 'V2.40', date: '2026.08', notes: ['자사몰/바이툴즈 링크 11개 추가(총 77개), 모델명 6건 정정, 음식물처리기 필터·건조통 전용 사진 교체(그동안 본체 사진 재사용 중이었음)'] },
-  { v: 'V2.39', date: '2026.08', notes: ['자사몰 상품 링크 66개 연결(버튼+URL복사+썸네일배지+빠른선택칩), 모델명 28건 정정, 검색 띄어쓰기 무시 버그 수정, MF5102F 이미지 교체'] },
+  { v: 'V2.42', date: '2026.08', notes: ['공식몰(jmwmall)/JMW PRO(jmwprofessional, 구매기능 없는 정보페이지) 도메인별로 배지·버튼·필터 완전 분리 표시. 링크 20개 추가(총 97개)'] },
+  { v: 'V2.41', date: '2026.08', notes: ['이용방법 가이드 갱신 — "공식몰 바로가기" "우측 하단 바로가기" 섹션 신설(총 7개 섹션), MG1800 공식몰 링크 추가(총 78개)'] },
+  { v: 'V2.40', date: '2026.08', notes: ['공식몰/바이툴즈 링크 11개 추가(총 77개), 모델명 6건 정정, 음식물처리기 필터·건조통 전용 사진 교체(그동안 본체 사진 재사용 중이었음)'] },
+  { v: 'V2.39', date: '2026.08', notes: ['공식몰 상품 링크 66개 연결(버튼+URL복사+썸네일배지+빠른선택칩), 모델명 28건 정정, 검색 띄어쓰기 무시 버그 수정, MF5102F 이미지 교체'] },
   { v: 'V2.38', date: '2026.08', notes: ['우측 하단 플로팅 바로가기 추가 — JMW/바이툴즈 카카오톡·유튜브 4종 (바로가기+링크복사), 맨 위로 가기 버튼'] },
   { v: 'V2.37', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 모든 카테고리에 항상 둘 다 표시하도록 변경 (한쪽이 0개인 카테고리도 동일)'] },
   { v: 'V2.36', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 전 카테고리에 표시하도록 확대 (컬링아이언은 한국만, 생활가전·바이툴즈는 소싱만 정보성으로 표시)'] },
@@ -349,6 +350,13 @@ function hasMallLink(p) {
   return !!MALL_LINKS[p.id];
 }
 
+function mallLinkType(url) {
+  // jmwprofessional.com은 쇼핑몰이 아니라 제품 정보만 제공하는 페이지라 별도 라벨 사용
+  if (!url) return null;
+  if (url.includes('jmwprofessional.com')) return 'JMW PRO';
+  return '공식몰';
+}
+
 function matchesQuery(p, tokens) {
   if (tokens.length === 0) return true;
   const haystack = [
@@ -356,7 +364,7 @@ function matchesQuery(p, tokens) {
     ...(p.tags || []),
     ...Object.values(p.specs || {}),
     hasManual(p) ? '매뉴얼' : '',
-    hasMallLink(p) ? '자사몰' : '',
+    mallLinkType(MALL_LINKS[p.id]) || '',
     getOrigin(p)
   ].join(' ').toLowerCase();
   const haystackNoSpace = haystack.replace(/\s+/g, '');
@@ -653,8 +661,9 @@ function cardHtml(p) {
   const manualBadge = hasManual(p)
     ? `<span class="card-badge-manual" title="매뉴얼 있음"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>매뉴얼</span>`
     : '';
-  const mallBadge = hasMallLink(p)
-    ? `<span class="card-badge-mall" title="자사몰 판매중"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>자사몰</span>`
+  const mallLinkLabel = mallLinkType(MALL_LINKS[p.id]);
+  const mallBadge = mallLinkLabel
+    ? `<span class="card-badge-mall">${mallLinkLabel}</span>`
     : '';
 
   return `
@@ -710,8 +719,11 @@ function render() {
   if (!isGlobalSearch()) {
     const hasAnyManual = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasManual(p));
     if (hasAnyManual) tagTags.push('매뉴얼');
-    const hasAnyMallLink = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasMallLink(p));
-    if (hasAnyMallLink) tagTags.push('자사몰');
+    const mallTypesPresent = Array.from(new Set(PRODUCTS
+      .filter(p => p.category === state.category && p.subcategory === state.subcategory)
+      .map(p => mallLinkType(MALL_LINKS[p.id]))
+      .filter(Boolean)));
+    mallTypesPresent.forEach(t => tagTags.push(t));
   }
 
   $('#sortTagsMain').innerHTML = smartTags.map(t =>
@@ -1001,11 +1013,11 @@ function openProductModal(id) {
       </button>
     </div>` : '';
 
+  const mallLabel = mallLinkType(mallUrl);
   const mallHtml = mallUrl ? `
     <div class="manual-actions">
-      <a href="${mallUrl}" target="_blank" rel="noopener" class="manual-btn mall-btn" title="자사몰에서 새 탭으로 보기">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        자사몰에서 보기
+      <a href="${mallUrl}" target="_blank" rel="noopener" class="manual-btn mall-btn" title="${mallLabel}에서 새 탭으로 보기">
+        ${escapeHtml(mallLabel)}에서 보기
       </a>
       <button type="button" class="manual-btn mall-btn" id="mallCopyBtn" data-url="${mallUrl}" title="URL 복사">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
@@ -1283,7 +1295,7 @@ const GUIDE_SECTIONS = [
       '우측 상단 검색창에 <b>모델명, 품번, 기능, 사양(색상·와트 등)</b> 뭐든 입력하면 전체 카테고리에서 바로 찾아줍니다',
       '"매뉴얼" / "메뉴얼"처럼 흔한 오타도 다 잡아줍니다',
       '"국내" "해외" "소싱" 같은 검색어로도 출처별 제품을 찾을 수 있습니다',
-      '"자사몰"이라고 검색하면 자사몰 판매중인 제품만 나옵니다',
+      '"공식몰" 또는 "JMW PRO"라고 검색하면 각각에 해당하는 제품만 나옵니다',
     ]
   },
   {
@@ -1314,12 +1326,12 @@ const GUIDE_SECTIONS = [
     ]
   },
   {
-    icon: '🛒', title: '자사몰 바로가기',
+    icon: '🛍️', title: '공식몰 / JMW PRO 바로가기',
     items: [
-      '자사몰에서 판매 중인 모델은 상세창에 <b>"자사몰에서 보기"</b>(새 탭) 버튼과 <b>URL 복사</b> 버튼이 추가로 뜹니다',
-      '카드 썸네일 우측 하단 <b>초록색 배지</b>로도 확인 가능',
-      '빠른 선택의 <b>"자사몰"</b> 칩 누르면 자사몰 판매중인 모델만 모아보기',
-      '검색창에 "자사몰"이라고 입력해도 찾아집니다',
+      '판매 페이지가 있는 모델은 상세창에 <b>"~에서 보기"</b>(새 탭) 버튼과 <b>URL 복사</b> 버튼이 추가로 뜹니다',
+      '<b>공식몰</b>: 실제 구매 가능한 쇼핑몰 페이지 · <b>JMW PRO</b>: 구매 기능 없이 제품 정보만 제공하는 페이지 — 카드 썸네일 우측 하단 보라색 배지로 구분',
+      '빠른 선택의 <b>"공식몰" / "JMW PRO"</b> 칩 누르면 해당하는 모델만 모아보기',
+      '검색창에 "공식몰" 또는 "JMW PRO"라고 입력해도 찾아집니다',
     ]
   },
   {

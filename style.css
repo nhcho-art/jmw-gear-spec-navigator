@@ -341,10 +341,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   position: absolute; bottom: 8px; right: 8px; z-index: 3;
   display: inline-flex; align-items: center; gap: 3px;
   font-size: 10px; font-weight: 700; font-family: var(--font-mono);
-  color: #fff; background: var(--acc-home); padding: 3px 7px; border-radius: 6px;
+  color: #fff; background: var(--brand-purple); padding: 3px 7px; border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
 }
-.card-badge-mall svg { width: 10px; height: 10px; }
 
 .card-frame {
   position: relative; aspect-ratio: 1 / 0.82;
@@ -535,8 +534,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .pmodal-badges { display: flex; gap: 6px; flex-wrap: wrap; }
 .pmodal-actions-stack { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
 .manual-actions { display: flex; gap: 6px; flex-wrap: wrap; }
-.mall-btn { color: var(--acc-home); border-color: rgba(24,156,147,.3); }
-.mall-btn:hover { background: var(--acc-home); color: #fff; border-color: var(--acc-home); }
+.mall-btn { color: var(--brand-purple); border-color: rgba(110,42,84,.3); }
+.mall-btn:hover { background: var(--brand-purple); color: #fff; border-color: var(--brand-purple); }
 .manual-btn {
   display: inline-flex; align-items: center; gap: 5px;
   font-family: var(--font-body); font-size: 11.5px; font-weight: 600;
