@@ -2,8 +2,10 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.42';
+const CURRENT_VERSION = 'V2.44';
 const VERSION_LOG = [
+  { v: 'V2.44', date: '2026.08', notes: ['"JMW PRO" 빠른선택·검색 버그 수정 — 공백 있는 라벨이 단어별로 쪼개져 오탐되던 문제 근본 해결 (전용 정확매칭 필터로 전환), 드라이기 Styling Tip 영상 1편 추가(총 25편)'] },
+  { v: 'V2.43', date: '2026.08', notes: ['드라이기 Styling Tip에 "디퓨저 사용법(뿌리볼륨&컬)" 영상 추가 (총 25편)'] },
   { v: 'V2.42', date: '2026.08', notes: ['공식몰(jmwmall)/JMW PRO(jmwprofessional, 구매기능 없는 정보페이지) 도메인별로 배지·버튼·필터 완전 분리 표시. 링크 20개 추가(총 97개)'] },
   { v: 'V2.41', date: '2026.08', notes: ['이용방법 가이드 갱신 — "공식몰 바로가기" "우측 하단 바로가기" 섹션 신설(총 7개 섹션), MG1800 공식몰 링크 추가(총 78개)'] },
   { v: 'V2.40', date: '2026.08', notes: ['공식몰/바이툴즈 링크 11개 추가(총 77개), 모델명 6건 정정, 음식물처리기 필터·건조통 전용 사진 교체(그동안 본체 사진 재사용 중이었음)'] },
@@ -196,6 +198,7 @@ let state = {
   tagFilter: new Set(),   // 사이드바 "빠른 키워드" 칩 — 다중 선택 가능(AND 조합), 현재 중분류 내에서만 필터링
   stepFilter: new Set(),  // 단계(스위치/온도) 칩 — 다중 선택 시 OR, 다른 필터와는 AND
   originFilter: new Set(), // JMW(한국)/소싱 칩 — 다중 선택 시 OR, 다른 필터와는 AND
+  mallFilter: new Set(),   // 공식몰/JMW PRO 칩 — 텍스트 매칭이 아닌 정확한 값 비교(다중 선택 시 OR)
   distFilter: 'all',      // 유통 — 타입 필터와 동일하게 단일 선택 (전체/특정 값)
   contentsView: null,     // null = 제품 브라우징, 'dryer'|'iron' = Contents 섹션 보는 중
   contentsTypeFilter: 'all', // Contents 안에서 전체/tutorial/tip 필터
@@ -276,6 +279,7 @@ function goHome() {
   state.tagFilter = new Set();
   state.stepFilter = new Set();
   state.originFilter = new Set();
+  state.mallFilter = new Set();
   state.distFilter = 'all';
   state.seriesFilter = null;
   state.dryerType = 'all';
@@ -310,6 +314,7 @@ function setCategory(cat, sub) {
   state.tagFilter = new Set();
   state.stepFilter = new Set();
   state.originFilter = new Set();
+  state.mallFilter = new Set();
   state.distFilter = 'all';
   state.seriesFilter = null;
   state.smartSort = null;
@@ -369,6 +374,19 @@ function matchesQuery(p, tokens) {
   ].join(' ').toLowerCase();
   const haystackNoSpace = haystack.replace(/\s+/g, '');
   return tokens.some(t => haystack.includes(t) || haystackNoSpace.includes(t.replace(/\s+/g, '')));
+}
+
+function matchesExactPhrase(p, phrase) {
+  const haystack = [
+    p.name, p.sku, p.series,
+    ...(p.tags || []),
+    ...Object.values(p.specs || {}),
+    hasManual(p) ? '매뉴얼' : '',
+    mallLinkType(MALL_LINKS[p.id]) || '',
+    getOrigin(p)
+  ].join(' ').toLowerCase();
+  const haystackNoSpace = haystack.replace(/\s+/g, '');
+  return haystack.includes(phrase) || haystackNoSpace.includes(phrase.replace(/\s+/g, ''));
 }
 
 function parseReleaseDate(s) {
@@ -433,8 +451,16 @@ function getFiltered() {
   if (isGlobalSearch()) {
     items = PRODUCTS.slice();
     if (!state.includeDiscontinued) items = items.filter(p => !p.discontinued);
-    const tokens = expandQuery(state.query);
-    items = items.filter(p => matchesQuery(p, tokens));
+    // 공백 포함 검색어("JMW PRO" 등)는 정확한 구문으로 먼저 매치 시도 — 실패하면 기존 단어별 OR 매칭으로 폴백
+    // (단어별 OR만 쓰면 "JMW"나 "PRO" 단독 매치로 오탐이 크게 늘어나는 문제 방지)
+    const rawPhrase = state.query.trim().toLowerCase();
+    const phraseMatched = rawPhrase.includes(' ') ? items.filter(p => matchesExactPhrase(p, rawPhrase)) : [];
+    if (phraseMatched.length > 0) {
+      items = phraseMatched;
+    } else {
+      const tokens = expandQuery(state.query);
+      items = items.filter(p => matchesQuery(p, tokens));
+    }
   } else {
     items = PRODUCTS.filter(p =>
       p.category === state.category &&
@@ -455,6 +481,9 @@ function getFiltered() {
     }
     if (state.originFilter.size > 0) {
       items = items.filter(p => state.originFilter.has(getOrigin(p)));
+    }
+    if (state.mallFilter.size > 0) {
+      items = items.filter(p => state.mallFilter.has(mallLinkType(MALL_LINKS[p.id])));
     }
     if (state.distFilter !== 'all') {
       items = items.filter(p => (p.specs['유통'] || '') === state.distFilter);
@@ -719,11 +748,15 @@ function render() {
   if (!isGlobalSearch()) {
     const hasAnyManual = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasManual(p));
     if (hasAnyManual) tagTags.push('매뉴얼');
-    const mallTypesPresent = Array.from(new Set(PRODUCTS
+  }
+  // 공식몰/JMW PRO — 텍스트 매칭 시스템(AND/공백분리) 대신 정확한 값 비교하는 전용 필터 사용
+  // ("JMW PRO"처럼 공백 있는 라벨을 일반 키워드 검색에 넣으면 "JMW"/"PRO"로 쪼개져 오탐되는 문제 방지)
+  let mallTypesPresent = [];
+  if (!isGlobalSearch()) {
+    mallTypesPresent = Array.from(new Set(PRODUCTS
       .filter(p => p.category === state.category && p.subcategory === state.subcategory)
       .map(p => mallLinkType(MALL_LINKS[p.id]))
       .filter(Boolean)));
-    mallTypesPresent.forEach(t => tagTags.push(t));
   }
 
   $('#sortTagsMain').innerHTML = smartTags.map(t =>
@@ -789,8 +822,25 @@ function render() {
     });
   }
 
+  // 공식몰/JMW PRO 칩 — 정확한 값 비교 전용 필터(위 mallTypesPresent 기준), 같은 종류끼리는 OR
+  if (mallTypesPresent.length > 0) {
+    const mallOrder = ['공식몰', 'JMW PRO'];
+    const mallChipsHtml = mallOrder.filter(v => mallTypesPresent.includes(v)).map(v =>
+      `<button class="chip ${state.mallFilter.has(v) ? 'active' : ''}" data-mall="${v}">${v}</button>`
+    ).join('');
+    $('#filterTagsMain').insertAdjacentHTML('beforeend', mallChipsHtml);
+    $$('.chip[data-mall]', $('#filterTagsMain')).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.mall;
+        if (state.mallFilter.has(v)) state.mallFilter.delete(v);
+        else state.mallFilter.add(v);
+        render();
+      });
+    });
+  }
+
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
-  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField || showOriginSection) ? '' : 'none';
+  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField || showOriginSection || mallTypesPresent.length > 0) ? '' : 'none';
 
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
@@ -826,7 +876,7 @@ function render() {
 
   const grid = $('#grid');
   if (items.length === 0) {
-    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), ...Array.from(state.originFilter), state.distFilter !== 'all' ? state.distFilter : null, state.seriesFilter].filter(Boolean);
+    const terms = [state.query, ...Array.from(state.tagFilter), ...Array.from(state.stepFilter).map(v => v + '단'), ...Array.from(state.originFilter), ...Array.from(state.mallFilter), state.distFilter !== 'all' ? state.distFilter : null, state.seriesFilter].filter(Boolean);
     const shownTerm = terms.join(', ');
     grid.innerHTML = `
       <div class="empty-state">
