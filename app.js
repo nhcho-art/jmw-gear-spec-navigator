@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.46';
+const CURRENT_VERSION = 'V2.47';
 const VERSION_LOG = [
+  { v: 'V2.47', date: '2026.08', notes: ['정렬 기준(코드길이/와트/온도 등) 선택 시 값이 동일한 제품끼리는 최신순으로 2차 정렬되도록 개선 — 다른 필터와 동일하게 통일'] },
   { v: 'V2.46', date: '2026.08', notes: ['에어팜 제품명 색상구분 복원(그레이/아이보리) — 시리즈만 "에어팜"으로 통합 유지, 제품명은 그대로'] },
   { v: 'V2.45', date: '2026.08', notes: ['정렬 기준에 "코드길이 긴순/짧은순" 추가(드라이기·아이론·컬링아이언), 에어팜 그레이/아이보리 → "에어팜"으로 시리즈 통합, 루미에어2.0 출시일 2024.05 반영'] },
   { v: 'V2.44', date: '2026.08', notes: ['"JMW PRO" 빠른선택·검색 버그 수정 — 공백 있는 라벨이 단어별로 쪼개져 오탐되던 문제 근본 해결 (전용 정확매칭 필터로 전환), 드라이기 Styling Tip 영상 1편 추가(총 25편)'] },
@@ -503,9 +504,14 @@ function getFiltered() {
       const { key, fn, dir } = state.smartSort;
       items = [...items].sort((a, b) => {
         const va = fn(a, key), vb = fn(b, key);
-        if (va === null && vb === null) return 0;
+        if (va === null && vb === null) {
+          return (parseReleaseDate(b.released) || 0) - (parseReleaseDate(a.released) || 0); // 둘 다 값 없으면 최신순
+        }
         if (va === null) return 1;
         if (vb === null) return -1;
+        if (va === vb) {
+          return (parseReleaseDate(b.released) || 0) - (parseReleaseDate(a.released) || 0); // 동점이면 최신순
+        }
         return dir === 'desc' ? vb - va : va - vb;
       });
       return items;
