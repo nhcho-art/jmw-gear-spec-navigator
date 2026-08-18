@@ -2,8 +2,10 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.44';
+const CURRENT_VERSION = 'V2.46';
 const VERSION_LOG = [
+  { v: 'V2.46', date: '2026.08', notes: ['에어팜 제품명 색상구분 복원(그레이/아이보리) — 시리즈만 "에어팜"으로 통합 유지, 제품명은 그대로'] },
+  { v: 'V2.45', date: '2026.08', notes: ['정렬 기준에 "코드길이 긴순/짧은순" 추가(드라이기·아이론·컬링아이언), 에어팜 그레이/아이보리 → "에어팜"으로 시리즈 통합, 루미에어2.0 출시일 2024.05 반영'] },
   { v: 'V2.44', date: '2026.08', notes: ['"JMW PRO" 빠른선택·검색 버그 수정 — 공백 있는 라벨이 단어별로 쪼개져 오탐되던 문제 근본 해결 (전용 정확매칭 필터로 전환), 드라이기 Styling Tip 영상 1편 추가(총 25편)'] },
   { v: 'V2.43', date: '2026.08', notes: ['드라이기 Styling Tip에 "디퓨저 사용법(뿌리볼륨&컬)" 영상 추가 (총 25편)'] },
   { v: 'V2.42', date: '2026.08', notes: ['공식몰(jmwmall)/JMW PRO(jmwprofessional, 구매기능 없는 정보페이지) 도메인별로 배지·버튼·필터 완전 분리 표시. 링크 20개 추가(총 97개)'] },
@@ -161,6 +163,8 @@ const SMART_TAGS = {
     { label: '와트 낮은순',     key: '와트', fn: specFirstNum, dir: 'asc'  },
     { label: '온도 높은순',     key: '풍온', fn: specMaxNum,   dir: 'desc' },
     { label: '온도 낮은순',     key: '풍온', fn: specMaxNum,   dir: 'asc'  },
+    { label: '코드길이 긴순',    key: '코드길이', fn: specFirstNum, dir: 'desc' },
+    { label: '코드길이 짧은순',  key: '코드길이', fn: specFirstNum, dir: 'asc'  },
     { label: '가벼운순',        key: '무게', fn: specWeightNum, dir: 'asc'  },
   ],
   iron: [
@@ -168,6 +172,8 @@ const SMART_TAGS = {
     { label: '온도 낮은순', key: '온도범위', fn: specMaxNum,   dir: 'asc'  },
     { label: '와트 높은순', key: '와트',     fn: specFirstNum, dir: 'desc' },
     { label: '와트 낮은순', key: '와트',     fn: specFirstNum, dir: 'asc'  },
+    { label: '코드길이 긴순',   key: '코드길이', fn: specFirstNum, dir: 'desc' },
+    { label: '코드길이 짧은순', key: '코드길이', fn: specFirstNum, dir: 'asc'  },
     { label: '가벼운순',    key: '무게',     fn: specWeightNum, dir: 'asc'  },
   ],
   curling: [
@@ -175,6 +181,8 @@ const SMART_TAGS = {
     { label: '온도 낮은순',   key: '온도범위',   fn: specMaxNum,   dir: 'asc'  },
     { label: '열판 큰순',     key: '열판사이즈', fn: specFirstNum, dir: 'desc' },
     { label: '열판 작은순',   key: '열판사이즈', fn: specFirstNum, dir: 'asc'  },
+    { label: '코드길이 긴순',  key: '코드길이',   fn: specFirstNum, dir: 'desc' },
+    { label: '코드길이 짧은순', key: '코드길이',  fn: specFirstNum, dir: 'asc'  },
     { label: '가벼운순',      key: '무게',       fn: specWeightNum, dir: 'asc'  },
   ],
   circulator: [
