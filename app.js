@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.38';
+const CURRENT_VERSION = 'V2.39';
 const VERSION_LOG = [
+  { v: 'V2.39', date: '2026.08', notes: ['자사몰 상품 링크 66개 연결(버튼+URL복사+썸네일배지+빠른선택칩), 모델명 28건 정정, 검색 띄어쓰기 무시 버그 수정, MF5102F 이미지 교체'] },
   { v: 'V2.38', date: '2026.08', notes: ['우측 하단 플로팅 바로가기 추가 — JMW/바이툴즈 카카오톡·유튜브 4종 (바로가기+링크복사), 맨 위로 가기 버튼'] },
   { v: 'V2.37', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 모든 카테고리에 항상 둘 다 표시하도록 변경 (한쪽이 0개인 카테고리도 동일)'] },
   { v: 'V2.36', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 전 카테고리에 표시하도록 확대 (컬링아이언은 한국만, 생활가전·바이툴즈는 소싱만 정보성으로 표시)'] },
@@ -184,6 +185,7 @@ const STEP_FIELD = { dryer: 'switchSteps', iron: 'tempSteps' };
 let PRODUCTS = [];
 let TUTORIALS = [];
 let MANUALS = [];
+let MALL_LINKS = {};
 let state = {
   category: '이미용가전',
   subcategory: 'dryer',
@@ -220,6 +222,12 @@ async function loadData() {
     MANUALS = await mRes.json();
   } catch (e) {
     MANUALS = [];
+  }
+  try {
+    const lRes = await fetch('mall_links.json');
+    MALL_LINKS = await lRes.json();
+  } catch (e) {
+    MALL_LINKS = {};
   }
   initUI();
   render();
@@ -335,6 +343,10 @@ function hasManual(p) {
   return MANUALS.some(m => m.sku === p.sku);
 }
 
+function hasMallLink(p) {
+  return !!MALL_LINKS[p.id];
+}
+
 function matchesQuery(p, tokens) {
   if (tokens.length === 0) return true;
   const haystack = [
@@ -342,9 +354,11 @@ function matchesQuery(p, tokens) {
     ...(p.tags || []),
     ...Object.values(p.specs || {}),
     hasManual(p) ? '매뉴얼' : '',
+    hasMallLink(p) ? '자사몰' : '',
     getOrigin(p)
   ].join(' ').toLowerCase();
-  return tokens.some(t => haystack.includes(t));
+  const haystackNoSpace = haystack.replace(/\s+/g, '');
+  return tokens.some(t => haystack.includes(t) || haystackNoSpace.includes(t.replace(/\s+/g, '')));
 }
 
 function parseReleaseDate(s) {
@@ -637,6 +651,9 @@ function cardHtml(p) {
   const manualBadge = hasManual(p)
     ? `<span class="card-badge-manual" title="매뉴얼 있음"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>매뉴얼</span>`
     : '';
+  const mallBadge = hasMallLink(p)
+    ? `<span class="card-badge-mall" title="자사몰 판매중"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>자사몰</span>`
+    : '';
 
   return `
   <div class="card ${selected ? 'selected' : ''}" data-id="${p.id}">
@@ -648,6 +665,7 @@ function cardHtml(p) {
       <div class="card-corners"><i></i><i></i><i></i><i></i></div>
       <img src="images/${p.image}" alt="${escapeHtml(p.name)}" loading="lazy">
       ${manualBadge}
+      ${mallBadge}
     </div>
     <div class="card-body">
       ${catBadge}
@@ -690,6 +708,8 @@ function render() {
   if (!isGlobalSearch()) {
     const hasAnyManual = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasManual(p));
     if (hasAnyManual) tagTags.push('매뉴얼');
+    const hasAnyMallLink = PRODUCTS.some(p => p.category === state.category && p.subcategory === state.subcategory && hasMallLink(p));
+    if (hasAnyMallLink) tagTags.push('자사몰');
   }
 
   $('#sortTagsMain').innerHTML = smartTags.map(t =>
@@ -961,6 +981,7 @@ function openProductModal(id) {
   const inCompare = state.compare.has(id);
   const manual = MANUALS.find(m => m.sku === p.sku);
   const manualUrl = manual ? new URL(`manuals/${manual.fileName}`, window.location.href).href : '';
+  const mallUrl = MALL_LINKS[p.id] || '';
 
   const manualHtml = manual ? `
     <div class="manual-actions">
@@ -973,6 +994,18 @@ function openProductModal(id) {
         다운로드
       </a>
       <button type="button" class="manual-btn" id="manualCopyBtn" data-url="${manualUrl}" title="URL 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+        URL 복사
+      </button>
+    </div>` : '';
+
+  const mallHtml = mallUrl ? `
+    <div class="manual-actions">
+      <a href="${mallUrl}" target="_blank" rel="noopener" class="manual-btn mall-btn" title="자사몰에서 새 탭으로 보기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        자사몰에서 보기
+      </a>
+      <button type="button" class="manual-btn mall-btn" id="mallCopyBtn" data-url="${mallUrl}" title="URL 복사">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
         URL 복사
       </button>
@@ -993,7 +1026,7 @@ function openProductModal(id) {
           ${p.dryerType ? `<span class="badge">${escapeHtml(p.dryerType)}</span>` : ''}
           ${p.discontinued ? `<span class="badge" style="color:var(--danger);border-color:rgba(217,117,117,.3)">단종</span>` : `<span class="badge" style="color:var(--acc-home)">판매중</span>`}
         </div>
-        ${manualHtml}
+        <div class="pmodal-actions-stack">${manualHtml}${mallHtml}</div>
       </div>
       <table class="pmodal-spectable">${rows}</table>
       <div class="pmodal-actions">
@@ -1033,6 +1066,16 @@ function openProductModal(id) {
         const original = copyBtn.innerHTML;
         copyBtn.innerHTML = '✓ 복사됨';
         setTimeout(() => { copyBtn.innerHTML = original; }, 1500);
+      });
+    });
+  }
+  const mallCopyBtn = $('#mallCopyBtn');
+  if (mallCopyBtn) {
+    mallCopyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(mallCopyBtn.dataset.url).then(() => {
+        const original = mallCopyBtn.innerHTML;
+        mallCopyBtn.innerHTML = '✓ 복사됨';
+        setTimeout(() => { mallCopyBtn.innerHTML = original; }, 1500);
       });
     });
   }
@@ -1266,6 +1309,7 @@ const GUIDE_SECTIONS = [
       '제품 클릭 → 상세창에서 "매뉴얼 보기" 누르면 <b>바로 옆에서 PDF 열람</b>',
       '다운로드, URL 복사도 버튼 하나로',
       '빠른 선택의 <b>"매뉴얼"</b> 칩 누르면 매뉴얼 있는 모델만 모아보기',
+      '자사몰 판매 중인 모델은 상세창에 <b>"자사몰에서 보기" / URL 복사</b> 버튼이 추가로 뜹니다 (빠른 선택 "자사몰" 칩으로 필터도 가능)',
     ]
   },
   {
