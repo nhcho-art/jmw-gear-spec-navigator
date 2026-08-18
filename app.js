@@ -2,8 +2,10 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.48';
+const CURRENT_VERSION = 'V2.50';
 const VERSION_LOG = [
+  { v: 'V2.50', date: '2026.08', notes: ['컬링온 그레이 36mm(WCS5A36B) 와트 오류 수정(75W→70W)'] },
+  { v: 'V2.49', date: '2026.08', notes: ['NEW 배지 기준을 "2025년 이후 출시"에서 "오늘 기준 최근 6개월 이내 출시"로 정확하게 변경'] },
   { v: 'V2.48', date: '2026.08', notes: ['컬링온(CulingOn) 4종 모델명 정정(그레이/블랙 36·40mm), WCS5A36B 열판사이즈 오류 수정(40mm→36mm)'] },
   { v: 'V2.47', date: '2026.08', notes: ['정렬 기준(코드길이/와트/온도 등) 선택 시 값이 동일한 제품끼리는 최신순으로 2차 정렬되도록 개선 — 다른 필터와 동일하게 통일'] },
   { v: 'V2.46', date: '2026.08', notes: ['에어팜 제품명 색상구분 복원(그레이/아이보리) — 시리즈만 "에어팜"으로 통합 유지, 제품명은 그대로'] },
@@ -682,10 +684,14 @@ function renderRail() {
 }
 
 function isNew(p) {
-  if (!p.released) return false;
-  const m = p.released.match(/(\d{4})/);
-  if (!m) return false;
-  return parseInt(m[1], 10) >= 2025;
+  const rd = parseReleaseDate(p.released);
+  if (!rd) return false;
+  const now = new Date();
+  // 오늘 기준 6개월 전 "연*100+월" 값 계산 (예: 2026.08 기준 6개월 전 = 2026.02)
+  let y = now.getFullYear(), mo = now.getMonth() + 1 - 6;
+  if (mo <= 0) { mo += 12; y -= 1; }
+  const sixMonthsAgo = y * 100 + mo;
+  return rd >= sixMonthsAgo;
 }
 
 function cardHtml(p) {
