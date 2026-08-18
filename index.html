@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.36
+  Version: V2.38
   Updated: 2026.08.13
-  Changelog: "JMW(한국)/소싱" 칩을 전 카테고리에 표시하도록 확대
+  Changelog: 우측 하단 플로팅 바로가기(카카오톡·유튜브 4종+맨위로) 추가
 -->
 <html lang="ko">
 <head>
@@ -93,7 +93,7 @@
 </div>
 
 <footer class="site-footer">
-  <b>JMW Gear Spec Navigator</b> · V2.36 · Internal Use Only · Data updated 2026.08
+  <b>JMW Gear Spec Navigator</b> · V2.38 · Internal Use Only · Data updated 2026.08
 </footer>
 
 <!-- Product detail modal -->
@@ -126,6 +126,50 @@
     <button class="modal-close">✕</button>
     <div id="guideModalBody"></div>
   </div>
+</div>
+
+<!-- 우측 하단 플로팅 바로가기 -->
+<div class="fab-stack" id="fabStack">
+  <button class="fab-scrolltop" id="scrollTopBtn" aria-label="맨 위로" title="맨 위로">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <div class="fab-menu" id="fabMenu">
+    <div class="fab-item">
+      <a class="fab-item-link" href="https://pf.kakao.com/_yxebcn" target="_blank" rel="noopener">
+        <span class="fab-item-icon fab-kakao">💬</span> JMW 카카오톡
+      </a>
+      <button class="fab-copy" data-url="https://pf.kakao.com/_yxebcn" title="링크 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+    <div class="fab-item">
+      <a class="fab-item-link" href="https://www.youtube.com/@JMW" target="_blank" rel="noopener">
+        <span class="fab-item-icon fab-youtube">▶</span> JMW 유튜브
+      </a>
+      <button class="fab-copy" data-url="https://www.youtube.com/@JMW" title="링크 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+    <div class="fab-item">
+      <a class="fab-item-link" href="https://pf.kakao.com/_UxlaKX" target="_blank" rel="noopener">
+        <span class="fab-item-icon fab-kakao">💬</span> 바이툴즈 카카오톡
+      </a>
+      <button class="fab-copy" data-url="https://pf.kakao.com/_UxlaKX" title="링크 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+    <div class="fab-item">
+      <a class="fab-item-link" href="https://www.youtube.com/@bytulz_official" target="_blank" rel="noopener">
+        <span class="fab-item-icon fab-youtube">▶</span> 바이툴즈 유튜브
+      </a>
+      <button class="fab-copy" data-url="https://www.youtube.com/@bytulz_official" title="링크 복사">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+  </div>
+  <button class="fab-main" id="fabToggle" aria-label="바로가기 메뉴" title="바로가기">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.97-4.03 9-9 9-1.5 0-2.91-.37-4.15-1.02L3 21l1.05-3.6C3.38 16.15 3 14.62 3 13c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/></svg>
+  </button>
 </div>
 
 <script src="app.js"></script>

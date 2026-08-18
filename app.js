@@ -2,8 +2,10 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.36';
+const CURRENT_VERSION = 'V2.38';
 const VERSION_LOG = [
+  { v: 'V2.38', date: '2026.08', notes: ['우측 하단 플로팅 바로가기 추가 — JMW/바이툴즈 카카오톡·유튜브 4종 (바로가기+링크복사), 맨 위로 가기 버튼'] },
+  { v: 'V2.37', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 모든 카테고리에 항상 둘 다 표시하도록 변경 (한쪽이 0개인 카테고리도 동일)'] },
   { v: 'V2.36', date: '2026.08', notes: ['"JMW(한국)/소싱" 칩을 전 카테고리에 표시하도록 확대 (컬링아이언은 한국만, 생활가전·바이툴즈는 소싱만 정보성으로 표시)'] },
   { v: 'V2.35', date: '2026.08', notes: ['빠른 선택에 "JMW(한국)/소싱" 칩 추가(드라이기·아이론에서만 노출, 컬링아이언은 전부 한국·생활가전/바이툴즈는 전부 소싱), 검색어 "국내/해외/외주"도 지원, 이용방법 가이드 갱신'] },
   { v: 'V2.35', date: '2026.08', notes: ['빠른 선택에 "JMW(한국)/소싱" 칩 추가(드라이기·아이론만, OR결합) — 컬링아이언은 전부 국내, 생활가전·바이툴즈는 전부 소싱으로 처리. 검색창에 국내/해외/외주 등 입력해도 검색됨. 이용방법 가이드에도 반영'] },
@@ -734,30 +736,27 @@ function render() {
     });
   }
 
-  // JMW(한국)/소싱 칩 — 모든 중분류에 표시(값이 하나뿐이면 정보성으로만), 같은 종류끼리는 OR
-  let originValuesPresent = [];
+  // JMW(한국)/소싱 칩 — 실제 존재 여부와 무관하게 전 중분류에 항상 두 개 다 표시, 같은 종류끼리는 OR
+  let showOriginSection = false;
   if (!isGlobalSearch()) {
-    const baseForOrigin = PRODUCTS.filter(p => p.category === state.category && p.subcategory === state.subcategory && (state.includeDiscontinued || !p.discontinued));
-    originValuesPresent = Array.from(new Set(baseForOrigin.map(getOrigin)));
-    if (originValuesPresent.length >= 1) {
-      const originOrder = ['JMW(한국)', '소싱'];
-      const originChipsHtml = originOrder.filter(v => originValuesPresent.includes(v)).map(v =>
-        `<button class="chip ${state.originFilter.has(v) ? 'active' : ''}" data-origin="${v}">${v}</button>`
-      ).join('');
-      $('#filterTagsMain').insertAdjacentHTML('beforeend', originChipsHtml);
-      $$('.chip[data-origin]', $('#filterTagsMain')).forEach(btn => {
-        btn.addEventListener('click', () => {
-          const v = btn.dataset.origin;
-          if (state.originFilter.has(v)) state.originFilter.delete(v);
-          else state.originFilter.add(v);
-          render();
-        });
+    showOriginSection = true;
+    const originOrder = ['JMW(한국)', '소싱'];
+    const originChipsHtml = originOrder.map(v =>
+      `<button class="chip ${state.originFilter.has(v) ? 'active' : ''}" data-origin="${v}">${v}</button>`
+    ).join('');
+    $('#filterTagsMain').insertAdjacentHTML('beforeend', originChipsHtml);
+    $$('.chip[data-origin]', $('#filterTagsMain')).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.origin;
+        if (state.originFilter.has(v)) state.originFilter.delete(v);
+        else state.originFilter.add(v);
+        render();
       });
-    }
+    });
   }
 
   $('#sortTagsMain').closest('.chip-section').style.display = smartTags.length ? '' : 'none';
-  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField || originValuesPresent.length >= 1) ? '' : 'none';
+  $('#filterTagsMain').closest('.chip-section').style.display = (tagTags.length || stepField || showOriginSection) ? '' : 'none';
 
   // 계열/라인 그룹 필터 (시리즈별 보기)
   const seriesRow = $('#seriesTagsMain');
@@ -1247,7 +1246,7 @@ const GUIDE_SECTIONS = [
       '<b>좌측 사이드바</b>: 대분류 → 중분류 순으로 제품 찾기',
       '<b>정렬 기준</b>: 최신순/오래된순 등, 드라이기는 와트·풍속·풍온 높은순/낮은순까지',
       '<b>빠른 선택</b>: 키워드 여러 개 동시 선택 가능 (예: 음이온+저소음 조합)',
-      '<b>JMW(한국)/소싱</b> 칩으로 국내 자체 개발과 소싱(해외 외주) 제품 구분 — 전 카테고리에 표시 (컬링아이언은 전부 한국, 생활가전·바이툴즈는 전부 소싱이라 값이 하나만 뜸)',
+      '<b>JMW(한국)/소싱</b> 칩으로 국내 자체 개발과 소싱(해외 외주) 제품 구분 — 모든 카테고리에 항상 두 칩 다 표시 (일부 카테고리는 한쪽이 0개로 나올 수 있음)',
       '<b>유통 / 시리즈</b>: 판매채널별, 제품 라인별로 좁혀보기',
       '<b>JMW(한국) / 소싱</b>: 드라이기·아이론에서 자체 개발(국내)과 소싱 제품을 구분해서 보기 (검색창에 "국내"·"소싱"·"해외" 입력해도 찾아짐)',
       '<b>단종 모델 포함</b> 토글로 판매중만 볼지 전체 볼지 선택',
@@ -1304,6 +1303,43 @@ function openGuideModal() {
 }
 
 $('#guideBtn').addEventListener('click', openGuideModal);
+
+/* ---------------------------------------------------------------------- */
+/* 우측 하단 플로팅 바로가기                                               */
+/* ---------------------------------------------------------------------- */
+(function initFab() {
+  const fabStack = $('#fabStack');
+  const fabToggle = $('#fabToggle');
+  const scrollTopBtn = $('#scrollTopBtn');
+
+  fabToggle.addEventListener('click', () => {
+    fabStack.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (fabStack.classList.contains('open') && !fabStack.contains(e.target)) {
+      fabStack.classList.remove('open');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+  });
+
+  $$('.fab-copy').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(btn.dataset.url).then(() => {
+        btn.classList.add('copied');
+        const original = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12l5 5L20 6"/></svg>';
+        setTimeout(() => { btn.innerHTML = original; btn.classList.remove('copied'); }, 1200);
+      });
+    });
+  });
+})();
 
 loadData();
 

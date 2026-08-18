@@ -687,3 +687,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 /* Footer */
 .site-footer { text-align: center; padding: 26px 20px 60px; color: var(--text-faint); font-family: var(--font-mono); font-size: 11px; letter-spacing: .03em; }
 .site-footer b { color: var(--text-dim); }
+
+/* ==========================================================================
+   우측 하단 플로팅 바로가기
+   ========================================================================== */
+.fab-stack {
+  position: fixed; right: 22px; bottom: 22px; z-index: 60;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+}
+.fab-main, .fab-scrolltop {
+  width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-pop); transition: all .18s ease;
+}
+.fab-main {
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-dim));
+  color: #fff;
+}
+.fab-main svg { width: 22px; height: 22px; transition: transform .2s; }
+.fab-main:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.fab-stack.open .fab-main svg { transform: rotate(135deg); }
+
+.fab-scrolltop {
+  background: var(--panel-3); border: 1px solid var(--line); color: var(--text-dim);
+  opacity: 0; transform: translateY(8px) scale(.85); pointer-events: none;
+}
+.fab-scrolltop svg { width: 18px; height: 18px; }
+.fab-scrolltop.show { opacity: 1; transform: none; pointer-events: auto; }
+.fab-scrolltop:hover { color: var(--brand-purple); border-color: var(--brand-purple); }
+
+.fab-menu {
+  display: flex; flex-direction: column; gap: 8px;
+  opacity: 0; visibility: hidden; transform: translateY(10px) scale(.96);
+  transform-origin: bottom right;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.fab-stack.open .fab-menu { opacity: 1; visibility: visible; transform: none; }
+
+.fab-item {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--glass-strong); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 6px 6px 14px; box-shadow: var(--shadow-card);
+  backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+}
+.fab-item-link {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  font-size: 12.5px; font-weight: 600; color: var(--text); white-space: nowrap;
+}
+.fab-item-icon {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 12px;
+}
+.fab-item-icon.fab-kakao { background: #FEE500; color: #3C1E1E; }
+.fab-item-icon.fab-youtube { background: #FF0000; color: #fff; font-size: 10px; }
+.fab-copy {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  border: none; background: var(--panel-3); color: var(--text-faint); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: all .15s;
+}
+.fab-copy svg { width: 12px; height: 12px; }
+.fab-copy:hover { background: var(--brand-purple); color: #fff; }
+.fab-copy.copied { background: var(--acc-home); color: #fff; }
+
+@media (max-width: 560px) {
+  .fab-stack { right: 14px; bottom: 14px; }
+  .fab-item-link { font-size: 11.5px; }
+}
