@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.50';
+const CURRENT_VERSION = 'V2.51';
 const VERSION_LOG = [
+  { v: 'V2.51', date: '2026.08', notes: ['출시일 파싱 버그 수정 — "26년 8월"처럼 2자리 연도+한글 표기(바이툴즈 3종)를 인식 못해 NEW 배지가 안 뜨던 문제 해결. "미출시" 등 다른 형식은 정상 확인'] },
   { v: 'V2.50', date: '2026.08', notes: ['컬링온 그레이 36mm(WCS5A36B) 와트 오류 수정(75W→70W)'] },
   { v: 'V2.49', date: '2026.08', notes: ['NEW 배지 기준을 "2025년 이후 출시"에서 "오늘 기준 최근 6개월 이내 출시"로 정확하게 변경'] },
   { v: 'V2.48', date: '2026.08', notes: ['컬링온(CulingOn) 4종 모델명 정정(그레이/블랙 36·40mm), WCS5A36B 열판사이즈 오류 수정(40mm→36mm)'] },
@@ -403,7 +404,15 @@ function matchesExactPhrase(p, phrase) {
 
 function parseReleaseDate(s) {
   if (!s) return null;
-  const m = String(s).match(/(\d{4})[.\-\/]?(\d{1,2})?/);
+  const str = String(s);
+  // "26년 8월"처럼 2자리 연도 + 한글 표기 형식 우선 처리
+  const kr = str.match(/(\d{2})\s*년\s*(\d{1,2})?\s*월?/);
+  if (kr) {
+    const y = 2000 + parseInt(kr[1], 10);
+    const mo = kr[2] ? parseInt(kr[2], 10) : 1;
+    return y * 100 + mo;
+  }
+  const m = str.match(/(\d{4})[.\-\/]?(\d{1,2})?/);
   if (!m) return null;
   const y = parseInt(m[1], 10);
   const mo = m[2] ? parseInt(m[2], 10) : 1;
