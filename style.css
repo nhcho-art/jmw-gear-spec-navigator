@@ -664,6 +664,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .topbar-inner { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
   .topbar-search { margin-left: 0; max-width: none; }
   .main { padding: 16px 16px 140px; }
+
+  /* 가로모드 등 560~980px 폭 구간에서 데스크톱용 큰 카드가 그대로 나오던 문제 수정 */
+  .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .card-body { padding: 10px; }
+  .card-name { font-size: 13px; }
   .pmodal { grid-template-columns: 1fr; }
   .pmodal-media { border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 20px; }
   .pmodal-media img { max-height: 220px; }
@@ -678,6 +683,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .compare-head-cell img { height: 120px; }
   .compare-head-cell .cname { font-size: 12.5px; min-height: 2.4em; }
   .insight-grid { grid-template-columns: 1fr; }
+
+  /* 매뉴얼 뷰어: 데스크톱 나란히보기(2단 그리드+96vw)가 좁은 화면에선 못 쓸 정도로 깨지므로
+     세로 1단으로 전환, 매뉴얼 보는 동안엔 사양 정보를 잠깐 숨겨서 PDF 영역을 최대로 확보 */
+  .pmodal.manual-open {
+    width: 94vw; max-width: 94vw; grid-template-columns: 1fr;
+  }
+  .pmodal.manual-open .pmodal-info { display: none; }
+  .pmodal.manual-open .pmodal-manual-pane {
+    border-left: none; border-radius: var(--radius-lg); min-height: 72vh;
+  }
+
+  /* 이용방법 가이드: 넓은 여백이 좁은 화면에서 콘텐츠 폭을 지나치게 줄이므로 축소 */
+  .guidemodal { width: 94vw; padding: 20px; }
+  .guide-header { gap: 12px; margin-bottom: 18px; }
+  .guide-header-icon { width: 44px; height: 44px; font-size: 24px; }
+  .guide-header h2 { font-size: 18px; }
+  .guide-grid { grid-template-columns: 1fr; }
+
+  /* 매뉴얼/공식몰 액션 버튼: 좁은 화면에서 우측 정렬 대신 꽉 채워서 탭하기 쉽게 */
+  .pmodal-actions-stack { align-items: stretch; width: 100%; }
+  .manual-actions { width: 100%; }
+  .manual-actions .manual-btn { flex: 1; justify-content: center; }
+
+  /* 튜토리얼 영상 모달도 화면 폭에 맞춰 여백 축소 */
+  .vmodal { width: 94vw; padding: 10px; }
 }
 
 @media (max-width: 560px) {
@@ -704,7 +734,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .fab-stack {
   position: fixed; right: 22px; bottom: 22px; z-index: 60;
   display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+  transition: bottom .2s ease;
 }
+.fab-stack.tray-open { bottom: 104px; } /* 비교함(tray)이 떠 있을 때 겹치지 않게 위로 올림 */
 .fab-main, .fab-scrolltop {
   width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;

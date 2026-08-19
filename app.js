@@ -2,8 +2,9 @@
    JMW Gear Spec Navigator — App Logic (V2.3)
    ========================================================================== */
 
-const CURRENT_VERSION = 'V2.51';
+const CURRENT_VERSION = 'V2.52';
 const VERSION_LOG = [
+  { v: 'V2.52', date: '2026.08', notes: ['모바일 전반 재점검 — 비교하기 버튼이 플로팅 바로가기 버튼에 가려 눌리지 않던 문제 수정, 가로모드(560~980px) 카드 크기 축소, 매뉴얼 뷰어·이용방법·영상팝업 모바일 레이아웃 보강'] },
   { v: 'V2.51', date: '2026.08', notes: ['출시일 파싱 버그 수정 — "26년 8월"처럼 2자리 연도+한글 표기(바이툴즈 3종)를 인식 못해 NEW 배지가 안 뜨던 문제 해결. "미출시" 등 다른 형식은 정상 확인'] },
   { v: 'V2.50', date: '2026.08', notes: ['컬링온 그레이 36mm(WCS5A36B) 와트 오류 수정(75W→70W)'] },
   { v: 'V2.49', date: '2026.08', notes: ['NEW 배지 기준을 "2025년 이후 출시"에서 "오늘 기준 최근 6개월 이내 출시"로 정확하게 변경'] },
@@ -1043,9 +1044,15 @@ function flashTray() {
 
 function renderTray() {
   const tray = $('#tray');
+  const fabStack = $('#fabStack');
   const ids = Array.from(state.compare);
-  if (ids.length === 0) { tray.classList.remove('show'); return; }
+  if (ids.length === 0) {
+    tray.classList.remove('show');
+    if (fabStack) fabStack.classList.remove('tray-open');
+    return;
+  }
   tray.classList.add('show');
+  if (fabStack) fabStack.classList.add('tray-open'); // 비교함이 뜨면 플로팅 버튼을 위로 올려 겹침(클릭 가로채기) 방지
   const items = ids.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
   $('#trayThumbs').innerHTML = items.map(p => `
     <div class="tray-thumb">
