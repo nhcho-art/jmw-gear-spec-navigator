@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <!--
   JMW Gear Spec Navigator
-  Version: V2.53
+  Version: V2.54
   Updated: 2026.08.13
-  Changelog: 모바일 쇼핑몰 앱 스타일 전면개편(카드 컴팩트화, 바텀시트 팝업, 가로스와이프 칩) — PC 무영향
+  Changelog: Google Analytics(GA4) 방문자 추적 태그 추가
 -->
 <html lang="ko">
 <head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HXESL6GJ26"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HXESL6GJ26');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JMW Gear Spec Navigator</title>
